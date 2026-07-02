@@ -42,10 +42,12 @@ If you feel you need guidance, you can follow one of many tutorials online (e.g.
 
 Once you are all set up, it's time to get this repository to your PC.
 
+> [!IMPORTANT]
+> Note that you will need circa 60 GB of free space on your computer. Make sure you have this space before the summerschool starts!
+
 Here, you can either use [Github Desktop](https://desktop.github.com/download/) which will later also allow you to synchronize your local version of this repository with any updates we may do here.
 
-> [!NOTE] 
-> **How to clone repository via Github?** After installing, launching Github Desktop, and signing in with your Github credentials, simply click on *File > Clone repository... > URL* and paste there the link to this repository, https://github.com/WimPouw/TilburgMultiscaleSummerschool2026
+**How to clone repository via Github?** After installing, launching Github Desktop, and signing in with your Github credentials, simply click on *File > Clone repository... > URL* and paste there the link to this repository, https://github.com/WimPouw/TilburgMultiscaleSummerschool2026
 
 If you don't want to install yet another software, you can just download the repository. At the top of this page, click on **<> Code** and then **Download ZIP**. This will download the repository.
 ![alt text](imgs/image.png)
@@ -53,7 +55,15 @@ If you don't want to install yet another software, you can just download the rep
 
 ## Troubleshooting
 
-[To be filled in]
+### Github pull error: Filename too long
+> If you are a Windows user, you might encounter an error message 'Filename too long'. To overcome this go to your Windows PowerShell (with left click open as Administrator) and type
+
+​```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+git config --global core.longpaths true
+​```
+
+Restart your machine and clone again.
 
 ### Did we not address your problem?
 
