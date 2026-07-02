@@ -58,7 +58,7 @@ If you don't want to install yet another software, you can just download the rep
 ### Github pull error: Filename too long
 If you are a Windows user, you might encounter an error message 'Filename too long'. To overcome this go to your Windows PowerShell (with left click open as Administrator) and type
 
-​```powershell
+```bash
 
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 
