@@ -1,0 +1,22 @@
+
+
+
+# loading audio
+```python
+
+```
+
+```r
+
+```
+
+# loading gyroscope
+```python
+
+```
+
+```r
+
+```
+
+# 

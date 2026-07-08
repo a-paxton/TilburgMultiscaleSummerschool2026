@@ -1,0 +1,13 @@
+Input:./videos_to_process/preparation_108_208_8_guesser_cam01.mp4
+Input full path:C:\data\modules\OpenFace\videos_to_process\preparation_108_208_8_guesser_cam01.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:preparation_108_208_8_guesser_cam01.hog
+Output video:preparation_108_208_8_guesser_cam01.avi
+Output aligned directory:preparation_108_208_8_guesser_cam01_aligned
+Output csv:preparation_108_208_8_guesser_cam01.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1
