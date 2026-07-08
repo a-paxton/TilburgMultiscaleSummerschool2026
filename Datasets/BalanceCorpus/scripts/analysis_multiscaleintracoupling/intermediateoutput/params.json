@@ -1,0 +1,8 @@
+{
+  "fs": 500.0,
+  "smoothing_seconds": 0.05,
+  "edge_seconds": 1.0,
+  "n_surrogates": 50,
+  "n_iter": 100,
+  "envelope_column": "envelope_change"
+}
