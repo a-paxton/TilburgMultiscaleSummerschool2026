@@ -13,7 +13,7 @@ website:
         href: ./Datasets/BalanceCorpus/Scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
       - text: "PARSEL Corpus"
         href: ./Datasets/Scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
-       
+
 metadata:
   crossref:
     chapters: true
