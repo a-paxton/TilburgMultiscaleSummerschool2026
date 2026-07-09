@@ -1,5 +1,5 @@
 project:
-  output-dir: ../docs
+  output-dir: ./docs
   type: website
 
 website:
@@ -10,9 +10,9 @@ website:
       - text: "Tilburg Summerschool data loading cheatsheet"
         href: index.qmd
       - text: "Balance Corpus"
-        href: ../Datasets/BalanceCorpus/Scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
+        href: ./Datasets/BalanceCorpus/Scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
       - text: "PARSEL Corpus"
-        href: ../Datasets/Scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
+        href: ./Datasets/Scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
        
 metadata:
   crossref:
