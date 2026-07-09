@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Preprocessing: BalanceCorpus gesture, speech, and sway</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-13ad72f07fceb0dc3d30d3796c6c6a0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href=".quarto-container {
+  max-width: 8000px !important;
+}
+body {
+  font-size: 10px;
+}">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Preprocessing: BalanceCorpus gesture, speech, and sway</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tilburg Summerschool data loading cheatsheet</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../.././Datasets/BalanceCorpus/Scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Balance Corpus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../.././Datasets/Scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PARSEL Corpus</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#parameters-and-paths" id="toc-parameters-and-paths" class="nav-link active" data-scroll-target="#parameters-and-paths">0. Parameters and paths</a></li>
+  <li><a href="#put-speech-envelope-and-body-sway-on-one-clock" id="toc-put-speech-envelope-and-body-sway-on-one-clock" class="nav-link" data-scroll-target="#put-speech-envelope-and-body-sway-on-one-clock">1. Put speech envelope and body sway on one clock</a></li>
+  <li><a href="#voiced-segment-table" id="toc-voiced-segment-table" class="nav-link" data-scroll-target="#voiced-segment-table">2. Voiced-segment table</a></li>
+  <li><a href="#clean-gesture-table-with-onset-and-offset-columns" id="toc-clean-gesture-table-with-onset-and-offset-columns" class="nav-link" data-scroll-target="#clean-gesture-table-with-onset-and-offset-columns">3. Clean gesture table, with onset and offset columns</a></li>
+  <li><a href="#iaaft-surrogates-the-sway-lean-chance-baseline" id="toc-iaaft-surrogates-the-sway-lean-chance-baseline" class="nav-link" data-scroll-target="#iaaft-surrogates-the-sway-lean-chance-baseline">4. IAAFT surrogates: the sway-lean chance baseline</a></li>
+  <li><a href="#run-the-whole-corpus-and-write-the-files" id="toc-run-the-whole-corpus-and-write-the-files" class="nav-link" data-scroll-target="#run-the-whole-corpus-and-write-the-files">5. Run the whole corpus and write the files</a></li>
+  <li><a href="#what-the-analysis-notebook-now-loads" id="toc-what-the-analysis-notebook-now-loads" class="nav-link" data-scroll-target="#what-the-analysis-notebook-now-loads">What the analysis notebook now loads</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Preprocessing: BalanceCorpus gesture, speech, and sway</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This notebook does the signal conditioning for the coupling analysis and saves reusable files to disk. Nothing here answers a scientific question. It turns the raw recordings into clean, aligned, analysis-ready series so that <code>analysisv1.ipynb</code> can focus on the actual method (EMD, then Hilbert power, then coupling against a chance baseline).</p>
+<p>Inputs (read from <code>DATA_ROOT</code>):</p>
+<ul>
+<li><code>gyroscope.csv</code>: body-sway gyroscope for all pairs and trials. Columns include <code>group_name</code>, <code>trial_number</code>, <code>time</code>, an <code>AngleX</code> tilt angle, and an <code>AsX</code>angular speed.</li>
+<li><code>metadata.csv</code>: per-trial information, including <code>clue_giver_condition</code>.</li>
+<li><code>TS_acoustics/env_*.csv</code>: the speech amplitude envelope per trial. We use the <code>envelope_change</code> column as the speech signal.</li>
+<li><code>TS_acoustics/f0_*.csv</code>: the fundamental frequency (F0) per trial, used to find the voiced stretches.</li>
+<li><code>gestureclassifications/analysis/kinematic_features.csv</code>: one row per detected gesture, with kinematic features.</li>
+</ul>
+<p>Outputs (written to <code>OUT_DIR</code>):</p>
+<ul>
+<li><code>aligned_{pair}_{trial}.csv</code>: speech envelope and body sway on one shared time axis. Columns are <code>time, envelope, sway_speed, sway_lean</code>. Stored at full length, not edge-trimmed.</li>
+<li><code>iaaft_{pair}_{trial}_n{N}.csv</code>: N surrogate copies of the edge-trimmed sway-lean, used as the chance baseline for the coupling test. One column per surrogate, plus a <code>time</code> column, so you can open the file and plot any surrogate directly.</li>
+<li><code>voicing.csv</code>: onset and offset (in seconds) of every voiced stretch, per trial.</li>
+<li><code>gestures.csv</code>: cue-giver gestures only, with <code>onset</code> and <code>offset</code> already parsed out of the id, plus kinematics.</li>
+<li><code>trials.csv</code>: one row per surviving trial, with <code>pair</code>, <code>trial</code>, <code>condition</code>, lengths, and file names.</li>
+<li><code>params.json</code>: the conditioning settings, so the analysis reads them back instead of hard-coding them.</li>
+</ul>
+<p>On trimming: EMD and the Hilbert amplitude are unreliable at the very start and end of a signal, because the method has no data beyond the edges to work with, so the first and last stretch of the result is distorted. The smoothing is also based on fewer samples at the edges. Edge trim means cutting a fixed amount of time (<code>EDGE_SECONDS</code>, here 1 second) off each end so the coupling is measured only on the trustworthy middle of the trial.</p>
+<p>Note that:</p>
+<ul>
+<li>The aligned file is stored at full length, not trimmed. The analysis runs EMD on the whole envelope and only then drops the edge samples. The surrogates are made here but at the trimmed length. Making surrogates (IAAFT) is the slow step, so it belongs in preprocessing. But the analysis compares against the edge-trimmed lean, so the surrogates must be built at that same trimmed length. Alignment, the edge trim, and surrogate go together.</li>
+</ul>
+<div id="93ebab2b" class="cell" data-execution_count="201">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob, json, re                     <span class="co"># files, path matching, params.json, id parsing</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np                            <span class="co"># numerics</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd                           <span class="co"># tables and csv reading/writing</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># from scipy.ndimage import uniform_filter1d    # fast moving average, used for smoothing</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt               <span class="co"># only for the two teaching figures below</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> savgol_filter        <span class="co"># for smoothing the sway speed and lean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="parameters-and-paths" class="level2">
+<h2 class="anchored" data-anchor-id="parameters-and-paths">0. Parameters and paths</h2>
+<p>These are the only settings for the whole conditioning stack. They are written to <code>params.json</code> at the end so the analysis notebook stays in sync.</p>
+<ul>
+<li><code>FS</code>: the sampling rate we treat the envelope grid as, in Hz. The gyro is interpolated onto the envelope’s timestamps, so <code>FS</code> is really the envelope’s rate. It sets the smoothing window size and the edge-trim length.</li>
+<li><code>SMOOTHING_SECONDS</code>: width of the smoothing window applied to sway, in seconds.</li>
+<li><code>EDGE_SECONDS</code>: how many seconds to cut from each end of a trial before measuring coupling (see the edge-trim note in the intro). We do not cut the aligned file here, because the analysis needs the full envelope for EMD, but we record the value and build the surrogates at the trimmed length.</li>
+<li><code>N_SURROGATES</code> and <code>N_ITER</code>: the number of IAAFT surrogates per trial and the refinement iterations. More surrogates give better-resolved p-values but run slower.</li>
+</ul>
+<div id="5e902ddb" class="cell" data-execution_count="202">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conditioning parameters (single source of truth)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FS                <span class="op">=</span> <span class="fl">500.0</span>          <span class="co"># envelope grid rate (Hz); gyro is resampled onto it</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>SMOOTHING_SECONDS <span class="op">=</span> <span class="fl">0.05</span>            <span class="co"># span window for sway (s)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>EDGE_SECONDS      <span class="op">=</span> <span class="fl">1.0</span>            <span class="co"># trim per side downstream (s) to drop boundary artefacts</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>N_SURROGATES      <span class="op">=</span> <span class="dv">50</span>             <span class="co"># IAAFT surrogates per trial</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>N_ITER            <span class="op">=</span> <span class="dv">100</span>            <span class="co"># IAAFT refinement iterations</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ENVELOPE_COLUMN   <span class="op">=</span> <span class="st">'envelope_change'</span>   <span class="co"># if you want to take the raw envelope then 'envelope here' which column of the env_*.csv is the speech signal</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#paths</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>DATA_ROOT <span class="op">=</span> <span class="st">'../..'</span>                 <span class="co"># holds gyroscope.csv, metadata.csv, TS_acoustics/, gestureclassifications/</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>OUT_DIR   <span class="op">=</span> <span class="st">'./intermediateoutput'</span>  <span class="co"># where all preprocessed artefacts are written</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>os.makedirs(OUT_DIR, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Reading raw data from : </span><span class="sc">{</span>os<span class="sc">.</span>path<span class="sc">.</span>abspath(DATA_ROOT)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Writing artefacts to  : </span><span class="sc">{</span>os<span class="sc">.</span>path<span class="sc">.</span>abspath(OUT_DIR)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading raw data from : d:\Research_projects\TilburgMultiscaleSummerschool2026\Datasets\BalanceCorpus
+Writing artefacts to  : d:\Research_projects\TilburgMultiscaleSummerschool2026\Datasets\BalanceCorpus\scripts\analysis_multiscaleintracoupling\intermediateoutput</code></pre>
+</div>
+</div>
+</section>
+<section id="put-speech-envelope-and-body-sway-on-one-clock" class="level2">
+<h2 class="anchored" data-anchor-id="put-speech-envelope-and-body-sway-on-one-clock">1. Put speech envelope and body sway on one clock</h2>
+<p>Three things happen in <code>align_gyro_to_envelope</code>:</p>
+<ul>
+<li>Resample: the gyro arrives at its own uneven rate, so we linearly interpolate it onto the envelope’s timestamps (the <code>FS</code>-Hz grid). After this, envelope and sway share one time axis and can be compared point by point.</li>
+<li>Unwrap: the raw tilt angle jumps between +180 and -180 degrees, which creates artificial cliffs. <code>np.unwrap</code> stitches those jumps back into a continuous line. We then subtract the median (the upright resting posture) and take the absolute value, giving <code>sway_lean</code>, how far the body leans from centre.</li>
+<li>Smooth: <code>SMOOTHING_SECONDS</code> over the uniform grid removes sensor jitter from both the angular speed (<code>sway_speed</code>) and the lean.</li>
+</ul>
+<p>The gyro rows can arrive out of order, so we always sort by time before unwrapping.</p>
+<div id="d07fde90" class="cell" data-execution_count="203">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_env_filename(path):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Turn an envelope filename into (pair, trial).</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Example: env_103_203_12_1.csv gives ('103_203', 12). The pair is the two</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    speaker ids joined; the trial is the next field.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    parts <span class="op">=</span> os.path.basename(path.replace(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>, <span class="st">'/'</span>)).split(<span class="st">'_'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>parts[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>parts[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">"</span>, <span class="bu">int</span>(parts[<span class="dv">3</span>])</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> align_gyro_to_envelope(envtest, gyrotest, column<span class="op">=</span>ENVELOPE_COLUMN,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                           fs<span class="op">=</span>FS, smoothing_seconds<span class="op">=</span>SMOOTHING_SECONDS):</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Put the speech envelope and the gyro on one shared time grid.</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (time, envelope, sway_speed, sway_lean), all sampled on the</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    envelope's timestamps and clipped to the span the two recordings share.</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">    sway_speed is the smoothed absolute angular speed; sway_lean is the smoothed</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    absolute tilt away from the upright resting posture.</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- speech envelope: its values, plus a time axis in seconds ---</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    envelope <span class="op">=</span> envtest[column].to_numpy()</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    envelope_time <span class="op">=</span> envtest[<span class="st">'time'</span>].to_numpy().astype(<span class="bu">float</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># large steps between samples mean the column is in milliseconds, so divide</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># to get seconds (a real-second grid has tiny steps, e.g. 0.002)</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.median(np.diff(envelope_time)) <span class="op">&gt;</span> <span class="fl">0.5</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        envelope_time <span class="op">=</span> envelope_time <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- gyro: build a seconds axis and sort, because rows can arrive shuffled ---</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    gyro <span class="op">=</span> gyrotest.copy()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># seconds since this trial's first timestamp</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    gyro[<span class="st">'seconds'</span>] <span class="op">=</span> (pd.to_datetime(gyro[<span class="st">'time'</span>]) <span class="op">-</span> pd.to_datetime(gyro[<span class="st">'time'</span>]).iloc[<span class="dv">0</span>]).dt.total_seconds()</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    gyro <span class="op">=</span> gyro.sort_values(<span class="st">'seconds'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)   <span class="co"># time-order before unwrapping</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    gyro_time <span class="op">=</span> gyro[<span class="st">'seconds'</span>].to_numpy()</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># angular speed: the AsX column (its name may carry a unit, so match by prefix)</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    angular_speed <span class="op">=</span> gyro[<span class="bu">next</span>(c <span class="cf">for</span> c <span class="kw">in</span> gyro.columns <span class="cf">if</span> c.startswith(<span class="st">'AsX'</span>))].to_numpy()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tilt angle: the AngleX column, matched the same way</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    angle <span class="op">=</span> gyro[<span class="bu">next</span>(c <span class="cf">for</span> c <span class="kw">in</span> gyro.columns <span class="cf">if</span> c.startswith(<span class="st">'AngleX'</span>))].to_numpy()</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># undo the wrap at the angle limits so the trace is continuous, then measure</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># how far it sits from the upright posture (taken as the median angle)</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    angle_unwrapped <span class="op">=</span> np.degrees(np.unwrap(np.radians(angle)))</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    lean_angle <span class="op">=</span> np.<span class="bu">abs</span>(angle_unwrapped <span class="op">-</span> np.median(angle_unwrapped))</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- keep only the time span the envelope and gyro have in common ---</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> <span class="bu">max</span>(envelope_time[<span class="dv">0</span>], gyro_time[<span class="dv">0</span>])</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    end   <span class="op">=</span> <span class="bu">min</span>(envelope_time[<span class="op">-</span><span class="dv">1</span>], gyro_time[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    keep <span class="op">=</span> (envelope_time <span class="op">&gt;=</span> start) <span class="op">&amp;</span> (envelope_time <span class="op">&lt;=</span> end)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> envelope_time[keep]</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># --- resample the gyro onto the envelope grid, then smooth on that grid ---</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    polyorder <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    window <span class="op">=</span> <span class="bu">max</span>(polyorder <span class="op">+</span> <span class="dv">1</span>, <span class="bu">int</span>(smoothing_seconds <span class="op">*</span> fs))</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    window <span class="op">=</span> <span class="bu">min</span>(window, <span class="bu">len</span>(time))</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> window <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>: <span class="co"># we need uneven window for the Savitzky-Golay filter</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        window <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    sway_speed <span class="op">=</span> savgol_filter(np.<span class="bu">abs</span>(np.interp(time, gyro_time, angular_speed)), window, polyorder)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    sway_lean  <span class="op">=</span> savgol_filter(       np.interp(time, gyro_time, lean_angle),      window, polyorder)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> time, envelope[keep], sway_speed, sway_lean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="8c6f5ae5" class="cell" data-execution_count="204">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- sanity-check the alignment on one example trial before running them all ---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>gyro_all  <span class="op">=</span> pd.read_csv(os.path.join(DATA_ROOT, <span class="st">'gyroscope.csv'</span>))    <span class="co"># all trials in one file</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>env_files <span class="op">=</span> <span class="bu">sorted</span>(glob.glob(os.path.join(DATA_ROOT, <span class="st">'TS_acoustics'</span>, <span class="st">'env_*.csv'</span>)))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(env_files)<span class="sc">}</span><span class="ss"> envelope files found"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="op">=</span> <span class="dv">0</span>                                                         <span class="co"># which env file to preview</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>pair, trial <span class="op">=</span> parse_env_filename(env_files[EXAMPLE])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>envtest  <span class="op">=</span> pd.read_csv(env_files[EXAMPLE])                          <span class="co"># this trial's speech envelope</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>gyrotest <span class="op">=</span> gyro_all[(gyro_all[<span class="st">'group_name'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (gyro_all[<span class="st">'trial_number'</span>] <span class="op">==</span> trial)]  <span class="co"># its gyro rows</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># align the two, then report the length so we can see they now match</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>time, envelope, sway_speed, sway_lean <span class="op">=</span> align_gyro_to_envelope(envtest, gyrotest)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"example </span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss"> trial </span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">len</span>(time)<span class="sc">}</span><span class="ss"> samples, </span><span class="sc">{</span>time[<span class="op">-</span><span class="dv">1</span>]<span class="op">-</span>time[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">s, "</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"envelope and sway all length </span><span class="sc">{</span><span class="bu">len</span>(envelope)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>80 envelope files found
+example 103_203 trial 12: 8666 samples, 17.3s, envelope and sway all length 8666</code></pre>
+</div>
+</div>
+<div id="0b58b60e" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.ndimage <span class="im">import</span> uniform_filter1d</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Signal Preparation &amp; Unwrapping ---</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>gy <span class="op">=</span> gyrotest.copy()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>gy[<span class="st">'seconds'</span>] <span class="op">=</span> (pd.to_datetime(gy[<span class="st">'time'</span>]) <span class="op">-</span> pd.to_datetime(gy[<span class="st">'time'</span>]).iloc[<span class="dv">0</span>]).dt.total_seconds()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>gy <span class="op">=</span> gy.sort_values(<span class="st">'seconds'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>tt   <span class="op">=</span> gy[<span class="st">'seconds'</span>].to_numpy()</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and unwrap the angle to calculate raw lean</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>raw  <span class="op">=</span> gy[<span class="bu">next</span>(c <span class="cf">for</span> c <span class="kw">in</span> gy.columns <span class="cf">if</span> c.startswith(<span class="st">'AngleX'</span>))].to_numpy()</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>unw  <span class="op">=</span> np.degrees(np.unwrap(np.radians(raw)))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>lean_raw <span class="op">=</span> np.<span class="bu">abs</span>(unw <span class="op">-</span> np.median(unw))  <span class="co"># This is your raw, jittery lean signal</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. What &amp; How: Apply Smoothing directly to Lean ---</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># (Assuming FS and SMOOTHING_SECONDS are defined in your workspace)</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>window      <span class="op">=</span> <span class="bu">max</span>(<span class="dv">1</span>, <span class="bu">int</span>(SMOOTHING_SECONDS <span class="op">*</span> FS))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>lean_smooth <span class="op">=</span> savgol_filter(lean_raw, window <span class="cf">if</span> window <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> window <span class="op">+</span> <span class="dv">1</span>, polyorder<span class="op">=</span><span class="dv">4</span>)  <span class="co"># Ensure window is odd</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Plotting the Teaching Figure ---</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">4</span>))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot raw lean in a light/thin style so the jitter is clear</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>ax.plot(tt, lean_raw, color<span class="op">=</span><span class="st">'0.7'</span>, lw<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'Raw sway_lean (with high-frequency jitter)'</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot smoothed lean on top in a bold, solid color</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>ax.plot(tt, lean_smooth, color<span class="op">=</span><span class="st">'C3'</span>, lw<span class="op">=</span><span class="fl">1.5</span>, </span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Smoothed sway_lean (window = </span><span class="sc">{</span>window<span class="sc">}</span><span class="ss"> samples / </span><span class="sc">{</span>SMOOTHING_SECONDS<span class="sc">}</span><span class="ss">s)'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Formatting</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Time (s)'</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Lean (deg)'</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'How Smoothing Extracts the Lean Trend'</span>)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>, loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">':'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="preprocessing_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="voiced-segment-table" class="level2">
+<h2 class="anchored" data-anchor-id="voiced-segment-table">2. Voiced-segment table</h2>
+<p>This is plain file-to-table work. For each F0 file, a sample counts as voiced when F0 is present (not missing). We find where the voiced state switches on and off to get the onset and offset (in seconds) of every voiced stretch, then stack them across all trials into one table.</p>
+<div id="c1481196" class="cell" data-execution_count="206">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> voicing_segments(f0_path):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Find the voiced stretches in one F0 file.</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a table of onset and offset times in seconds. A sample is voiced when</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    it has an F0 value; unvoiced samples are missing (NaN).</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(f0_path)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> df[<span class="st">'time_ms'</span>].to_numpy() <span class="op">/</span> <span class="fl">1000.0</span>            <span class="co"># milliseconds to seconds</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    voiced <span class="op">=</span> df[<span class="st">'f0'</span>].notna().to_numpy()             <span class="co"># True where F0 is present</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> np.diff(voiced.astype(<span class="bu">int</span>))              <span class="co"># +1 where voicing starts, -1 where it ends</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    onsets  <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="dv">1</span>]                      <span class="co"># times voicing starts</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    offsets <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>]                     <span class="co"># times voicing ends</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="dv">0</span>]:  onsets  <span class="op">=</span> np.r_[t[<span class="dv">0</span>], onsets]     <span class="co"># trial already voiced at the start</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="op">-</span><span class="dv">1</span>]: offsets <span class="op">=</span> np.r_[offsets, t[<span class="op">-</span><span class="dv">1</span>]]   <span class="co"># trial still voiced at the end</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">'onset'</span>: onsets, <span class="st">'offset'</span>: offsets})</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_id_f0(path):</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Turn an F0 filename into (pair, trial), same scheme as the envelope files."""</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    parts <span class="op">=</span> os.path.basename(path).split(<span class="st">'_'</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>parts[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>parts[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">"</span>, <span class="bu">int</span>(parts[<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="e952d018" class="cell" data-execution_count="207">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># build one voiced-segment table across every F0 file</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>f0_files <span class="op">=</span> <span class="bu">sorted</span>(glob.glob(os.path.join(DATA_ROOT, <span class="st">'TS_acoustics'</span>, <span class="st">'f0_*.csv'</span>)))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fp <span class="kw">in</span> f0_files:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    pair, trial <span class="op">=</span> parse_id_f0(fp)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    seg <span class="op">=</span> voicing_segments(fp)                 <span class="co"># onset/offset for this trial</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    seg[<span class="st">'pair'</span>], seg[<span class="st">'trial'</span>] <span class="op">=</span> pair, trial    <span class="co"># tag every row with its trial</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    rows.append(seg)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> pd.concat(rows, ignore_index<span class="op">=</span><span class="va">True</span>)   <span class="co"># stack all trials into one table</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>voicing.to_csv(os.path.join(OUT_DIR, <span class="st">'voicing.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"voicing.csv: </span><span class="sc">{</span>voicing<span class="sc">.</span>groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials, "</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>voicing.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>voicing.csv: 80 trials, 2317 voiced segments</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="207">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">onset</th>
+<th data-quarto-table-cell-role="th">offset</th>
+<th data-quarto-table-cell-role="th">pair</th>
+<th data-quarto-table-cell-role="th">trial</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1.345010</td>
+<td>1.377082</td>
+<td>103_203</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.401136</td>
+<td>1.623634</td>
+<td>103_203</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.669737</td>
+<td>1.735885</td>
+<td>103_203</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1.848137</td>
+<td>2.034554</td>
+<td>103_203</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.359281</td>
+<td>2.507613</td>
+<td>103_203</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="clean-gesture-table-with-onset-and-offset-columns" class="level2">
+<h2 class="anchored" data-anchor-id="clean-gesture-table-with-onset-and-offset-columns">3. Clean gesture table, with onset and offset columns</h2>
+<p>Also plain wrangling. We:</p>
+<ul>
+<li>parse <code>pair</code> and <code>trial</code> out of the gesture id,</li>
+<li>keep cue-giver gestures only, dropping any id that contains the guesser,</li>
+<li>pull each gesture’s <code>onset</code> and <code>offset</code> out of the id with one regex, so later code never has to parse strings again.</li>
+</ul>
+<p>The kinematic feature columns are carried through unchanged.</p>
+<div id="ff7a7594" class="cell" data-execution_count="208">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load every detected gesture, then clean it into an analysis-ready table</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gest <span class="op">=</span> pd.read_csv(os.path.join(DATA_ROOT, <span class="st">'gestureclassifications'</span>, <span class="st">'analysis'</span>, <span class="st">'kinematic_features.csv'</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the gesture id encodes the trial, so split it to recover pair and trial</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> gest[<span class="st">'gesture_id'</span>].<span class="bu">str</span>.split(<span class="st">'_'</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'pair'</span>]  <span class="op">=</span> ids[<span class="dv">0</span>] <span class="op">+</span> <span class="st">'_'</span> <span class="op">+</span> ids[<span class="dv">1</span>]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'trial'</span>] <span class="op">=</span> ids[<span class="dv">2</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># keep only cue-giver gestures (drop any id that mentions the guesser)</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>gest <span class="op">=</span> gest[gest[<span class="st">'gesture_id'</span>].<span class="bu">str</span>.contains(<span class="st">'clueGiver'</span>)].copy()</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># the id also ends with the gesture onset and offset; pull them out once here so</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the analysis never has to parse this string again</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>spans <span class="op">=</span> gest[<span class="st">'gesture_id'</span>].<span class="bu">str</span>.extract(<span class="vs">r'_Gesture_</span><span class="kw">(</span><span class="pp">[</span><span class="dv">\d</span><span class="pp">.]</span><span class="op">+</span><span class="kw">)</span><span class="vs">_</span><span class="kw">(</span><span class="pp">[</span><span class="dv">\d</span><span class="pp">.]</span><span class="op">+</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'onset'</span>]  <span class="op">=</span> spans[<span class="dv">0</span>]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'offset'</span>] <span class="op">=</span> spans[<span class="dv">1</span>]</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>gest.to_csv(os.path.join(OUT_DIR, <span class="st">'gestures.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gestures.csv: </span><span class="sc">{</span><span class="bu">len</span>(gest)<span class="sc">}</span><span class="ss"> cue-giver gestures across "</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span>gest<span class="sc">.</span>groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials"</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>gest[[<span class="st">'gesture_id'</span>, <span class="st">'pair'</span>, <span class="st">'trial'</span>, <span class="st">'onset'</span>, <span class="st">'offset'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>gestures.csv: 604 cue-giver gestures across 77 trials</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="208">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gesture_id</th>
+<th data-quarto-table-cell-role="th">pair</th>
+<th data-quarto-table-cell-role="th">trial</th>
+<th data-quarto-table-cell-role="th">onset</th>
+<th data-quarto-table-cell-role="th">offset</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>103_203_12_1_20250113_152455_doughnut_board_cl...</td>
+<td>103_203</td>
+<td>12</td>
+<td>0.80</td>
+<td>6.77</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>103_203_12_1_20250113_152455_doughnut_board_cl...</td>
+<td>103_203</td>
+<td>12</td>
+<td>7.80</td>
+<td>10.33</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>103_203_12_1_20250113_152455_doughnut_board_cl...</td>
+<td>103_203</td>
+<td>12</td>
+<td>14.07</td>
+<td>17.40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>103_203_12_1_20250113_152455_doughnut_board_cl...</td>
+<td>103_203</td>
+<td>12</td>
+<td>0.80</td>
+<td>6.63</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>103_203_12_1_20250113_152455_doughnut_board_cl...</td>
+<td>103_203</td>
+<td>12</td>
+<td>7.80</td>
+<td>10.33</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="iaaft-surrogates-the-sway-lean-chance-baseline" class="level2">
+<h2 class="anchored" data-anchor-id="iaaft-surrogates-the-sway-lean-chance-baseline">4. IAAFT surrogates: the sway-lean chance baseline</h2>
+<p>To ask whether envelope power and sway lean are coupled more than expected by chance, we compare the real coupling against surrogates. A surrogate is a phase-randomised version of the lean that keeps its power spectrum and amplitude distribution but scrambles the precise timing. IAAFT (iterative amplitude-adjusted Fourier transform) is the standard way to build one.</p>
+<p>One important detail: the analysis compares against the edge-trimmed lean, so the surrogates must have that same length. We build them from <code>sway_lean</code> with <code>EDGE_SECONDS</code> cut off each end. Each trial is seeded from its id so the result is reproducible, and the surrogates are saved as a CSV (one column per surrogate, plus a <code>time</code> column) so you can inspect and plot them directly. The file is cached, so re-running does not repeat the slow step unless the trimmed length has changed.</p>
+<div id="710f45a5" class="cell" data-execution_count="209">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> iaaft(x, n_iter<span class="op">=</span>N_ITER, rng<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Build one IAAFT surrogate of the series x.</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The surrogate keeps x's power spectrum and its set of amplitude values but</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">    scrambles the order in time, so it is a chance version of x. Two constraints</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">    are enforced by turns until they settle: match the spectrum, then match the</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    amplitude values.</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> rng <span class="kw">or</span> np.random.default_rng()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    amp_sorted <span class="op">=</span> np.sort(x)                     <span class="co"># x's amplitude values, sorted small to large</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    fft_mag <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(x))           <span class="co"># the power spectrum we want to keep</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    surr <span class="op">=</span> rng.permutation(x)                  <span class="co"># start from a random shuffle of x</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iter):</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># match the spectrum: keep the surrogate's phases, swap in x's magnitudes</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        phases <span class="op">=</span> np.angle(np.fft.rfft(surr))</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        surr <span class="op">=</span> np.fft.irfft(fft_mag <span class="op">*</span> np.exp(<span class="ot">1j</span> <span class="op">*</span> phases), n<span class="op">=</span>n)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># match the amplitudes: replace values by rank, so the k-th largest</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># surrogate value becomes the k-th largest value of x</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        surr <span class="op">=</span> amp_sorted[np.argsort(np.argsort(surr))]</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> surr</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_surrogates(lean, pair, trial, time<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>                    n_surrogates<span class="op">=</span>N_SURROGATES, n_iter<span class="op">=</span>N_ITER, out_dir<span class="op">=</span>OUT_DIR):</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Make n_surrogates IAAFT surrogates of lean and save them as a CSV.</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co">    The CSV has one column per surrogate (surrogate_000, surrogate_001, ...) so</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co">    each surrogate is a full time series you can open and plot directly. If a</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co">    time array is passed it becomes the first column. On disk the shape is</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co">    (n_samples rows) by (n_surrogates columns, plus the time column).</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co">    To get back the (n_surrogates, n_samples) array the analysis works with:</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co">        df = pd.read_csv(path)</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co">        surr = df.drop(columns='time').to_numpy().T</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">    The file is cached per trial, so re-running does not repeat the slow IAAFT</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co">    step unless the trimmed length has changed.</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> os.path.join(out_dir, <span class="ss">f'iaaft_</span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">_n</span><span class="sc">{</span>n_surrogates<span class="sc">}</span><span class="ss">.csv'</span>)</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reuse the cached file if it already has the right shape</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(path):</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>        cached <span class="op">=</span> pd.read_csv(path)</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>        surr_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> cached.columns <span class="cf">if</span> c <span class="op">!=</span> <span class="st">'time'</span>]</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(cached) <span class="op">==</span> <span class="bu">len</span>(lean) <span class="kw">and</span> <span class="bu">len</span>(surr_cols) <span class="op">==</span> n_surrogates:</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> cached[surr_cols].to_numpy().T</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># seed from the trial id so the same trial always gives the same surrogates</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    seed <span class="op">=</span> <span class="bu">int</span>(<span class="st">''</span>.join(<span class="bu">filter</span>(<span class="bu">str</span>.isdigit, <span class="ss">f'</span><span class="sc">{</span>pair<span class="sc">}{</span>trial<span class="sc">}</span><span class="ss">'</span>))) <span class="op">%</span> (<span class="dv">2</span><span class="op">**</span><span class="dv">32</span>)</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    rng <span class="op">=</span> np.random.default_rng(seed)</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># one surrogate per row, giving the array shape (n_surrogates, n_samples)</span></span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>    surr <span class="op">=</span> np.array([iaaft(lean, n_iter<span class="op">=</span>n_iter, rng<span class="op">=</span>rng) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_surrogates)])</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># write with surrogates as columns so the file is easy to scan and plot</span></span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> pd.DataFrame(surr.T, columns<span class="op">=</span>[<span class="ss">f'surrogate_</span><span class="sc">{</span>i<span class="sc">:03d}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_surrogates)])</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> time <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>        out.insert(<span class="dv">0</span>, <span class="st">'time'</span>, time)            <span class="co"># first column, so every row has a timestamp</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6 significant figures keeps the file small and readable; it does not affect</span></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the rank-based coupling test the analysis runs on these values</span></span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>    out.to_csv(path, index<span class="op">=</span><span class="va">False</span>, float_format<span class="op">=</span><span class="st">'</span><span class="sc">%.6g</span><span class="st">'</span>)</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> surr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="run-the-whole-corpus-and-write-the-files" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-whole-corpus-and-write-the-files">5. Run the whole corpus and write the files</h2>
+<p>For every trial we:</p>
+<ul>
+<li>align the envelope and sway,</li>
+<li>look up the trial’s condition,</li>
+<li>save the full aligned series,</li>
+<li>build IAAFT surrogates from the edge-trimmed lean.</li>
+</ul>
+<p>Trials with too little gyro data, or too few samples to survive the edge trim, are skipped and listed. A <code>trials.csv</code> manifest and <code>params.json</code> are written last so the analysis can load everything in a few lines.</p>
+<div id="dd4b303d" class="cell" data-execution_count="210">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run every trial: align it, save the aligned series, and save its surrogates</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gyro_all <span class="op">=</span> pd.read_csv(os.path.join(DATA_ROOT, <span class="st">'gyroscope.csv'</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>meta_all <span class="op">=</span> pd.read_csv(os.path.join(DATA_ROOT, <span class="st">'metadata.csv'</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>env_files <span class="op">=</span> <span class="bu">sorted</span>(glob.glob(os.path.join(DATA_ROOT, <span class="st">'TS_acoustics'</span>, <span class="st">'env_*.csv'</span>)))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>edge <span class="op">=</span> <span class="bu">int</span>(EDGE_SECONDS <span class="op">*</span> FS)                  <span class="co"># edge-trim length, in samples</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>manifest, skipped <span class="op">=</span> [], []</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> env_path <span class="kw">in</span> env_files:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    pair, trial <span class="op">=</span> parse_env_filename(env_path)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    envtest  <span class="op">=</span> pd.read_csv(env_path)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    gyrotest <span class="op">=</span> gyro_all[(gyro_all[<span class="st">'group_name'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (gyro_all[<span class="st">'trial_number'</span>] <span class="op">==</span> trial)]</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(gyrotest) <span class="op">&lt;</span> <span class="dv">50</span>:                      <span class="co"># too little gyro to be usable</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        skipped.append((pair, trial, <span class="st">'gyro&lt;50'</span>))<span class="op">;</span> <span class="cf">continue</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># put speech and sway on one grid</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    time, envelope, sway_speed, sway_lean <span class="op">=</span> align_gyro_to_envelope(</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        envtest, gyrotest, column<span class="op">=</span>ENVELOPE_COLUMN, fs<span class="op">=</span>FS, smoothing_seconds<span class="op">=</span>SMOOTHING_SECONDS)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(envelope) <span class="op">&lt;=</span> <span class="dv">2</span> <span class="op">*</span> edge:               <span class="co"># nothing left after trimming both ends</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        skipped.append((pair, trial, <span class="st">'too_short'</span>))<span class="op">;</span> <span class="cf">continue</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># look up this trial's condition from the metadata</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> meta_all[(meta_all[<span class="st">'pair_id'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (meta_all[<span class="st">'trial_number'</span>] <span class="op">==</span> trial)]</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    condition <span class="op">=</span> m[<span class="st">'clue_giver_condition'</span>].iloc[<span class="dv">0</span>] <span class="cf">if</span> <span class="bu">len</span>(m) <span class="cf">else</span> np.nan</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save the aligned series at FULL length (the analysis runs EMD on it, then trims)</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    aligned_file <span class="op">=</span> <span class="ss">f'aligned_</span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">.csv'</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame({<span class="st">'time'</span>: time, <span class="ss">f'</span><span class="sc">{</span>ENVELOPE_COLUMN<span class="sc">}</span><span class="ss">'</span>: envelope,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'sway_speed'</span>: sway_speed, <span class="st">'sway_lean'</span>: sway_lean}</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                 ).to_csv(os.path.join(OUT_DIR, aligned_file), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># build the surrogates on the edge-trimmed lean, with its matching time axis,</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so they line up with what the analysis correlates against</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    lean_trim <span class="op">=</span> sway_lean[edge:<span class="op">-</span>edge]</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    time_trim <span class="op">=</span> time[edge:<span class="op">-</span>edge]</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    make_surrogates(lean_trim, pair, trial, time<span class="op">=</span>time_trim,</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                    n_surrogates<span class="op">=</span>N_SURROGATES, n_iter<span class="op">=</span>N_ITER, out_dir<span class="op">=</span>OUT_DIR)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># record what this trial produced, for the manifest</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    manifest.append(<span class="bu">dict</span>(pair<span class="op">=</span>pair, trial<span class="op">=</span>trial, condition<span class="op">=</span>condition,</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>                         n<span class="op">=</span><span class="bu">len</span>(envelope), n_trimmed<span class="op">=</span><span class="bu">len</span>(lean_trim),</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>                         aligned_file<span class="op">=</span>aligned_file,</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>                         surrogate_file<span class="op">=</span><span class="ss">f'iaaft_</span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">_n</span><span class="sc">{</span>N_SURROGATES<span class="sc">}</span><span class="ss">.csv'</span>))</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="co"># one manifest row per surviving trial</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>trials <span class="op">=</span> pd.DataFrame(manifest)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>trials.to_csv(os.path.join(OUT_DIR, <span class="st">'trials.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="co"># record the settings so the analysis reads them back instead of hard-coding them</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> <span class="bu">dict</span>(fs<span class="op">=</span>FS, smoothing_seconds<span class="op">=</span>SMOOTHING_SECONDS, edge_seconds<span class="op">=</span>EDGE_SECONDS,</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>              n_surrogates<span class="op">=</span>N_SURROGATES, n_iter<span class="op">=</span>N_ITER, envelope_column<span class="op">=</span>ENVELOPE_COLUMN)</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(os.path.join(OUT_DIR, <span class="st">'params.json'</span>), <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>    json.dump(params, f, indent<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"wrote </span><span class="sc">{</span><span class="bu">len</span>(trials)<span class="sc">}</span><span class="ss"> trials to </span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> trials.empty:</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"conditions: </span><span class="sc">{</span>trials[<span class="st">'condition'</span>]<span class="sc">.</span>value_counts(dropna<span class="op">=</span><span class="va">False</span>)<span class="sc">.</span>to_dict()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> skipped:</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"skipped </span><span class="sc">{</span><span class="bu">len</span>(skipped)<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>skipped<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>trials.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>wrote 80 trials to ./intermediateoutput
+conditions: {'board': 40, 'ground': 40}</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="210">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pair</th>
+<th data-quarto-table-cell-role="th">trial</th>
+<th data-quarto-table-cell-role="th">condition</th>
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">n_trimmed</th>
+<th data-quarto-table-cell-role="th">aligned_file</th>
+<th data-quarto-table-cell-role="th">surrogate_file</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>103_203</td>
+<td>12</td>
+<td>board</td>
+<td>8666</td>
+<td>7666</td>
+<td>aligned_103_203_12.csv</td>
+<td>iaaft_103_203_12_n50.csv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>103_203</td>
+<td>13</td>
+<td>board</td>
+<td>8731</td>
+<td>7731</td>
+<td>aligned_103_203_13.csv</td>
+<td>iaaft_103_203_13_n50.csv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>103_203</td>
+<td>14</td>
+<td>board</td>
+<td>10992</td>
+<td>9992</td>
+<td>aligned_103_203_14.csv</td>
+<td>iaaft_103_203_14_n50.csv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>103_203</td>
+<td>15</td>
+<td>board</td>
+<td>10201</td>
+<td>9201</td>
+<td>aligned_103_203_15.csv</td>
+<td>iaaft_103_203_15_n50.csv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>103_203</td>
+<td>16</td>
+<td>board</td>
+<td>7687</td>
+<td>6687</td>
+<td>aligned_103_203_16.csv</td>
+<td>iaaft_103_203_16_n50.csv</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="what-the-analysis-notebook-now-loads" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-analysis-notebook-now-loads">What the analysis notebook now loads</h2>
+<p>For analysis you can now simply read the CSVs and JSON (optional):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json, numpy <span class="im">as</span> np, pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>OUT_DIR <span class="op">=</span> <span class="st">'./intermediateoutput'</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>params  <span class="op">=</span> json.load(<span class="bu">open</span>(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/params.json'</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>FS, EDGE_SECONDS <span class="op">=</span> params[<span class="st">'fs'</span>], params[<span class="st">'edge_seconds'</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>trials   <span class="op">=</span> pd.read_csv(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/trials.csv'</span>)          <span class="co"># pair, trial, condition, file paths</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>voicing  <span class="op">=</span> pd.read_csv(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/voicing.csv'</span>)         <span class="co"># voiced onset/offset per trial</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>gestures <span class="op">=</span> pd.read_csv(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/gestures.csv'</span>)        <span class="co"># cue-giver gestures + onset/offset</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># per trial:</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>row     <span class="op">=</span> trials.iloc[<span class="dv">0</span>]</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>aligned <span class="op">=</span> pd.read_csv(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>row<span class="sc">.</span>aligned_file<span class="sc">}</span><span class="ss">'</span>)   <span class="co"># time, envelope, sway_speed, sway_lean (full)</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>surr    <span class="op">=</span> pd.read_csv(<span class="ss">f'</span><span class="sc">{</span>OUT_DIR<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>row<span class="sc">.</span>surrogate_file<span class="sc">}</span><span class="ss">'</span>) <span class="co"># one column per surrogate, plus a time column</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>surr    <span class="op">=</span> surr.drop(columns<span class="op">=</span><span class="st">'time'</span>).to_numpy().T         <span class="co"># shape (N, n_trimmed) for the analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After loading, the analysis does the key parts:</p>
+<ul>
+<li>run EMD on envelope change signal <code>aligned['envelope_change']</code> (the full series),</li>
+<li>take the Hilbert power,</li>
+<li>cut <code>EDGE_SECONDS</code> from each end of the power,</li>
+<li>compute the masked Spearman correlation between power and the edge-trimmed <code>sway_lean</code>, using the surrogates as the chance baseline.</li>
+</ul>
+<p>The resampling, unwrapping, smoothing, voicing or gesture parsing, or surrogate generation is only done here.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

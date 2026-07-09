@@ -1,0 +1,465 @@
+---
+title: "Cheatsheet: loading the BalanceCorpus"
+subtitle: "MDIG2026"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-title: "Contents"
+    toc-depth: 3
+    number-sections: true
+    code-fold: false
+    code-tools: true
+    theme: cosmo
+engine: knitr
+---
+
+![](images/banner.gif){fig-align="center" width=100%}
+
+Every channel is keyed by **pair** (`103_203`) and **trial** (`12`). Set `CORPUS` once.
+
+# Setup
+
+::: {.panel-tabset}
+
+## Python
+
+```{python}
+import os, re, glob
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+CORPUS    = "../.."
+meta_path = f"{CORPUS}/metadata.csv"
+demo_path = f"{CORPUS}/demographics.csv"
+gyro_path = f"{CORPUS}/gyroscope.csv"
+acoustics = f"{CORPUS}/TS_acoustics"
+gestures  = f"{CORPUS}/gestureclassifications"
+videos    = f"{CORPUS}/videos"
+audios    = f"{CORPUS}/audios"
+
+def parse_pair_trial(path):
+    name = os.path.basename(path.replace("\\", "/"))          # normalise Windows separators
+    m = re.match(r"(?:env|f0)_(\d+)_(\d+)_(\d+)_", name)
+    return f"{m.group(1)}_{m.group(2)}", int(m.group(3))
+
+def mask_from_spans(spans, time):
+    m = np.zeros(len(time), dtype=bool)
+    for on, off in spans[["onset", "offset"]].itertuples(index=False):
+        m |= (time >= on) & (time <= off)
+    return m
+```
+
+## R
+
+```{r}
+#| message: false
+library(tidyverse)
+
+CORPUS    <- "../.."
+meta_path <- file.path(CORPUS, "metadata.csv")
+demo_path <- file.path(CORPUS, "demographics.csv")
+gyro_path <- file.path(CORPUS, "gyroscope.csv")
+acoustics <- file.path(CORPUS, "TS_acoustics")
+gestures  <- file.path(CORPUS, "gestureclassifications")
+videos    <- file.path(CORPUS, "videos")
+audios    <- file.path(CORPUS, "audios")
+```
+
+:::
+
+# Metadata
+
+```{python}
+meta = pd.read_csv(meta_path)
+meta.head()
+```
+
+```{python}
+meta["clue_giver_condition"].value_counts()
+```
+
+::: {.callout-note collapse="true"}
+## Demographics
+
+```{python}
+demo = pd.read_csv(demo_path)
+meta_demo = (meta
+    .merge(demo.add_prefix("p1_"), left_on="participant_1_id", right_on="p1_participant_id", how="left")
+    .merge(demo.add_prefix("p2_"), left_on="participant_2_id", right_on="p2_participant_id", how="left"))
+meta_demo.shape
+```
+:::
+
+# Acoustics
+
+## Amplitude envelope
+
+`time` is in **milliseconds**.
+
+```{python}
+envelope_files = glob.glob(f"{acoustics}/env_*.csv")
+pair, trial = parse_pair_trial(envelope_files[0])
+
+env = pd.read_csv(envelope_files[0])
+env["time_s"] = env["time"] / 1000.0
+print(pair, trial, env.shape)
+env.head()
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(10, 2.4))
+ax.plot(env["time_s"], env["envelope"], lw=0.8)
+ax.set_xlabel("time (s)"); ax.set_ylabel("envelope")
+plt.tight_layout(); plt.show()
+```
+
+```{r}
+#| message: false
+envelope_files <- list.files(acoustics, pattern = "^env_.*\\.csv$", full.names = TRUE)
+env <- read_csv(envelope_files[1]) |> mutate(time_s = time / 1000)
+head(env)
+```
+
+## F0 and voicing on/offsets
+
+`f0` is blank where unvoiced. Rising/falling edges of that give voiced segments.
+
+```{python}
+def voicing_segments(f0_path):
+    df = pd.read_csv(f0_path)
+    t = df["time_ms"].to_numpy() / 1000.0
+    voiced = df["f0"].notna().to_numpy()
+    edges = np.diff(voiced.astype(int))
+    onsets, offsets = t[1:][edges == 1], t[1:][edges == -1]
+    if voiced[0]:  onsets  = np.r_[t[0], onsets]
+    if voiced[-1]: offsets = np.r_[offsets, t[-1]]
+    return pd.DataFrame({"onset": onsets, "offset": offsets})
+
+voicing = []
+for f in glob.glob(f"{acoustics}/f0_*.csv"):
+    p, tr = parse_pair_trial(f)
+    seg = voicing_segments(f)
+    seg["pair"], seg["trial"] = p, tr
+    voicing.append(seg)
+voicing = pd.concat(voicing, ignore_index=True)
+
+print(f"{voicing.groupby(['pair','trial']).ngroups} trials, {len(voicing)} voiced segments")
+voicing.head()
+```
+
+```{python}
+vspan = voicing[(voicing["pair"] == pair) & (voicing["trial"] == trial)]
+voiced_mask = mask_from_spans(vspan, env["time_s"].to_numpy())
+print(f"{voiced_mask.mean():.0%} voiced")
+```
+
+```{r}
+#| message: false
+voicing_segments <- function(f0_path) {
+  df <- read_csv(f0_path, show_col_types = FALSE)
+  t <- df$time_ms / 1000
+  voiced <- !is.na(df$f0)
+  edges <- diff(as.integer(voiced))
+  onsets  <- t[-1][edges ==  1]
+  offsets <- t[-1][edges == -1]
+  if (voiced[1]) onsets <- c(t[1], onsets)
+  if (voiced[length(voiced)]) offsets <- c(offsets, t[length(t)])
+  tibble(onset = onsets, offset = offsets)
+}
+
+f0_files <- list.files(acoustics, pattern = "^f0_.*\\.csv$", full.names = TRUE)
+head(voicing_segments(f0_files[1]))
+```
+
+# Gyroscope
+
+Rows arrive unsorted; `AngleX` wraps at ±180°; column names carry a degree sign.
+
+```{python}
+gyro_all = pd.read_csv(gyro_path)
+
+def load_gyro(pair, trial):
+    g = gyro_all[(gyro_all["group_name"].astype(str) == pair) &
+                 (gyro_all["trial_number"].astype(int) == trial)].copy()
+    g["seconds"] = (pd.to_datetime(g["time"]) - pd.to_datetime(g["time"]).iloc[0]).dt.total_seconds()
+    g = g.sort_values("seconds").reset_index(drop=True)
+
+    angle_col = next(c for c in g.columns if c.startswith("AngleX"))
+    speed_col = next(c for c in g.columns if c.startswith("AsX"))
+    angle_unwrapped = np.degrees(np.unwrap(np.radians(g[angle_col].to_numpy())))
+    g["lean"]  = np.abs(angle_unwrapped - np.median(angle_unwrapped))
+    g["speed"] = np.abs(g[speed_col].to_numpy())
+    return g
+
+gyro = load_gyro(pair, trial)
+print(gyro.shape, f"{gyro['seconds'].iloc[-1]:.1f} s")
+gyro[["seconds", "lean", "speed"]].head()
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(10, 2.4))
+ax.plot(gyro["seconds"], gyro["lean"], lw=0.9, color="C3")
+ax.set_xlabel("time (s)"); ax.set_ylabel("|lean| (°)")
+plt.tight_layout(); plt.show()
+```
+
+::: {.callout-note collapse="true"}
+## Onto the envelope's clock
+
+```{python}
+from scipy.ndimage import uniform_filter1d
+
+def align_gyro_to_envelope(env, gyro, column="envelope", fs=500.0, smoothing_seconds=0.5):
+    envelope = env[column].to_numpy()
+    envelope_time = env["time"].to_numpy().astype(float)
+    if np.median(np.diff(envelope_time)) > 0.5:
+        envelope_time = envelope_time / 1000.0
+    gyro_time = gyro["seconds"].to_numpy()
+
+    start, end = max(envelope_time[0], gyro_time[0]), min(envelope_time[-1], gyro_time[-1])
+    keep = (envelope_time >= start) & (envelope_time <= end)
+    time = envelope_time[keep]
+
+    window = max(1, int(smoothing_seconds * fs))
+    sway_lean  = uniform_filter1d(np.interp(time, gyro_time, gyro["lean"]),  window)
+    sway_speed = uniform_filter1d(np.interp(time, gyro_time, gyro["speed"]), window)
+    return time, envelope[keep], sway_speed, sway_lean
+
+time, envelope_clipped, sway_speed, sway_lean = align_gyro_to_envelope(env, gyro, column="envelope_change")
+print(f"{len(time)} samples, {time[0]:.2f}–{time[-1]:.2f} s")
+```
+:::
+
+# Gestures
+
+## Kinematic features
+
+One row per gesture; `gesture_id` carries pair, trial, role, camera, onset and offset.
+
+```{python}
+gest = pd.read_csv(f"{gestures}/analysis/kinematic_features.csv")
+ids = gest["gesture_id"].str.split("_", expand=True)
+gest["pair"]  = ids[0] + "_" + ids[1]
+gest["trial"] = ids[2].astype(int)
+gest = gest[gest["gesture_id"].str.contains("clueGiver")].copy()
+
+span = gest["gesture_id"].str.extract(r"_Gesture_([\d.]+)_([\d.]+)$").astype(float)
+gest["onset"], gest["offset"] = span[0], span[1]
+
+gest[["pair", "trial", "onset", "offset", "duration",
+      "space_use", "hand_peak_speed", "hand_peak_jerk"]].head()
+```
+
+```{python}
+per_trial = (gest.groupby(["pair", "trial"])
+                 .agg(n_gestures=("gesture_id", "size"),
+                      mean_space=("space_use", "mean"),
+                      mean_peak_speed=("hand_peak_speed", "mean"))
+                 .reset_index())
+per_trial.head()
+```
+
+```{python}
+gspan = gest[(gest["pair"] == pair) & (gest["trial"] == trial)]
+gesture_mask = mask_from_spans(gspan, time)
+print(f"{gesture_mask.mean():.0%} of the trial has a gesture")
+gspan[["onset", "offset"]]
+```
+
+```{r}
+#| message: false
+gest <- read_csv(file.path(gestures, "analysis", "kinematic_features.csv")) |>
+  filter(str_detect(gesture_id, "clueGiver")) |>
+  mutate(
+    pair   = str_c(str_split_i(gesture_id, "_", 1), "_", str_split_i(gesture_id, "_", 2)),
+    trial  = as.integer(str_split_i(gesture_id, "_", 3)),
+    onset  = as.numeric(str_match(gesture_id, "_Gesture_([\\d.]+)_([\\d.]+)$")[, 2]),
+    offset = as.numeric(str_match(gesture_id, "_Gesture_([\\d.]+)_([\\d.]+)$")[, 3])
+  )
+gest |> select(pair, trial, onset, offset, duration, space_use, hand_peak_speed) |> head()
+```
+
+## Frame-level detector output
+
+```{python}
+pred_files = glob.glob(f"{gestures}/**/*_predictions.csv", recursive=True)
+pred = pd.read_csv(pred_files[0])
+print(pred.columns.tolist())
+pred.head()
+```
+
+## ELAN annotations
+
+```{python}
+import pympi   # pip install pympi-ling
+
+eaf_files = glob.glob(f"{gestures}/**/*.eaf", recursive=True)
+eaf = pympi.Elan.Eaf(eaf_files[0])
+print(eaf.get_tier_names())
+
+rows = []
+for tier in eaf.get_tier_names():
+    for start_ms, end_ms, value in eaf.get_annotation_data_for_tier(tier):
+        rows.append(dict(tier=tier, onset=start_ms / 1000, offset=end_ms / 1000, label=value))
+annotations = pd.DataFrame(rows)
+annotations.head()
+```
+
+```{r}
+#| message: false
+library(phonfieldwork)
+
+eaf_files <- list.files(gestures, pattern = "\\.eaf$", recursive = TRUE, full.names = TRUE)
+head(eaf_to_df(eaf_files[1]))
+```
+
+::: {.callout-note collapse="true"}
+## Without a package
+
+```{python}
+import xml.etree.ElementTree as ET
+
+def read_eaf(path):
+    root = ET.parse(path).getroot()
+    slots = {s.get("TIME_SLOT_ID"): int(s.get("TIME_VALUE"))
+             for s in root.iter("TIME_SLOT") if s.get("TIME_VALUE")}
+    rows = []
+    for tier in root.iter("TIER"):
+        for a in tier.iter("ALIGNABLE_ANNOTATION"):
+            v = a.find("ANNOTATION_VALUE")
+            rows.append(dict(tier=tier.get("TIER_ID"),
+                             onset=slots[a.get("TIME_SLOT_REF1")] / 1000,
+                             offset=slots[a.get("TIME_SLOT_REF2")] / 1000,
+                             label="" if v is None else (v.text or "")))
+    return pd.DataFrame(rows).sort_values(["tier", "onset"]).reset_index(drop=True)
+
+read_eaf(eaf_files[0]).head()
+```
+:::
+
+## DTW similarity and UMAP
+
+`analysis/` holds `kinematic_features.csv`, `dtw_distances.csv` (symmetric gesture × gesture), and `gesture_visualization.csv` (`x`, `y`, `gesture` — the UMAP of that matrix).
+
+```{python}
+umap = pd.read_csv(f"{gestures}/analysis/gesture_visualization.csv")
+umap["condition"] = np.where(umap["gesture"].str.contains("_board_"), "board", "ground")
+umap.head()
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(5.5, 5))
+for cond, sub in umap.groupby("condition"):
+    ax.scatter(sub["x"], sub["y"], s=10, alpha=0.6, label=cond)
+ax.set_xlabel("UMAP 1"); ax.set_ylabel("UMAP 2"); ax.legend(fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+```{python}
+umap_kin = umap.merge(gest, left_on="gesture", right_on="gesture_id", how="inner")
+
+fig, ax = plt.subplots(figsize=(5.5, 5))
+sc = ax.scatter(umap_kin["x"], umap_kin["y"], c=umap_kin["hand_peak_speed"], s=12, cmap="viridis")
+fig.colorbar(sc, ax=ax, label="hand peak speed")
+plt.tight_layout(); plt.show()
+```
+
+```{r}
+#| message: false
+umap <- read_csv(file.path(gestures, "analysis", "gesture_visualization.csv")) |>
+  mutate(condition = if_else(str_detect(gesture, "_board_"), "board", "ground"))
+
+ggplot(umap, aes(x, y, colour = condition)) +
+  geom_point(size = 1, alpha = 0.6) +
+  labs(x = "UMAP 1", y = "UMAP 2") + theme_minimal()
+```
+
+::: {.callout-note collapse="true"}
+## Full distance matrix
+
+```{python}
+#| eval: false
+dtw = pd.read_csv(f"{gestures}/analysis/dtw_distances.csv", index_col=0)
+print(dtw.shape)
+dtw.loc[dtw.index[0]].nsmallest(6)[1:]      # nearest neighbours, skipping self
+```
+
+```{python}
+#| eval: false
+from scipy.cluster.hierarchy import linkage, fcluster
+from scipy.spatial.distance import squareform
+
+Z = linkage(squareform(dtw.to_numpy(), checks=False), method="average")
+clusters = fcluster(Z, t=5, criterion="maxclust")
+```
+:::
+
+# Video and audio
+
+```{python}
+row = meta[(meta["pair_id"] == pair) & (meta["trial_number"] == trial)].iloc[0]
+video_path = f"{videos}/{pair}/clue_giver/{row['video_clue_giver_cam01']}"
+audio_path = f"{audios}/{pair}/{row['audio_file_name']}"
+print(video_path)
+print(audio_path)
+```
+
+```{=html}
+<div class="video-widget">
+<video controls width="100%" style="display:block; height:auto;">
+  <source src="#" type="video/mp4">
+</video>
+</div>
+```
+
+Cut one gesture from the trial video:
+
+```{python}
+#| eval: false
+from moviepy import VideoFileClip
+
+g = gspan.iloc[0]
+VideoFileClip(video_path).subclipped(g["onset"], g["offset"]).write_videofile("./temp/one_gesture.mp4")
+```
+
+# All channels on one grid
+
+```{python}
+fig, ax = plt.subplots(figsize=(11, 3))
+ax.plot(time, envelope_clipped, color="0.4", lw=0.8, label="envelope change")
+ax.fill_between(time, 0, 1, where=mask_from_spans(vspan, time), transform=ax.get_xaxis_transform(),
+                color="red", alpha=0.10, label="voiced")
+ax.fill_between(time, 0, 1, where=gesture_mask, transform=ax.get_xaxis_transform(),
+                color="0.5", alpha=0.18, label="gesture")
+axb = ax.twinx()
+axb.plot(time, sway_lean, color="C3", lw=0.8, alpha=0.6)
+axb.set_ylabel("|lean| (°)", color="C3")
+ax.set_xlabel("time (s)"); ax.legend(loc="upper left", fontsize=8)
+plt.tight_layout(); plt.show()
+```
+
+```{python}
+trials = (meta.rename(columns={"pair_id": "pair", "trial_number": "trial"})
+              .merge(per_trial, on=["pair", "trial"], how="left"))
+trials[["pair", "trial", "clue_giver_condition", "n_gestures", "mean_peak_speed"]].head()
+```
+
+# Channel summary
+
+| Channel | File | Key | Clock |
+|---|---|---|---|
+| Metadata | `metadata.csv` | `pair_id`, `trial_number` | — |
+| Demographics | `demographics.csv` | `participant_id` | — |
+| Envelope | `TS_acoustics/env_*.csv` | filename | audio, ms |
+| F0 / voicing | `TS_acoustics/f0_*.csv` | filename | audio, ms |
+| Gyroscope | `gyroscope.csv` | `group_name`, `trial_number` | ISO timestamps |
+| Gesture kinematics | `gestureclassifications/analysis/kinematic_features.csv` | `gesture_id` | video, s |
+| Detector frames | `**/*_predictions.csv` | filename | video, frames |
+| ELAN | `**/<video>.mp4.eaf` | filename | video, ms |
+| DTW distances | `gestureclassifications/analysis/dtw_distances.csv` | `gesture_id` | — |
+| UMAP | `gestureclassifications/analysis/gesture_visualization.csv` | `gesture` | — |
+| Video | `videos/<pair>/<role>/` | `metadata.video_*` | video, s |
+| Audio | `audios/<pair>/` | `metadata.audio_file_name` | audio, s |
