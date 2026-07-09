@@ -15,4 +15,4 @@ format:
 engine: knitr
 ---
 
-![](docs/images/banner.png){fig-align="center" width=100%}
+![](images/banner.png){fig-align="center" width=100%}
