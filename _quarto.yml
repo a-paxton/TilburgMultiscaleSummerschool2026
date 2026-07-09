@@ -5,14 +5,54 @@ project:
 website:
   sidebar:
     style: "floating"
-    search: false
+    search: true
     contents:
-      - text: "Tilburg Summerschool data loading cheatsheet"
+      - text: "Main page"
         href: index.qmd
-      - text: "Balance Corpus"
-        href: Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
-      - text: "PARSEL Corpus"
-        href: Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
+      - text: "About organizers"
+        href: Handbook/Organizers.qmd
+
+      - section: "Dataset A: Balance Corpus"
+        contents:
+          - Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
+
+          - section: "Processing: Acoustics"
+            contents:
+              - Datasets/BalanceCorpus/scripts/continuousacoustics/Processing_acoustics.ipynb
+              - Datasets/BalanceCorpus/scripts/continuousacoustics/Speaker_diarization.ipynb
+              - "Open Smile"
+
+          - section: "Processing: Motion tracking"
+            contants:
+              - Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.ipynb
+              - Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.ipynb
+              - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
+
+      - section: "Dataset B: PARSEL"
+        contents:
+          - Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
+
+          - section: "Processing: Acoustics"
+            contents:
+              - Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.ipynb
+              - Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb
+              - "Open Smile"
+
+          - section: "Processing: Motion tracking"
+            contants:
+              - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
+              - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
+              - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
+
+
+      - section: "Analyses & Tools"
+
+  navbar:
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/WimPouw/TilburgMultiscaleSummerschool2026
 
 
 metadata:
@@ -23,6 +63,7 @@ theme: united
 
 format:
   html:
+    theme: journal
     toc: true
     fontsize: 12px
     max-width: 8000px
@@ -41,3 +82,10 @@ format:
       }
 
 engine: quarto
+
+execute:
+  enabled: false
+  freeze: false
+  warning: false
+  message: false
+  cache: false   

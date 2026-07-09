@@ -9,3 +9,6 @@ Datasets/StanfordTriad/data
 /.quarto/
 =======
 >>>>>>> Stashed changes
+
+**/*.quarto_ipynb
+MMLab_MDIG_Dav_Sarka.pptx

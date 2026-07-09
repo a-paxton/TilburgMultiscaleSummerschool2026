@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,20 +67,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../../../">
 <script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-13ad72f07fceb0dc3d30d3796c6c6a0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-8c84aca3a1c0a8f36b5692110b870ec5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -102,9 +103,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href=".quarto-container {
@@ -115,10 +113,27 @@ body {
 }">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/WimPouw/TilburgMultiscaleSummerschool2026">
+            Source Code
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -127,33 +142,130 @@ body {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analysis: gesture, speech, and sway coupling</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tilburg Summerschool data loading cheatsheet</span></a>
+ <span class="menu-text">Main page</span></a>
   </div>
 </li>
         <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Handbook/Organizers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About organizers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dataset A: Balance Corpus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Balance Corpus</span></a>
+ <span class="menu-text">Cheatsheet: loading the BalanceCorpus</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Processing: Acoustics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Acoustics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/continuousacoustics/Speaker_diarization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Speaker diarization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Open Smile</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Processing: Motion tracking</span></span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dataset B: PARSEL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PARSEL Corpus</span></a>
+ <span class="menu-text">Cheatsheet: loading the PARSEL Corpus</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Processing: Acoustics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Acoustics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Open Smile</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Processing: Motion tracking</span></span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Analyses &amp; Tools</span></span>
+  </li>
     </ul>
     </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -192,10 +304,10 @@ body {
 
 
 <p>This notebook loads the artefacts written by <code>preprocessing.ipynb</code> (in <code>./intermediateoutput/</code>) and measures coupling between speech-envelope power and body sway. Run the preprocessing notebook first. Nothing here re-does the conditioning: the aligned series, surrogates, voicing, and gestures are read from disk.</p>
-<div id="968ee158" class="cell" data-execution_count="105">
+<div id="968ee158" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> emd</span>
@@ -222,7 +334,7 @@ body {
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    parts <span class="op">=</span> os.path.splitext(os.path.basename(path))[<span class="dv">0</span>].split(<span class="st">'_'</span>)</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>parts[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>parts[<span class="dv">2</span>]<span class="sc">}</span><span class="ss">"</span>, <span class="bu">int</span>(parts[<span class="dv">3</span>])</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(aligned_files)<span class="sc">}</span><span class="ss"> aligned trials, </span><span class="sc">{</span><span class="bu">len</span>(gest)<span class="sc">}</span><span class="ss"> gestures, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(aligned_files)<span class="sc">}</span><span class="ss"> aligned trials, </span><span class="sc">{</span><span class="bu">len</span>(gest)<span class="sc">}</span><span class="ss"> gestures, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>80 aligned trials, 604 gestures, 2317 voiced segments</code></pre>
@@ -231,10 +343,10 @@ body {
 <section id="empirical-mode-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="empirical-mode-decomposition">Empirical Mode Decomposition</h2>
 <p>The envelope for one trial, its two IMFs and their power, with the voiced and gesture windows shaded and the sway lean overlaid. The envelope and IMFs are the full trial.</p>
-<div id="ea9e556e" class="cell" data-execution_count="106">
+<div id="ea9e556e" class="cell" data-execution_count="48">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect one trial (loaded from the preprocessing artefacts)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect one trial (loaded from the preprocessing artefacts)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>example_path <span class="op">=</span> aligned_files[EXAMPLE]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pair, trail_number <span class="op">=</span> parse_aligned_filename(example_path)</span>
@@ -291,7 +403,7 @@ body {
 <span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    mark_voiced(a_pwr)<span class="op">;</span> mark_gestures(a_pwr)<span class="op">;</span> overlay_lean(a_pwr)</span>
 <span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>ax[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>6 gestures, 26 voiced segments (trial ends 17.3s)</code></pre>
@@ -310,10 +422,10 @@ body {
 <p>For each trial we decompose the envelope with EMD, take the power of each IMF, and correlate it with the sway lean on the edge-trimmed part of the trial. We do this for the whole trial and for voiced, unvoiced, gesture, and still frames, and compare each observed correlation against that trial’s surrogate baseline.</p>
 <p>Note we are looking at the correlation between the envelope change IMF1 and IMF2 power and the sway lean.</p>
 <p>We will look at the voiced portions only, and gesture versus non-gesture (still) portions.</p>
-<div id="630d7c1d" class="cell" data-execution_count="107">
+<div id="630d7c1d" class="cell" data-execution_count="49">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, pandas <span class="im">as</span> pd, emd</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> hilbert</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span>
@@ -340,335 +452,112 @@ body {
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># condition comes from the raw metadata (as before)</span></span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> meta_all[(meta_all[<span class="st">'pair_id'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (meta_all[<span class="st">'trial_number'</span>] <span class="op">==</span> trial)]</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    condition <span class="op">=</span> meta[<span class="st">'clue_giver_condition'</span>].iloc[<span class="dv">0</span>] <span class="cf">if</span> <span class="bu">len</span>(meta) <span class="cf">else</span> np.nan</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the aligned series comes straight from preprocessing (stored full length)</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> pd.read_csv(aligned_path)</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    env_clip  <span class="op">=</span> aligned[<span class="st">'envelope_change'</span>].to_numpy()      <span class="co"># EMD runs on the full envelope</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    time      <span class="op">=</span> aligned[<span class="st">'time'</span>].to_numpy()</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    sway_lean <span class="op">=</span> aligned[<span class="st">'sway_lean'</span>].to_numpy()</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    edge <span class="op">=</span> <span class="bu">int</span>(EDGE_SECONDS <span class="op">*</span> FS)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># decompose the envelope, then take each IMF's instantaneous power</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    imf <span class="op">=</span> emd.sift.mask_sift(env_clip, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    _, inst_freq, inst_amp <span class="op">=</span> emd.spectra.frequency_transform(imf, FS, <span class="st">'hilbert'</span>)</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    mean_freq <span class="op">=</span> np.<span class="bu">sum</span>(inst_freq <span class="op">*</span> inst_amp<span class="op">**</span><span class="dv">2</span>, <span class="dv">0</span>) <span class="op">/</span> np.<span class="bu">sum</span>(inst_amp<span class="op">**</span><span class="dv">2</span>, <span class="dv">0</span>)</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    pwr <span class="op">=</span> inst_amp <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># drop the edge-affected samples before measuring coupling</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    lean <span class="op">=</span> sway_lean[edge:<span class="op">-</span>edge]</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    t    <span class="op">=</span> time[edge:<span class="op">-</span>edge]</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this trial's surrogate file (one column per surrogate, plus a time column)</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    surr_path <span class="op">=</span> glob.glob(os.path.join(OUT_DIR, <span class="ss">f'iaaft_</span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">_n*.csv'</span>))[<span class="dv">0</span>]</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    surr <span class="op">=</span> pd.read_csv(surr_path).drop(columns<span class="op">=</span><span class="st">'time'</span>).to_numpy().T</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># voiced and gesture windows for this trial</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    vspan <span class="op">=</span> voicing[(voicing[<span class="st">'pair'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (voicing[<span class="st">'trial'</span>] <span class="op">==</span> trial)]</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    gspan <span class="op">=</span> gest[(gest[<span class="st">'pair'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (gest[<span class="st">'trial'</span>] <span class="op">==</span> trial)][[<span class="st">'onset'</span>, <span class="st">'offset'</span>]]</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    voiced  <span class="op">=</span> _mask_from_spans(vspan, t)</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    gesture <span class="op">=</span> _mask_from_spans(gspan, t)</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    voicedgesture <span class="op">=</span> voiced <span class="op">&amp;</span> gesture</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    voicedstill   <span class="op">=</span> voiced <span class="op">&amp;</span> <span class="op">~</span>gesture</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    full    <span class="op">=</span> np.ones(<span class="bu">len</span>(t), dtype<span class="op">=</span><span class="bu">bool</span>)</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    row_out <span class="op">=</span> <span class="bu">dict</span>(pair<span class="op">=</span>pair, trial<span class="op">=</span>trial, condition<span class="op">=</span>condition, n<span class="op">=</span><span class="bu">len</span>(lean),</span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>                   frac_voiced<span class="op">=</span>voiced.mean(), frac_gesture<span class="op">=</span>gesture.mean())</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    masks <span class="op">=</span> {<span class="st">''</span>: full, <span class="st">'_voiced'</span>: voiced, <span class="st">'_unvoiced'</span>: <span class="op">~</span>voiced,</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">'_gest'</span>: gesture, <span class="st">'_still'</span>: <span class="op">~</span>gesture, <span class="st">'_gestvoiced'</span>: voicedgesture, <span class="st">'_stillvoiced'</span>: voicedstill}</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> pwr[edge:<span class="op">-</span>edge, k]</span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>        row_out[<span class="ss">f'mf_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> mean_freq[k]</span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> suf, m <span class="kw">in</span> masks.items():</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>            rho, p, sm <span class="op">=</span> masked_rho(x, lean, surr, m)</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'rho</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>]  <span class="op">=</span> rho</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'p</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>]    <span class="op">=</span> p</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'surr</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> sm</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row_out</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame([analyse_trial(p) <span class="cf">for</span> p <span class="kw">in</span> aligned_files])</span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(results)<span class="sc">}</span><span class="ss"> trials | conditions: </span><span class="sc">{</span>results[<span class="st">'condition'</span>]<span class="sc">.</span>value_counts()<span class="sc">.</span>to_dict()<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"voiced </span><span class="sc">{</span>results[<span class="st">'frac_voiced'</span>]<span class="sc">.</span>median()<span class="sc">:.0%}</span><span class="ss">, gesture </span><span class="sc">{</span>results[<span class="st">'frac_gesture'</span>]<span class="sc">.</span>median()<span class="sc">:.0%}</span><span class="ss"> of trial (median)"</span>)</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>results.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># so we can only analyse the trial with the wobble board</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> condition <span class="op">!=</span> <span class="st">'board'</span>:</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the aligned series comes straight from preprocessing (stored full length)</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    aligned <span class="op">=</span> pd.read_csv(aligned_path)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    env_clip  <span class="op">=</span> aligned[<span class="st">'envelope_change'</span>].to_numpy()      <span class="co"># EMD runs on the full envelope</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    time      <span class="op">=</span> aligned[<span class="st">'time'</span>].to_numpy()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    sway_lean <span class="op">=</span> aligned[<span class="st">'sway_lean'</span>].to_numpy()</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    edge <span class="op">=</span> <span class="bu">int</span>(EDGE_SECONDS <span class="op">*</span> FS)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># decompose the envelope, then take each IMF's instantaneous power</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    imf <span class="op">=</span> emd.sift.mask_sift(env_clip, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    _, inst_freq, inst_amp <span class="op">=</span> emd.spectra.frequency_transform(imf, FS, <span class="st">'hilbert'</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    mean_freq <span class="op">=</span> np.<span class="bu">sum</span>(inst_freq <span class="op">*</span> inst_amp<span class="op">**</span><span class="dv">2</span>, <span class="dv">0</span>) <span class="op">/</span> np.<span class="bu">sum</span>(inst_amp<span class="op">**</span><span class="dv">2</span>, <span class="dv">0</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    pwr <span class="op">=</span> inst_amp <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># drop the edge-affected samples before measuring coupling</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    lean <span class="op">=</span> sway_lean[edge:<span class="op">-</span>edge]</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    t    <span class="op">=</span> time[edge:<span class="op">-</span>edge]</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this trial's surrogate file (one column per surrogate, plus a time column)</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    surr_path <span class="op">=</span> glob.glob(os.path.join(OUT_DIR, <span class="ss">f'iaaft_</span><span class="sc">{</span>pair<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>trial<span class="sc">}</span><span class="ss">_n*.csv'</span>))[<span class="dv">0</span>]</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    surr <span class="op">=</span> pd.read_csv(surr_path).drop(columns<span class="op">=</span><span class="st">'time'</span>).to_numpy().T</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># voiced and gesture windows for this trial</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    vspan <span class="op">=</span> voicing[(voicing[<span class="st">'pair'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (voicing[<span class="st">'trial'</span>] <span class="op">==</span> trial)]</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    gspan <span class="op">=</span> gest[(gest[<span class="st">'pair'</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (gest[<span class="st">'trial'</span>] <span class="op">==</span> trial)][[<span class="st">'onset'</span>, <span class="st">'offset'</span>]]</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    voiced  <span class="op">=</span> _mask_from_spans(vspan, t)</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    gesture <span class="op">=</span> _mask_from_spans(gspan, t)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    voicedgesture <span class="op">=</span> voiced <span class="op">&amp;</span> gesture</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    voicedstill   <span class="op">=</span> voiced <span class="op">&amp;</span> <span class="op">~</span>gesture</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    full    <span class="op">=</span> np.ones(<span class="bu">len</span>(t), dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    row_out <span class="op">=</span> <span class="bu">dict</span>(pair<span class="op">=</span>pair, trial<span class="op">=</span>trial, condition<span class="op">=</span>condition, n<span class="op">=</span><span class="bu">len</span>(lean),</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>                   frac_voiced<span class="op">=</span>voiced.mean(), frac_gesture<span class="op">=</span>gesture.mean())</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    masks <span class="op">=</span> {<span class="st">''</span>: full, <span class="st">'_voiced'</span>: voiced, <span class="st">'_unvoiced'</span>: <span class="op">~</span>voiced,</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>             <span class="st">'_gest'</span>: gesture, <span class="st">'_still'</span>: <span class="op">~</span>gesture, <span class="st">'_gestvoiced'</span>: voicedgesture, <span class="st">'_stillvoiced'</span>: voicedstill}</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> pwr[edge:<span class="op">-</span>edge, k]</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        row_out[<span class="ss">f'mf_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> mean_freq[k]</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> suf, m <span class="kw">in</span> masks.items():</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>            rho, p, sm <span class="op">=</span> masked_rho(x, lean, surr, m)</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'rho</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>]  <span class="op">=</span> rho</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'p</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>]    <span class="op">=</span> p</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>            row_out[<span class="ss">f'surr</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> sm</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row_out</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame([r <span class="cf">for</span> p <span class="kw">in</span> aligned_files <span class="cf">if</span> (r <span class="op">:=</span> analyse_trial(p)) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>])</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(results)<span class="sc">}</span><span class="ss"> trials | conditions: </span><span class="sc">{</span>results[<span class="st">'condition'</span>]<span class="sc">.</span>value_counts()<span class="sc">.</span>to_dict()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"voiced </span><span class="sc">{</span>results[<span class="st">'frac_voiced'</span>]<span class="sc">.</span>median()<span class="sc">:.0%}</span><span class="ss">, gesture </span><span class="sc">{</span>results[<span class="st">'frac_gesture'</span>]<span class="sc">.</span>median()<span class="sc">:.0%}</span><span class="ss"> of trial (median)"</span>)</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>results.head()</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>results.to_csv(os.path.join(OUT_DIR, <span class="st">'coupling_results.csv'</span>), index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))
-C:\Users\Admin\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_stats_py.py:4916: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(warn_msg))</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>80 trials | conditions: {'board': 40, 'ground': 40}
-voiced 36%, gesture 66% of trial (median)</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="107">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">pair</th>
-<th data-quarto-table-cell-role="th">trial</th>
-<th data-quarto-table-cell-role="th">condition</th>
-<th data-quarto-table-cell-role="th">n</th>
-<th data-quarto-table-cell-role="th">frac_voiced</th>
-<th data-quarto-table-cell-role="th">frac_gesture</th>
-<th data-quarto-table-cell-role="th">mf_imf1</th>
-<th data-quarto-table-cell-role="th">rho_imf1</th>
-<th data-quarto-table-cell-role="th">p_imf1</th>
-<th data-quarto-table-cell-role="th">surr_imf1</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">surr_gest_imf2</th>
-<th data-quarto-table-cell-role="th">rho_still_imf2</th>
-<th data-quarto-table-cell-role="th">p_still_imf2</th>
-<th data-quarto-table-cell-role="th">surr_still_imf2</th>
-<th data-quarto-table-cell-role="th">rho_gestvoiced_imf2</th>
-<th data-quarto-table-cell-role="th">p_gestvoiced_imf2</th>
-<th data-quarto-table-cell-role="th">surr_gestvoiced_imf2</th>
-<th data-quarto-table-cell-role="th">rho_stillvoiced_imf2</th>
-<th data-quarto-table-cell-role="th">p_stillvoiced_imf2</th>
-<th data-quarto-table-cell-role="th">surr_stillvoiced_imf2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>103_203</td>
-<td>12</td>
-<td>board</td>
-<td>7666</td>
-<td>0.336421</td>
-<td>0.693712</td>
-<td>5.632290</td>
-<td>-0.150186</td>
-<td>0.529412</td>
-<td>-0.002408</td>
-<td>...</td>
-<td>-0.009562</td>
-<td>-0.206960</td>
-<td>0.509804</td>
-<td>-0.002466</td>
-<td>-0.141399</td>
-<td>0.588235</td>
-<td>-0.053922</td>
-<td>-0.513345</td>
-<td>0.176471</td>
-<td>0.013929</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>103_203</td>
-<td>13</td>
-<td>board</td>
-<td>7731</td>
-<td>0.356746</td>
-<td>0.555685</td>
-<td>6.474885</td>
-<td>0.241421</td>
-<td>0.098039</td>
-<td>0.016490</td>
-<td>...</td>
-<td>0.003550</td>
-<td>0.068012</td>
-<td>0.784314</td>
-<td>0.033669</td>
-<td>0.440558</td>
-<td>0.117647</td>
-<td>-0.019019</td>
-<td>-0.669305</td>
-<td>0.352941</td>
-<td>-0.016480</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>103_203</td>
-<td>14</td>
-<td>board</td>
-<td>9992</td>
-<td>0.439652</td>
-<td>0.957066</td>
-<td>6.473328</td>
-<td>-0.280217</td>
-<td>0.137255</td>
-<td>-0.018540</td>
-<td>...</td>
-<td>-0.019770</td>
-<td>-0.596556</td>
-<td>0.470588</td>
-<td>0.035936</td>
-<td>-0.236541</td>
-<td>0.196078</td>
-<td>0.018144</td>
-<td>-0.611252</td>
-<td>0.568627</td>
-<td>-0.004007</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>103_203</td>
-<td>15</td>
-<td>board</td>
-<td>9201</td>
-<td>0.407564</td>
-<td>1.000000</td>
-<td>6.224960</td>
-<td>-0.066495</td>
-<td>0.686275</td>
-<td>0.018187</td>
-<td>...</td>
-<td>0.020098</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0.163839</td>
-<td>0.431373</td>
-<td>0.032695</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>103_203</td>
-<td>16</td>
-<td>board</td>
-<td>6687</td>
-<td>0.288321</td>
-<td>0.891132</td>
-<td>6.883708</td>
-<td>0.192577</td>
-<td>0.549020</td>
-<td>0.014005</td>
-<td>...</td>
-<td>0.022964</td>
-<td>-0.674727</td>
-<td>0.372549</td>
-<td>0.071188</td>
-<td>0.197069</td>
-<td>0.666667</td>
-<td>0.018409</td>
-<td>-0.571805</td>
-<td>0.352941</td>
-<td>0.014846</td>
-</tr>
-</tbody>
-</table>
-
-<p>5 rows × 50 columns</p>
+<pre><code>40 trials | conditions: {'board': 40}
+voiced 35%, gesture 71% of trial (median)</code></pre>
 </div>
 </div>
-</div>
-<div id="0ada606e" class="cell" data-execution_count="108">
+<div id="0ada606e" class="cell" data-execution_count="50">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>conds <span class="op">=</span> <span class="bu">sorted</span>(results[<span class="st">'condition'</span>].dropna().unique())</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cond_colors <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(conds, [<span class="st">'C0'</span>, <span class="st">'C2'</span>]))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to a 2x2 grid: Rows = Modes, Cols = IMFs</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>modes <span class="op">=</span> [<span class="st">'stillvoiced'</span>, <span class="st">'gestvoiced'</span>]  <span class="co"># Your MAINMOD/MINMOD choices</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">9</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col_idx, imf <span class="kw">in</span> <span class="bu">enumerate</span>([<span class="dv">1</span>, <span class="dv">2</span>]):</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row_idx, mode <span class="kw">in</span> <span class="bu">enumerate</span>(modes):</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axes[row_idx, col_idx]  <span class="co"># Target the specific subplot</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        groups, labels, facecolors, positions, pos <span class="op">=</span> [], [], [], [], <span class="dv">0</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> cond <span class="kw">in</span> conds:</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            sub <span class="op">=</span> results[results[<span class="st">'condition'</span>] <span class="op">==</span> cond]</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            obs <span class="op">=</span> sub[<span class="ss">f'rho_</span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">'</span>].to_numpy()</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            obs <span class="op">=</span> obs[np.isfinite(obs)]</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            sur <span class="op">=</span> sub[<span class="ss">f'surr_</span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">'</span>].to_numpy()</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>            sur <span class="op">=</span> sur[np.isfinite(sur)]</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            groups <span class="op">+=</span> [obs, sur]</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            positions <span class="op">+=</span> [pos, pos <span class="op">+</span> <span class="fl">0.7</span>]</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            labels <span class="op">+=</span> [<span class="ss">f'</span><span class="sc">{</span>cond<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">'</span>, <span class="ss">f'</span><span class="sc">{</span>cond<span class="sc">}</span><span class="ch">\n</span><span class="ss">surrogate'</span>]</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            facecolors <span class="op">+=</span> [cond_colors[cond], <span class="st">'0.8'</span>]</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            pos <span class="op">+=</span> <span class="fl">2.2</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        bp <span class="op">=</span> ax.boxplot(groups, positions<span class="op">=</span>positions, widths<span class="op">=</span><span class="fl">0.55</span>, showfliers<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>                        patch_artist<span class="op">=</span><span class="va">True</span>, medianprops<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">'k'</span>))</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> patch, fc <span class="kw">in</span> <span class="bu">zip</span>(bp[<span class="st">'boxes'</span>], facecolors):</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>            patch.set_facecolor(fc)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>            patch.set_alpha(<span class="fl">0.5</span>)</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, (vals, fc) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(groups, facecolors)):</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>            ax.scatter(rng.normal(positions[i], <span class="fl">0.04</span>, <span class="bu">len</span>(vals)), vals, s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span>fc, alpha<span class="op">=</span><span class="fl">0.55</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>        ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'0.6'</span>, lw<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks(positions)</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>        ax.set_xticklabels(labels, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>        ax.set_title(<span class="ss">f'</span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss"> coupling vs surrogate — IMF</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Only label y-axis on the leftmost plots</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> col_idx <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="st">'Spearman rho'</span>)</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>masks <span class="op">=</span> [(<span class="st">''</span>, <span class="st">'all'</span>), (<span class="st">'_voiced'</span>, <span class="st">'voiced'</span>), (<span class="st">'_unvoiced'</span>, <span class="st">'unvoiced'</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'_gest'</span>, <span class="st">'gesture'</span>), (<span class="st">'_still'</span>, <span class="st">'still'</span>),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         (<span class="st">'_gestvoiced'</span>, <span class="st">'gest+voiced'</span>), (<span class="st">'_stillvoiced'</span>, <span class="st">'still+voiced'</span>)]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>mask_colors <span class="op">=</span> plt.cm.tab10(np.linspace(<span class="dv">0</span>, <span class="fl">0.9</span>, <span class="bu">len</span>(masks)))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">10</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col, imf <span class="kw">in</span> <span class="bu">enumerate</span>([<span class="dv">1</span>, <span class="dv">2</span>]):</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row, absolute <span class="kw">in</span> <span class="bu">enumerate</span>([<span class="va">False</span>, <span class="va">True</span>]):</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axes[row, col]</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        groups, labels, facecolors, positions, pos <span class="op">=</span> [], [], [], [], <span class="dv">0</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (suf, name), colour <span class="kw">in</span> <span class="bu">zip</span>(masks, mask_colors):</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            obs <span class="op">=</span> results[<span class="ss">f'rho</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">'</span>].to_numpy()</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            sur <span class="op">=</span> results[<span class="ss">f'surr</span><span class="sc">{</span>suf<span class="sc">}</span><span class="ss">_imf</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">'</span>].to_numpy()</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> absolute:</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                obs, sur <span class="op">=</span> np.<span class="bu">abs</span>(obs), np.<span class="bu">abs</span>(sur)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>            groups <span class="op">+=</span> [obs[np.isfinite(obs)], sur[np.isfinite(sur)]]</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            positions <span class="op">+=</span> [pos, pos <span class="op">+</span> <span class="fl">0.7</span>]</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            labels <span class="op">+=</span> [name, <span class="st">'surr'</span>]</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            facecolors <span class="op">+=</span> [colour, <span class="st">'0.8'</span>]</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            pos <span class="op">+=</span> <span class="fl">2.0</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        bp <span class="op">=</span> ax.boxplot(groups, positions<span class="op">=</span>positions, widths<span class="op">=</span><span class="fl">0.55</span>, showfliers<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>                        patch_artist<span class="op">=</span><span class="va">True</span>, medianprops<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">'k'</span>))</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> patch, fc <span class="kw">in</span> <span class="bu">zip</span>(bp[<span class="st">'boxes'</span>], facecolors):</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>            patch.set_facecolor(fc)<span class="op">;</span> patch.set_alpha(<span class="fl">0.5</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, (vals, fc) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(groups, facecolors)):</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>            ax.scatter(rng.normal(positions[i], <span class="fl">0.04</span>, <span class="bu">len</span>(vals)), vals, s<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span>fc, alpha<span class="op">=</span><span class="fl">0.55</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'0.6'</span>, lw<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks(positions)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        ax.set_xticklabels(labels, fontsize<span class="op">=</span><span class="dv">7</span>, rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        ax.set_title(<span class="ss">f"IMF</span><span class="sc">{</span>imf<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="st">'|rho|'</span> <span class="cf">if</span> absolute <span class="cf">else</span> <span class="st">'signed rho'</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">'|Spearman rho|'</span> <span class="cf">if</span> absolute <span class="cf">else</span> <span class="st">'Spearman rho'</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -678,91 +567,87 @@ voiced 36%, gesture 66% of trial (median)</code></pre>
 </div>
 </div>
 </div>
-<div id="bf818f28" class="cell" data-execution_count="109">
+<div id="bf818f28" class="cell" data-execution_count="51">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, numpy <span class="im">as</span> np</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>MAINMOD <span class="op">=</span> <span class="st">'gestvoiced'</span> <span class="co"># stillvoiced vs gestvoiced</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>kin <span class="op">=</span> [<span class="st">'duration'</span>,<span class="st">'hold_time'</span>,<span class="st">'hand_submovements'</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'hand_mean_submovement_amplitude'</span>,<span class="st">'hand_peak_speed'</span>,<span class="st">'hand_mean_speed'</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'hand_peak_acceleration'</span>,<span class="st">'hand_peak_jerk'</span>,<span class="st">'elbow_peak_speed'</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">'elbow_mean_speed'</span>,<span class="st">'elbow_peak_jerk'</span>,<span class="st">'space_use'</span>]</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>per_trial <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])[kin].mean().reset_index()   <span class="co"># mean kinematic for all gestures per trial</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>per_trial[<span class="st">'n_gestures'</span>] <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>]).size().values</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>per_trial[<span class="st">'n_gestureduration'</span>] <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])[<span class="st">'duration'</span>].<span class="bu">sum</span>().values</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> results.merge(per_trial, on<span class="op">=</span>[<span class="st">'pair'</span>,<span class="st">'trial'</span>], how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># coupling STRENGTH on voiced frames (matches the masked analysis)</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#merged['absrho_gestvoiced_imf1'] = merged['rho_gestvoiced_imf1'].abs()</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#merged['absrho_gestvoiced_imf2'] = merged['rho_gestvoiced_imf2'].abs()</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cond, sub <span class="kw">in</span> merged.groupby(<span class="st">'condition'</span>):</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> kin <span class="op">+</span> [<span class="st">'n_gestures'</span>, <span class="st">'n_gestureduration'</span>]:</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> target <span class="kw">in</span> [<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf1'</span>,<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>]:</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            d <span class="op">=</span> sub[[f, target]].dropna()</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(d) <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                r, p <span class="op">=</span> spearmanr(d[f], d[target])</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                rows.append((cond, f, target, r, p, <span class="bu">len</span>(d)))</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>scan <span class="op">=</span> pd.DataFrame(rows, columns<span class="op">=</span>[<span class="st">'condition'</span>,<span class="st">'feature'</span>,<span class="st">'target'</span>,<span class="st">'r'</span>,<span class="st">'p'</span>,<span class="st">'n'</span>]).sort_values(<span class="st">'p'</span>)</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scan.head(<span class="dv">20</span>).to_string(index<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>MAINMOD <span class="op">=</span> <span class="st">'gestvoiced'</span> <span class="co"># stillvoiced vs gestvoiced</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>kin <span class="op">=</span> [<span class="st">'duration'</span>,<span class="st">'hold_time'</span>,<span class="st">'hand_submovements'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'hand_mean_submovement_amplitude'</span>,<span class="st">'hand_peak_speed'</span>,<span class="st">'hand_mean_speed'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'hand_peak_acceleration'</span>,<span class="st">'hand_peak_jerk'</span>,<span class="st">'elbow_peak_speed'</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">'elbow_mean_speed'</span>,<span class="st">'elbow_peak_jerk'</span>,<span class="st">'space_use'</span>]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize some kinematics by duration to get rates/proportions</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'submov_rate'</span>] <span class="op">=</span> gest[<span class="st">'hand_submovements'</span>] <span class="op">/</span> gest[<span class="st">'duration'</span>]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>gest[<span class="st">'hold_prop'</span>]   <span class="op">=</span> gest[<span class="st">'hold_time'</span>] <span class="op">/</span> gest[<span class="st">'duration'</span>]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>per_trial <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])[kin].median().reset_index()   <span class="co"># mean kinematic for all gestures per trial</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>per_trial[<span class="st">'n_gestures'</span>] <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>]).size().values</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>per_trial[<span class="st">'n_gestureduration'</span>] <span class="op">=</span> gest.groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])[<span class="st">'duration'</span>].<span class="bu">sum</span>().values</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> results.merge(per_trial, on<span class="op">=</span>[<span class="st">'pair'</span>,<span class="st">'trial'</span>], how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># coupling STRENGTH on voiced frames (matches the masked analysis)</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>merged[<span class="st">'absrho_gestvoiced_imf1'</span>] <span class="op">=</span> merged[<span class="st">'rho_gestvoiced_imf1'</span>].<span class="bu">abs</span>()</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>merged[<span class="st">'absrho_gestvoiced_imf2'</span>] <span class="op">=</span> merged[<span class="st">'rho_gestvoiced_imf2'</span>].<span class="bu">abs</span>()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cond, sub <span class="kw">in</span> merged.groupby(<span class="st">'condition'</span>):</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> kin <span class="op">+</span> [<span class="st">'n_gestures'</span>, <span class="st">'n_gestureduration'</span>]:</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> target <span class="kw">in</span> [<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf1'</span>,<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>]:</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            d <span class="op">=</span> sub[[f, target]].dropna()</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(d) <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                r, p <span class="op">=</span> spearmanr(d[f], d[target])</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                rows.append((cond, f, target, r, p, <span class="bu">len</span>(d)))</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>scan <span class="op">=</span> pd.DataFrame(rows, columns<span class="op">=</span>[<span class="st">'condition'</span>,<span class="st">'feature'</span>,<span class="st">'target'</span>,<span class="st">'r'</span>,<span class="st">'p'</span>,<span class="st">'n'</span>]).sort_values(<span class="st">'p'</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scan.head(<span class="dv">20</span>).to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>condition                         feature              target         r        p  n
-   ground                       space_use rho_gestvoiced_imf1  0.610205 0.001988 23
-    board                       space_use rho_gestvoiced_imf2 -0.355461 0.033376 36
-   ground               n_gestureduration rho_gestvoiced_imf1  0.372530 0.080015 23
-    board                elbow_peak_speed rho_gestvoiced_imf2 -0.275418 0.103990 36
-    board                elbow_mean_speed rho_gestvoiced_imf2 -0.228057 0.180976 36
-   ground                 hand_peak_speed rho_gestvoiced_imf1  0.272727 0.208013 23
-   ground                      n_gestures rho_gestvoiced_imf1  0.268489 0.215449 23
-    board                 hand_mean_speed rho_gestvoiced_imf2 -0.199743 0.242817 36
-   ground                       hold_time rho_gestvoiced_imf1  0.245059 0.259736 23
-    board               hand_submovements rho_gestvoiced_imf2 -0.186148 0.277033 36
-    board                 hand_peak_speed rho_gestvoiced_imf2 -0.176834 0.302204 36
-   ground          hand_peak_acceleration rho_gestvoiced_imf1  0.222332 0.307899 23
-   ground hand_mean_submovement_amplitude rho_gestvoiced_imf1  0.219368 0.314560 23
-    board                 elbow_peak_jerk rho_gestvoiced_imf2 -0.165251 0.335469 36
-   ground                       space_use rho_gestvoiced_imf2  0.209510 0.337333 23
-    board                        duration rho_gestvoiced_imf2 -0.161390 0.347038 36
-    board                  hand_peak_jerk rho_gestvoiced_imf2 -0.156499 0.362037 36
-   ground                  hand_peak_jerk rho_gestvoiced_imf1  0.193676 0.375906 23
-   ground                        duration rho_gestvoiced_imf1  0.193676 0.375906 23
-   ground                 hand_mean_speed rho_gestvoiced_imf1  0.192688 0.378393 23</code></pre>
+    board                       space_use rho_gestvoiced_imf2 -0.309709 0.066039 36
+    board                elbow_mean_speed rho_gestvoiced_imf2 -0.260746 0.124545 36
+    board                 hand_mean_speed rho_gestvoiced_imf2 -0.184041 0.282604 36
+    board                  hand_peak_jerk rho_gestvoiced_imf2 -0.176062 0.304354 36
+    board          hand_peak_acceleration rho_gestvoiced_imf2 -0.165508 0.334706 36
+    board hand_mean_submovement_amplitude rho_gestvoiced_imf2 -0.165251 0.335469 36
+    board                 hand_peak_speed rho_gestvoiced_imf2 -0.161133 0.347818 36
+    board                 elbow_peak_jerk rho_gestvoiced_imf2 -0.156757 0.361238 36
+    board               hand_submovements rho_gestvoiced_imf2 -0.144084 0.401815 36
+    board                elbow_peak_speed rho_gestvoiced_imf2 -0.132561 0.440880 36
+    board                        duration rho_gestvoiced_imf2 -0.120721 0.483095 36
+    board                elbow_peak_speed rho_gestvoiced_imf1  0.118662 0.490645 36
+    board                 elbow_peak_jerk rho_gestvoiced_imf1  0.115573 0.502081 36
+    board                elbow_mean_speed rho_gestvoiced_imf1 -0.111197 0.518511 36
+    board               n_gestureduration rho_gestvoiced_imf2 -0.099614 0.563243 36
+    board                      n_gestures rho_gestvoiced_imf2  0.095428 0.579834 36
+    board               n_gestureduration rho_gestvoiced_imf1 -0.084170 0.625505 36
+    board                       space_use rho_gestvoiced_imf1 -0.081623 0.636037 36
+    board hand_mean_submovement_amplitude rho_gestvoiced_imf1 -0.053024 0.758741 36
+    board                 hand_mean_speed rho_gestvoiced_imf1 -0.052767 0.759877 36</code></pre>
 </div>
 </div>
-<div id="f6843c4a" class="cell" data-execution_count="112">
+<div id="f6843c4a" class="cell" data-execution_count="52">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>conds <span class="op">=</span> <span class="bu">sorted</span>(merged[<span class="st">'condition'</span>].dropna().unique())</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(conds, [<span class="st">'C0'</span>, <span class="st">'C2'</span>]))</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, feat <span class="kw">in</span> <span class="bu">zip</span>(axes, [<span class="st">'space_use'</span>, <span class="st">'hand_peak_acceleration'</span>, <span class="st">'elbow_peak_jerk'</span>]):</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    notes <span class="op">=</span> []</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cond <span class="kw">in</span> conds:</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> merged[merged[<span class="st">'condition'</span>] <span class="op">==</span> cond][[feat, <span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>]].dropna()</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> d[feat].to_numpy(), d[<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>].to_numpy()</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># log-transform the feature if it's skewed (e.g., jerk, space use)</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> np.log1p(x), np.log1p(y)  <span class="co"># log1p to handle zero values</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(x) <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        r, p <span class="op">=</span> spearmanr(x, y)</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        ax.scatter(x, y, s<span class="op">=</span><span class="dv">20</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span>colors[cond], label<span class="op">=</span>cond)</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        b, a <span class="op">=</span> np.polyfit(x, y, <span class="dv">1</span>)</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        xs <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(), x.<span class="bu">max</span>(), <span class="dv">100</span>)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        ax.plot(xs, a <span class="op">+</span> b <span class="op">*</span> xs, color<span class="op">=</span>colors[cond], lw<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(feat)<span class="op">;</span> ax.set_ylabel(<span class="st">'|rho| IMF2 (coupling strength)'</span>)</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f'</span><span class="sc">{</span>feat<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span> <span class="op">+</span> <span class="st">'   '</span>.join(notes))</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    ax.legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> results.merge(per_trial, on<span class="op">=</span>[<span class="st">'pair'</span>, <span class="st">'trial'</span>], how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>merged[<span class="ss">f'abs_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>] <span class="op">=</span> merged[<span class="ss">f'rho_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>].<span class="bu">abs</span>()</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="fl">4.5</span>))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, feat <span class="kw">in</span> <span class="bu">zip</span>(axes, [<span class="st">'space_use'</span>, <span class="st">'hand_peak_acceleration'</span>, <span class="st">'elbow_peak_jerk'</span>]):</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> merged[[feat, <span class="ss">f'abs_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>]].dropna()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> d[feat].to_numpy(), d[<span class="ss">f'abs_</span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss">_imf2'</span>].to_numpy()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    r, p <span class="op">=</span> spearmanr(x, y)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    ax.scatter(x, y, s<span class="op">=</span><span class="dv">20</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'C0'</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> np.polyfit(x, y, <span class="dv">1</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(), x.<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    ax.plot(xs, a <span class="op">+</span> b <span class="op">*</span> xs, <span class="st">'k-'</span>, lw<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(feat)<span class="op">;</span> ax.set_ylabel(<span class="ss">f'|rho| </span><span class="sc">{</span>MAINMOD<span class="sc">}</span><span class="ss"> IMF2'</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f'r=</span><span class="sc">{</span>r<span class="sc">:+.2f}</span><span class="ss">, p=</span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">, n=</span><span class="sc">{</span><span class="bu">len</span>(d)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -828,13 +713,14 @@ voiced 36%, gesture 66% of trial (median)</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

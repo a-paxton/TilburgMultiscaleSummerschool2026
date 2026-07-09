@@ -1,7 +1,32 @@
 ---
-title: "Landing Page"
-subtitle: "MDIG2026"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+title: "Handbook for MDIG2026 Summer School in Tilburg"
+subtitle: "Scripts for processing and analysis"
+date-modified: today
+format:
+  html:
+    code-overflow: wrap
+    code-width: 1200  # Adjust the width in pixels
+toc: true
+toc-depth: 4
+toc-expand: 2
+toc-title: Contents
 ---
 
 ![](images/banner.png){fig-align="center" width=100%}
+
+## Overview
+
+Dear participants,
+
+this handbook collects all scripts associated with the program of MDIG2026 Summer School. 
+You will find here introduction of the datasets you will be working in your group projects, scripts that process
+these datasets into analyzable time series and features and finally, all scripts associated with the lectures.
+
+The two datasets that we picked for this year consist of:
+
+- XY
+- XY
+
+## Program
+
+[INSERT PROGRAM]
