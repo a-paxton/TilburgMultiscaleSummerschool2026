@@ -2,17 +2,6 @@
 title: "Cheatsheet: loading the PARSEL Corpus"
 subtitle: "MDIG2026"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
-format:
-  html:
-    toc: true
-    toc-location: left
-    toc-title: "Contents"
-    toc-depth: 3
-    number-sections: true
-    code-fold: false
-    code-tools: true
-    theme: cosmo
-engine: knitr
 ---
 
 ![](images/banner.gif){fig-align="center" width=100%}
