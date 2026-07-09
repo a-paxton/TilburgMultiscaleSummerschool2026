@@ -2,10 +2,6 @@ project:
   output-dir: docs
   type: website
 
-  render:
-    - "!*.md"
-    - "!*.ipynb"
-
 website:
   sidebar:
     style: "floating"
@@ -14,9 +10,9 @@ website:
       - text: "Tilburg Summerschool data loading cheatsheet"
         href: index.qmd
       - text: "Balance Corpus"
-        href: Datasets/BalanceCorpus/Scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
+        href: Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
       - text: "PARSEL Corpus"
-        href: Datasets/Scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
+        href: Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
 
 metadata:
   crossref:
@@ -44,6 +40,3 @@ format:
       }
 
 engine: quarto
-
-execute:
-  enabled: false
