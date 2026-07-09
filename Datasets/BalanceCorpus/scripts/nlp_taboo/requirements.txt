@@ -1,0 +1,17 @@
+# MDIG2026 — NLP track (pip). See environment.yml for a conda one-shot.
+# CPU-only; no GPU required. Python 3.10–3.12 recommended.
+faster-whisper>=1.0        # CPU speech-to-text (pulls ctranslate2)
+sentence-transformers>=2.7 # multilingual sentence embeddings (pulls torch, CPU)
+librosa>=0.10              # audio loading/resampling
+soundfile>=0.12            # wav I/O backend for librosa
+scikit-learn>=1.3
+spacy>=3.7                 # Notebook 0: linguistic annotation
+networkx>=3.0             # Notebook 0: semantic network graph
+certifi                   # robust TLS for model downloads
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+jupyter
+ipykernel
+# Notebook 0 also needs a spaCy model:  python -m spacy download en_core_web_sm
+# Notebook 5 (topic modeling) uses sentence-transformers + scikit-learn (both already listed above).
