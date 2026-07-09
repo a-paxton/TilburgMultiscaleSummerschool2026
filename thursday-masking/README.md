@@ -8,25 +8,21 @@ This full-day session covers privacy-preserving techniques for behavioral resear
 
 ## Running Dataset
 
-We use the **triadic concept generation dataset** (CDR Stanford, Edelman 2011) as the primary hands-on example: 10 teams of 3 students collaboratively redesigning a product, recorded from multiple camera angles. This multi-person, gesture-rich data presents real-world masking challenges.
+We use the **triadic concept generation dataset** (CDR Stanford, Edelman 2011) as the primary hands-on example: 14 teams of 3 students collaboratively redesigning a product, recorded from multiple camera angles. This multi-person, gesture-rich data presents real-world masking challenges.
 
 ## Schedule
 
 | Time | Session | Format |
 |------|---------|--------|
-| 09:00-09:30 | SYNAPSIS: Infrastructure for Privacy-Preserving Research | Lecture |
-| 09:30-09:50 | The Triadic Concept Generation Dataset | Lecture |
-| 09:50-10:30 | Why Mask? The Privacy-Utility Dilemma | Lecture + Discussion |
-| 10:30-10:50 | Coffee Break | |
-| 10:50-11:30 | Masking Operations Taxonomy | Lecture + Demo |
-| 11:30-12:30 | MaskAnyone: Architecture & Hands-On I | Hands-on |
-| 12:30-13:30 | Lunch | |
-| 13:30-14:30 | MaskAnyone: Advanced Features & Hands-On II | Hands-on |
-| 14:30-15:15 | MaskBench: Did Your Masking Break Your Data? | Hands-on |
-| 15:15-15:35 | Coffee Break | |
-| 15:35-16:15 | Bring-Your-Own-Video | Hands-on |
-| 16:15-16:45 | Audio Masking & Multi-Modal Considerations | Lecture + Demo |
-| 16:45-17:00 | Wrap-Up & Integration with Group Projects | Discussion |
+| 10:00-10:30 | SYNAPSIS Infrastructure + The Triadic Concept Generation Dataset | Lecture |
+| 10:30-10:55 | Why Mask? The Privacy-Utility Dilemma | Lecture + Discussion |
+| 10:55-11:20 | Masking Operations Taxonomy | Lecture + Demo |
+| 11:20-12:05 | MaskAnyone: Architecture & Hands-On | Hands-on |
+| 12:05-12:30 | MaskBench: Did Your Masking Break Your Data? | Hands-on |
+| 12:30-13:00 | Lunch | |
+| 13:00-13:30 | Bring-Your-Own-Video + Audio Masking | Hands-on |
+| 13:30-13:45 | Archiving & Sharing | Lecture + Demo |
+| 13:45-14:00 | Wrap-Up & Integration with Group Projects | Discussion |
 
 ## Requirements
 
