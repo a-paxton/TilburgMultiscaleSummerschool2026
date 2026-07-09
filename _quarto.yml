@@ -23,7 +23,7 @@ website:
               - "Open Smile"
 
           - section: "Processing: Motion tracking"
-            contants:
+            contents:
               - Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.ipynb
               - Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.ipynb
               - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
@@ -39,7 +39,7 @@ website:
               - "Open Smile"
 
           - section: "Processing: Motion tracking"
-            contants:
+            contents:
               - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
               - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
               - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
@@ -67,7 +67,7 @@ format:
     toc: true
     fontsize: 12px
     max-width: 8000px
-    toc-location: left
+    toc-location: right
     toc-title: "Contents"
     toc-depth: 3
     number-sections: false

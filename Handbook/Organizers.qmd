@@ -9,7 +9,7 @@ title: About organizers
 ![](../images/andrea.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Andrea González Sánchez**  
+**Andrea González Sánchez**<br> 
 [keywords]
 :::
 
@@ -17,7 +17,7 @@ title: About organizers
 ![](../images/anna.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Anna Palmann
+Anna Palmann<br>
 [keywords]
 :::
 
@@ -25,7 +25,7 @@ Anna Palmann
 ![](../images/babajide.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Babajide Owoyele
+Babajide Owoyele<br>
 [keywords]
 :::
 
@@ -33,7 +33,7 @@ Babajide Owoyele
 ![](../images/davide.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Davide Ahmar**
+**Davide Ahmar**<br>
 Topics: social neurocognition, hyperscanning, multimodal recordings, virtual reality, cognitive neuroscience.
 :::
 
@@ -41,7 +41,7 @@ Topics: social neurocognition, hyperscanning, multimodal recordings, virtual rea
 ![](../images/james.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**James Trujillo**
+**James Trujillo**<br>
 Topics: multimodal communication, neurodiversity, virtual/artificial agents, embodied cognitive science, python, open science
 :::
 
@@ -49,7 +49,7 @@ Topics: multimodal communication, neurodiversity, virtual/artificial agents, emb
 ![](../images/marijn.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Marijn Hafkamp
+Marijn Hafkamp<br>
 [keywords]
 :::
 
@@ -57,7 +57,7 @@ Marijn Hafkamp
 ![](../images/sharjeel.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Sharjeel Ahmed Shaikh**
+**Sharjeel Ahmed Shaikh**<br>
 Topics: pose estimation, gesture detection (envisionhgdetector), privacy-enabled data sharing
 :::
 
@@ -65,7 +65,7 @@ Topics: pose estimation, gesture detection (envisionhgdetector), privacy-enabled
 ![](../images/sarka.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Šárka Kadavá**
+**Šárka Kadavá**<br>
 Topics: multimodal communication, pose estimation, physical effort, signal processing, Python, reproducibility
 :::
 
@@ -73,7 +73,7 @@ Topics: multimodal communication, pose estimation, physical effort, signal proce
 ![](../images/tifanny.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Tifanny Matej Hrkalović**
+**Tifanny Matej Hrkalović**<br>
 Topics: social signal processing, human-AI interaction, social cognition, Python, person perceptions
 :::
 
@@ -81,7 +81,7 @@ Topics: social signal processing, human-AI interaction, social cognition, Python
 ![](../images/travis.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-**Travis Wiltshire**
+**Travis Wiltshire**<br>
 Topics: complex systems theory and methods, collective cognition, coordination dynamics, synchrony, R, open science
 :::
 
@@ -89,7 +89,7 @@ Topics: complex systems theory and methods, collective cognition, coordination d
 ![](../images/wim.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Wim Pouw
+**Wim Pouw**<br>
 Topics: multimodal coordination, movement science, (radical) embodied cognitive science, R, Python, open science, EnvisionBox
 :::
 

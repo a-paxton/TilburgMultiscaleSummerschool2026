@@ -1,5 +1,5 @@
 ---
-title: "Cheatsheet: loading the BalanceCorpus"
+title: "Cheatsheet: Loading the BalanceCorpus"
 subtitle: "MDIG2026"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
