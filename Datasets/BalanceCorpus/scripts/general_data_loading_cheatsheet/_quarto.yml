@@ -1,0 +1,42 @@
+project:
+  output-dir: ../../../../docs
+  type: website
+
+website:
+  sidebar:
+    style: "floating"
+    search: false
+    contents:
+      - text: "Tilburg Summerschool data loading cheatsheet"
+        href: index.qmd
+      - text: "Balance Corpus"
+        href: BalanceCorpusCheatSheet.qmd
+      - text: "Balance Corpus"
+        href: ../../PARSEL/general_data_loading_cheatsheet/ScriptsPARPARSELCheatSheet.qmd
+       
+metadata:
+  crossref:
+    chapters: true
+
+theme: united
+
+format:
+  html:
+    toc: true
+    fontsize: 12px
+    max-width: 8000px
+    toc-location: left
+    toc-title: "Contents"
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    css: |
+      .quarto-container {
+        max-width: 8000px !important;
+      }
+      body {
+        font-size: 10px;
+      }
+
+engine: quarto
