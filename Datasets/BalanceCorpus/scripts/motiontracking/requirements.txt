@@ -1,0 +1,8 @@
+# Mediapiping — full-body tracking + masking/blurring/tracing
+# CPU-only. Works on Python 3.9–3.12 (NOT 3.13 yet — mediapipe has no 3.13 wheels).
+mediapipe==0.10.10     # Holistic tracking + body segmentation (legacy solutions API; verified working)
+opencv-python>=4.8     # video read/write and image operations (verified with OpenCV 4.x and 5.0)
+numpy>=1.24
+pandas>=2.0
+jupyter
+ipykernel
