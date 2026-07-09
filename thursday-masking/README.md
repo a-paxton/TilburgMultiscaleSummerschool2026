@@ -21,8 +21,8 @@ We use the **triadic concept generation dataset** (CDR Stanford, Edelman 2011) a
 | 12:05-12:30 | MaskBench: Did Your Masking Break Your Data? | Hands-on |
 | 12:30-13:00 | Lunch | |
 | 13:00-13:30 | Bring-Your-Own-Video + Audio Masking | Hands-on |
-| 13:30-13:45 | Archiving & Sharing | Lecture + Demo |
-| 13:45-14:00 | Wrap-Up & Integration with Group Projects | Discussion |
+| 13:30-13:40 | Archiving & Sharing | Lecture + Demo |
+| 13:40-14:00 | Dilemmask: card session, bridging into Friday's group projects | Discussion |
 
 ## Requirements
 
