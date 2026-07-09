@@ -26,7 +26,7 @@ Anna Palmann<br>
 :::
 ::: {.g-col-4}
 Babajide Owoyele<br>
-[keywords]
+Topics: design science, socio-semantic analysis, natural language processing, data archiving, multimodal analytics interfaces.
 :::
 
 ::: {.g-col-2}
