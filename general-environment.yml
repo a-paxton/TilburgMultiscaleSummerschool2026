@@ -1,0 +1,33 @@
+name: summerschool-processing-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.24
+  - pandas>=2.0
+  - scipy>=1.10
+  - scikit-learn
+  - matplotlib>=3.7
+  - seaborn
+  - librosa>=0.10
+  - pysoundfile
+  - ffmpeg
+  - ipykernel>=6.0
+  - requests
+  - pip:
+      - torch==2.13.0
+      - torchaudio==2.11.0
+      - pyannote-audio==4.0.7
+      - pyannoteai-sdk==0.4.0
+      - praat-parselmouth==0.4.7
+      - opensmile==2.5.0
+      - audiofile==1.3.0
+      - emd>=0.8
+      - jupyterlab>=4.0
+      - moviepy==2.1.1
+      - envisionhgdetector==3.0.1
+      - jupyter
+      - opencv-python>=4.7.0.72
+      - mediapipe==0.10.7

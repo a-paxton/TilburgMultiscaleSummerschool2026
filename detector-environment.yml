@@ -1,0 +1,19 @@
+name: summerschool-detector-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+
+  - pip:
+      - moviepy==2.1.1
+      - envisionhgdetector==3.0.1
+      - jupyter
+      - ipython
+      - ipykernel
+      - opencv-python>=4.7.0.72
+      - mediapipe==0.10.7
+      - pandas
+
+
