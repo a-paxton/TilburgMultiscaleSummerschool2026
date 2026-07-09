@@ -1,0 +1,91 @@
+project:
+  output-dir: docs
+  type: website
+
+website:
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - text: "Main page"
+        href: index.qmd
+      - text: "About organizers"
+        href: Handbook/Organizers.qmd
+
+      - section: "Dataset A: Balance Corpus"
+        contents:
+          - Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.qmd
+
+          - section: "Processing: Acoustics"
+            contents:
+              - Datasets/BalanceCorpus/scripts/continuousacoustics/Processing_acoustics.ipynb
+              - Datasets/BalanceCorpus/scripts/continuousacoustics/Speaker_diarization.ipynb
+              - "Open Smile"
+
+          - section: "Processing: Motion tracking"
+            contents:
+              - Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.ipynb
+              - Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.ipynb
+              - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
+
+      - section: "Dataset B: PARSEL"
+        contents:
+          - Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.qmd
+
+          - section: "Processing: Acoustics"
+            contents:
+              - Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.ipynb
+              - Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb
+              - "Open Smile"
+
+          - section: "Processing: Motion tracking"
+            contents:
+              - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
+              - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
+              - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
+
+
+      - section: "Analyses & Tools"
+
+  navbar:
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href:  https://github.com/WimPouw/TilburgMultiscaleSummerschool2026
+
+
+metadata:
+  crossref:
+    chapters: true
+
+theme: united
+
+format:
+  html:
+    theme: journal
+    toc: true
+    fontsize: 12px
+    max-width: 8000px
+    toc-location: right
+    toc-title: "Contents"
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    css: |
+      .quarto-container {
+        max-width: 8000px !important;
+      }
+      body {
+        font-size: 10px;
+      }
+
+engine: quarto
+
+execute:
+  enabled: false
+  freeze: false
+  warning: false
+  message: false
+  cache: false   

@@ -1,0 +1,13 @@
+Input:./videos_to_process/103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02.mp4
+Input full path:C:\data\modules\OpenFace\videos_to_process\103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02.hog
+Output video:103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02.avi
+Output aligned directory:103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02_aligned
+Output csv:103_203_29_1_20250113_153255_cherry_ground_clueGiver_cam02.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

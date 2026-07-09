@@ -1,0 +1,13 @@
+Input:./videos_to_process/108_208_28_1_20250114_162956_river_ground_clueGiver_cam01.mp4
+Input full path:C:\data\modules\OpenFace\videos_to_process\108_208_28_1_20250114_162956_river_ground_clueGiver_cam01.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output HOG:108_208_28_1_20250114_162956_river_ground_clueGiver_cam01.hog
+Output video:108_208_28_1_20250114_162956_river_ground_clueGiver_cam01.avi
+Output aligned directory:108_208_28_1_20250114_162956_river_ground_clueGiver_cam01_aligned
+Output csv:108_208_28_1_20250114_162956_river_ground_clueGiver_cam01.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

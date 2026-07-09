@@ -1,0 +1,16 @@
+torch==2.13.0
+torchaudio==2.11.0
+pyannote-audio==4.0.7
+pyannoteai-sdk==0.4.0
+praat-parselmouth==0.4.7
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+librosa
+pysoundfile
+ffmpeg
+ipykernel
+requests

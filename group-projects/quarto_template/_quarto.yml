@@ -1,0 +1,53 @@
+project:
+  output-dir: docs
+  type: website
+
+website:
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - text: "Main page"
+        href: index.qmd
+      - section: "Processing"
+        contents:
+          - Script_A.ipynb
+
+      - section: "Analysis"
+        contents:
+          - Script_B.qmd
+
+metadata:
+  crossref:
+    chapters: true
+
+theme: united
+
+format:
+  html:
+    theme: journal
+    toc: true
+    fontsize: 12px
+    max-width: 8000px
+    toc-location: right
+    toc-title: "Contents"
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    css: |
+      .quarto-container {
+        max-width: 8000px !important;
+      }
+      body {
+        font-size: 10px;
+      }
+
+engine: quarto
+
+execute:
+  enabled: false
+  freeze: false
+  warning: false
+  message: false
+  cache: false   

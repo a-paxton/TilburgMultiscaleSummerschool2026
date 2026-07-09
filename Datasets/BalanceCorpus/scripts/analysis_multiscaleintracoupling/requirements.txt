@@ -1,0 +1,8 @@
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+matplotlib>=3.7
+emd>=0.8
+jupyterlab>=4.0
+ipykernel>=6.0
+librosa>=0.10

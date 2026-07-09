@@ -1,3 +1,14 @@
 
 
 *_nenorm.csv
+
+Datasets/StanfordTriad/data
+/Datasets/PARSEL/data
+<<<<<<< Updated upstream
+
+/.quarto/
+=======
+>>>>>>> Stashed changes
+
+**/*.quarto_ipynb
+MMLab_MDIG_Dav_Sarka.pptx
