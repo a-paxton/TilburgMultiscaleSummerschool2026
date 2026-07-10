@@ -114,3 +114,55 @@ The final presentation is 10 minutes long with 5 minutes for questions. It is ad
 - **Toward pre-registration (1-2 min):** What is your research question for the full dataset? What are your hypotheses and planned methods? What would you need to confirm before running those analyses?
 
 All group members should be visible contributors, either as speakers or as the person fielding specific questions. Slides or some other visual form (e.g., a Quarto notebook) are required. Groups are encouraged to include a short slide at the end detailing individual contributions (e.g., using the CRediT taxonomy), but no time in the presentation need be allocated to this.
+
+---
+
+## Groups
+
+**● Purple**
+
+- Ying Cui
+- Ethel Pruss
+- Oliver Eksteins
+- T’kara Mullins
+- Zeynep M. Suata
+
+**■ Blue**
+
+- Kristina Koch
+- Matteo Schmelzer
+- Nthabiseng Shongwe
+- Solveigh Janzen
+
+**▲ Green**
+
+- Apollo Reyes Martes
+- Lisa Gottschalk
+- Hester van Beek
+- Sébastien Vandenitte
+- Ward Deferm
+
+**★ Yellow**
+
+- Jemima Agnew
+- Madalina Sas
+- Moritz Bammel
+- Satyajeet Prabhu
+- Svea Boesch
+
+**◆ Orange**
+
+- Michal Weiss
+- Tessa Cancio Pastor
+- Timo Kalliokoski
+- Xuancu Hong
+- Ann Hogenhuis
+
+**✚ Pink**
+
+- Kyle Samson
+- Mariana Carneiro de Andrade
+- Ngoungouo Yiagnigni Abass
+- Teona Banu
+- Thibaud Glasman
+- Tobias Ashdown
