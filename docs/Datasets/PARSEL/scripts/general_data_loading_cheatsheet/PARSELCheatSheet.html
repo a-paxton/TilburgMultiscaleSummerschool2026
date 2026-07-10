@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-09">
+<meta name="dcterms.date" content="2026-07-10">
 
 <title>Cheatsheet: Loading the PARSEL Corpus</title>
 <style>
@@ -325,6 +325,8 @@ body {
   <li><a href="#amplitude-envelope" id="toc-amplitude-envelope" class="nav-link" data-scroll-target="#amplitude-envelope">Amplitude envelope</a></li>
   <li><a href="#f0-and-voicing-onoffsets" id="toc-f0-and-voicing-onoffsets" class="nav-link" data-scroll-target="#f0-and-voicing-onoffsets">F0 and voicing on/offsets</a></li>
   </ul></li>
+  <li><a href="#opensmile" id="toc-opensmile" class="nav-link" data-scroll-target="#opensmile">OpenSmile</a></li>
+  <li><a href="#openface" id="toc-openface" class="nav-link" data-scroll-target="#openface">OpenFace</a></li>
   <li><a href="#video-and-audio" id="toc-video-and-audio" class="nav-link" data-scroll-target="#video-and-audio">Video and audio</a></li>
   <li><a href="#channel-summary" id="toc-channel-summary" class="nav-link" data-scroll-target="#channel-summary">Channel summary</a></li>
   </ul>
@@ -347,7 +349,7 @@ body {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 9, 2026</p>
+      <p class="date">July 10, 2026</p>
     </div>
   </div>
   
@@ -379,7 +381,17 @@ body {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>acoustics <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/TS_acoustics"</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>gestures  <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/gestureclassifications"</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>videos    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/videos"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>audios    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/audios"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>audios    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/audios"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_pid(filename):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(<span class="vs">r"PID_</span><span class="dv">\d</span><span class="op">+</span><span class="vs">"</span>, filename)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> match.group() <span class="cf">if</span> match <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mask_from_spans(spans, time):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> np.zeros(<span class="bu">len</span>(time), dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> on, off <span class="kw">in</span> spans[[<span class="st">"onset"</span>, <span class="st">"offset"</span>]].itertuples(index<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        m <span class="op">|=</span> (time <span class="op">&gt;=</span> on) <span class="op">&amp;</span> (time <span class="op">&lt;=</span> off)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -432,30 +444,63 @@ body {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="op">=</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/env_*.csv"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pair, trial <span class="op">=</span> parse_pair_trial(envelope_files[<span class="dv">0</span>])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> pd.read_csv(envelope_files[<span class="dv">0</span>])</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>env[<span class="st">"time_s"</span>] <span class="op">=</span> env[<span class="st">"time"</span>] <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pair, trial, env.shape)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>env.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pcn <span class="op">=</span> extract_pid(os.path.basename(envelope_files[<span class="dv">0</span>]))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> pd.read_csv(envelope_files[<span class="dv">0</span>])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>env[<span class="st">"time_s"</span>] <span class="op">=</span> env[<span class="st">"time"</span>] <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(env.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>(90660, 5)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>env.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   time     audio  ...                                           filename time_s
+0   0.0  0.000000  ...  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-Batc...  0.000
+1   2.0  0.000000  ...  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-Batc...  0.002
+2   4.0  0.000000  ...  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-Batc...  0.004
+3   6.0  0.000000  ...  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-Batc...  0.006
+4   8.0  0.000031  ...  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-Batc...  0.008
+
+[5 rows x 5 columns]</code></pre>
+</div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">2.4</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ax.plot(env[<span class="st">"time_s"</span>], env[<span class="st">"envelope"</span>], lw<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"time (s)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"envelope"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">2.4</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax.plot(env[<span class="st">"time_s"</span>], env[<span class="st">"envelope"</span>], lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"time (s)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"envelope"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="PARSELCheatSheet_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^env_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(envelope_files[<span class="dv">1</span>]) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">time_s =</span> time <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^env_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(envelope_files[<span class="dv">1</span>]) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">time_s =</span> time <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   time     audio   envelope filename                                     time_s
+  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                         &lt;dbl&gt;
+1     0 0         0.00000747 conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0    
+2     2 0         0.00000829 conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0.002
+3     4 0         0.00000913 conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0.004
+4     6 0         0.00000998 conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0.006
+5     8 0.0000305 0.0000108  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0.008
+6    10 0.0000305 0.0000116  conv-self-LPID_1-Batch_10-LPID_2-Batch_10-B…  0.01 </code></pre>
+</div>
 </div>
 </section>
 <section id="f0-and-voicing-onoffsets" class="level2">
@@ -464,158 +509,102 @@ body {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> voicing_segments(f0_path):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(f0_path)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> df[<span class="st">"time_ms"</span>].to_numpy() <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    voiced <span class="op">=</span> df[<span class="st">"f0"</span>].notna().to_numpy()</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> np.diff(voiced.astype(<span class="bu">int</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    onsets, offsets <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="dv">1</span>], t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="dv">0</span>]:  onsets  <span class="op">=</span> np.r_[t[<span class="dv">0</span>], onsets]</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="op">-</span><span class="dv">1</span>]: offsets <span class="op">=</span> np.r_[offsets, t[<span class="op">-</span><span class="dv">1</span>]]</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"onset"</span>: onsets, <span class="st">"offset"</span>: offsets})</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> []</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/f0_*.csv"</span>):</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    p, tr <span class="op">=</span> parse_pair_trial(f)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    seg <span class="op">=</span> voicing_segments(f)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    seg[<span class="st">"pair"</span>], seg[<span class="st">"trial"</span>] <span class="op">=</span> p, tr</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    voicing.append(seg)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> pd.concat(voicing, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voicing<span class="sc">.</span>groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>voicing.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> voicing_segments(f0_path):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(f0_path)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> df[<span class="st">"time_ms"</span>].to_numpy() <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    voiced <span class="op">=</span> df[<span class="st">"f0"</span>].notna().to_numpy()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> np.diff(voiced.astype(<span class="bu">int</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    onsets, offsets <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="dv">1</span>], t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="dv">0</span>]:  onsets  <span class="op">=</span> np.r_[t[<span class="dv">0</span>], onsets]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="op">-</span><span class="dv">1</span>]: offsets <span class="op">=</span> np.r_[offsets, t[<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"onset"</span>: onsets, <span class="st">"offset"</span>: offsets})</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> []</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/f0_*.csv"</span>):</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> extract_pid(os.path.basename(f))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    seg <span class="op">=</span> voicing_segments(f)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    seg[<span class="st">"pcn"</span>] <span class="op">=</span> p</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    voicing.append(seg)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> pd.concat(voicing, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voicing<span class="sc">.</span>groupby([<span class="st">'pcn'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>6 trials, 33990 voiced segments</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>voicing.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      onset    offset    pcn
+0  2.454514  2.628551  PID_1
+1  2.680562  2.946618  PID_1
+2  3.058641  3.524739  PID_1
+3  5.835223  6.093277  PID_1
+4  6.207301  6.371335  PID_1</code></pre>
+</div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>vspan <span class="op">=</span> voicing[(voicing[<span class="st">"pair"</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (voicing[<span class="st">"trial"</span>] <span class="op">==</span> trial)]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>voiced_mask <span class="op">=</span> mask_from_spans(vspan, env[<span class="st">"time_s"</span>].to_numpy())</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voiced_mask<span class="sc">.</span>mean()<span class="sc">:.0%}</span><span class="ss"> voiced"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vspan <span class="op">=</span> voicing[(voicing[<span class="st">"pcn"</span>] <span class="op">==</span> p)]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>voiced_mask <span class="op">=</span> mask_from_spans(vspan, env[<span class="st">"time_s"</span>].to_numpy())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voiced_mask<span class="sc">.</span>mean()<span class="sc">:.0%}</span><span class="ss"> voiced"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>99% voiced</code></pre>
+</div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>voicing_segments <span class="ot">&lt;-</span> <span class="cf">function</span>(f0_path) {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f0_path, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> df<span class="sc">$</span>time_ms <span class="sc">/</span> <span class="dv">1000</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  voiced <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>f0)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  edges <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">as.integer</span>(voiced))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  onsets  <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span>  <span class="dv">1</span>]</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  offsets <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="dv">1</span>]) onsets <span class="ot">&lt;-</span> <span class="fu">c</span>(t[<span class="dv">1</span>], onsets)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="fu">length</span>(voiced)]) offsets <span class="ot">&lt;-</span> <span class="fu">c</span>(offsets, t[<span class="fu">length</span>(t)])</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">onset =</span> onsets, <span class="at">offset =</span> offsets)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>f0_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^f0_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">voicing_segments</span>(f0_files[<span class="dv">1</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>voicing_segments <span class="ot">&lt;-</span> <span class="cf">function</span>(f0_path) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f0_path, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> df<span class="sc">$</span>time_ms <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  voiced <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>f0)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  edges <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">as.integer</span>(voiced))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  onsets  <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span>  <span class="dv">1</span>]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  offsets <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="dv">1</span>]) onsets <span class="ot">&lt;-</span> <span class="fu">c</span>(t[<span class="dv">1</span>], onsets)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="fu">length</span>(voiced)]) offsets <span class="ot">&lt;-</span> <span class="fu">c</span>(offsets, t[<span class="fu">length</span>(t)])</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">onset =</span> onsets, <span class="at">offset =</span> offsets)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>f0_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^f0_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">voicing_segments</span>(f0_files[<span class="dv">1</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  onset offset
+  &lt;dbl&gt;  &lt;dbl&gt;
+1  2.45   2.63
+2  2.68   2.95
+3  3.06   3.52
+4  5.84   6.09
+5  6.21   6.37
+6  6.50   6.64</code></pre>
+</div>
 </div>
 </section>
+</section>
+<section id="opensmile" class="level1">
+<h1>OpenSmile</h1>
+</section>
+<section id="openface" class="level1">
+<h1>OpenFace</h1>
 </section>
 <section id="video-and-audio" class="level1">
 <h1>Video and audio</h1>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can we view audio/video sample?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can we view audio/video sample?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
 <section id="channel-summary" class="level1">
 <h1>Channel summary</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Channel</th>
-<th>File</th>
-<th>Key</th>
-<th>Clock</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Metadata</td>
-<td><code>metadata.csv</code></td>
-<td><code>pair_id</code>, <code>trial_number</code></td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td>Demographics</td>
-<td><code>demographics.csv</code></td>
-<td><code>participant_id</code></td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td>Envelope</td>
-<td><code>TS_acoustics/env_*.csv</code></td>
-<td>filename</td>
-<td>audio, ms</td>
-</tr>
-<tr class="even">
-<td>F0 / voicing</td>
-<td><code>TS_acoustics/f0_*.csv</code></td>
-<td>filename</td>
-<td>audio, ms</td>
-</tr>
-<tr class="odd">
-<td>Gyroscope</td>
-<td><code>gyroscope.csv</code></td>
-<td><code>group_name</code>, <code>trial_number</code></td>
-<td>ISO timestamps</td>
-</tr>
-<tr class="even">
-<td>Gesture kinematics</td>
-<td><code>gestureclassifications/analysis/kinematic_features.csv</code></td>
-<td><code>gesture_id</code></td>
-<td>video, s</td>
-</tr>
-<tr class="odd">
-<td>Detector frames</td>
-<td><code>**/*_predictions.csv</code></td>
-<td>filename</td>
-<td>video, frames</td>
-</tr>
-<tr class="even">
-<td>ELAN</td>
-<td><code>**/&lt;video&gt;.mp4.eaf</code></td>
-<td>filename</td>
-<td>video, ms</td>
-</tr>
-<tr class="odd">
-<td>DTW distances</td>
-<td><code>gestureclassifications/analysis/dtw_distances.csv</code></td>
-<td><code>gesture_id</code></td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td>UMAP</td>
-<td><code>gestureclassifications/analysis/gesture_visualization.csv</code></td>
-<td><code>gesture</code></td>
-<td>—</td>
-</tr>
-<tr class="odd">
-<td>Video</td>
-<td><code>videos/&lt;pair&gt;/&lt;role&gt;/</code></td>
-<td><code>metadata.video_*</code></td>
-<td>video, s</td>
-</tr>
-<tr class="even">
-<td>Audio</td>
-<td><code>audios/&lt;pair&gt;/</code></td>
-<td><code>metadata.audio_file_name</code></td>
-<td>audio, s</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- -->
@@ -1074,170 +1063,186 @@ body {
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cheatsheet: Loading the PARSEL Corpus"</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "MDIG2026"</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r format(Sys.time(), '%B %d, %Y')`"</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>#<span class="al">![](images/banner.gif)</span>{fig-align="center" width=100%} ## here possible to add image</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>Here can be explained the naming convention</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Setup</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, re, glob</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>CORPUS    <span class="op">=</span> <span class="st">"../.."</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>acoustics <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/TS_acoustics"</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>gestures  <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/gestureclassifications"</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>videos    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/videos"</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>audios    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/audios"</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## R</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>CORPUS    <span class="ot">&lt;-</span> <span class="st">"../.."</span></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>acoustics <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"TS_acoustics"</span>)</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>gestures  <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"gestureclassifications"</span>)</span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>videos    <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"videos"</span>)</span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>audios    <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"audios"</span>)</span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Metadata</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>Can we display something from demographics if data is not publicly shared?</span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demographics</span></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>Same question</span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="fu"># Acoustics</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Amplitude envelope</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="in">`time`</span> is in **milliseconds**.</span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="op">=</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/env_*.csv"</span>)</span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>pair, trial <span class="op">=</span> parse_pair_trial(envelope_files[<span class="dv">0</span>])</span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> pd.read_csv(envelope_files[<span class="dv">0</span>])</span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a>env[<span class="st">"time_s"</span>] <span class="op">=</span> env[<span class="st">"time"</span>] <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pair, trial, env.shape)</span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>env.head()</span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">2.4</span>))</span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>ax.plot(env[<span class="st">"time_s"</span>], env[<span class="st">"envelope"</span>], lw<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"time (s)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"envelope"</span>)</span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^env_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(envelope_files[<span class="dv">1</span>]) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">time_s =</span> time <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env)</span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## F0 and voicing on/offsets</span></span>
-<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="in">`f0`</span> is blank where unvoiced. Rising/falling edges of that give voiced segments.</span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> voicing_segments(f0_path):</span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(f0_path)</span>
-<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> df[<span class="st">"time_ms"</span>].to_numpy() <span class="op">/</span> <span class="fl">1000.0</span></span>
-<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>    voiced <span class="op">=</span> df[<span class="st">"f0"</span>].notna().to_numpy()</span>
-<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> np.diff(voiced.astype(<span class="bu">int</span>))</span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>    onsets, offsets <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="dv">1</span>], t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="dv">0</span>]:  onsets  <span class="op">=</span> np.r_[t[<span class="dv">0</span>], onsets]</span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="op">-</span><span class="dv">1</span>]: offsets <span class="op">=</span> np.r_[offsets, t[<span class="op">-</span><span class="dv">1</span>]]</span>
-<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"onset"</span>: onsets, <span class="st">"offset"</span>: offsets})</span>
-<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> []</span>
-<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/f0_*.csv"</span>):</span>
-<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>    p, tr <span class="op">=</span> parse_pair_trial(f)</span>
-<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>    seg <span class="op">=</span> voicing_segments(f)</span>
-<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>    seg[<span class="st">"pair"</span>], seg[<span class="st">"trial"</span>] <span class="op">=</span> p, tr</span>
-<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>    voicing.append(seg)</span>
-<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> pd.concat(voicing, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voicing<span class="sc">.</span>groupby([<span class="st">'pair'</span>,<span class="st">'trial'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span>
-<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>voicing.head()</span>
-<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>vspan <span class="op">=</span> voicing[(voicing[<span class="st">"pair"</span>] <span class="op">==</span> pair) <span class="op">&amp;</span> (voicing[<span class="st">"trial"</span>] <span class="op">==</span> trial)]</span>
-<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>voiced_mask <span class="op">=</span> mask_from_spans(vspan, env[<span class="st">"time_s"</span>].to_numpy())</span>
-<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voiced_mask<span class="sc">.</span>mean()<span class="sc">:.0%}</span><span class="ss"> voiced"</span>)</span>
-<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>voicing_segments <span class="ot">&lt;-</span> <span class="cf">function</span>(f0_path) {</span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f0_path, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> df<span class="sc">$</span>time_ms <span class="sc">/</span> <span class="dv">1000</span></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  voiced <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>f0)</span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>  edges <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">as.integer</span>(voiced))</span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>  onsets  <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span>  <span class="dv">1</span>]</span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>  offsets <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="dv">1</span>]) onsets <span class="ot">&lt;-</span> <span class="fu">c</span>(t[<span class="dv">1</span>], onsets)</span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="fu">length</span>(voiced)]) offsets <span class="ot">&lt;-</span> <span class="fu">c</span>(offsets, t[<span class="fu">length</span>(t)])</span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">onset =</span> onsets, <span class="at">offset =</span> offsets)</span>
-<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>f0_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^f0_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">voicing_segments</span>(f0_files[<span class="dv">1</span>]))</span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a><span class="fu"># Video and audio</span></span>
-<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a><span class="co"># can we view audio/video sample?</span></span>
-<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="fu"># Channel summary</span></span>
-<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Channel <span class="pp">|</span> File <span class="pp">|</span> Key <span class="pp">|</span> Clock <span class="pp">|</span></span>
-<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|</span></span>
-<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Metadata <span class="pp">|</span> <span class="in">`metadata.csv`</span> <span class="pp">|</span> <span class="in">`pair_id`</span>, <span class="in">`trial_number`</span> <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Demographics <span class="pp">|</span> <span class="in">`demographics.csv`</span> <span class="pp">|</span> <span class="in">`participant_id`</span> <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Envelope <span class="pp">|</span> <span class="in">`TS_acoustics/env_*.csv`</span> <span class="pp">|</span> filename <span class="pp">|</span> audio, ms <span class="pp">|</span></span>
-<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> F0 / voicing <span class="pp">|</span> <span class="in">`TS_acoustics/f0_*.csv`</span> <span class="pp">|</span> filename <span class="pp">|</span> audio, ms <span class="pp">|</span></span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gyroscope <span class="pp">|</span> <span class="in">`gyroscope.csv`</span> <span class="pp">|</span> <span class="in">`group_name`</span>, <span class="in">`trial_number`</span> <span class="pp">|</span> ISO timestamps <span class="pp">|</span></span>
-<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Gesture kinematics <span class="pp">|</span> <span class="in">`gestureclassifications/analysis/kinematic_features.csv`</span> <span class="pp">|</span> <span class="in">`gesture_id`</span> <span class="pp">|</span> video, s <span class="pp">|</span></span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Detector frames <span class="pp">|</span> <span class="in">`**/*_predictions.csv`</span> <span class="pp">|</span> filename <span class="pp">|</span> video, frames <span class="pp">|</span></span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ELAN <span class="pp">|</span> <span class="in">`**/&lt;video&gt;.mp4.eaf`</span> <span class="pp">|</span> filename <span class="pp">|</span> video, ms <span class="pp">|</span></span>
-<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> DTW distances <span class="pp">|</span> <span class="in">`gestureclassifications/analysis/dtw_distances.csv`</span> <span class="pp">|</span> <span class="in">`gesture_id`</span> <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> UMAP <span class="pp">|</span> <span class="in">`gestureclassifications/analysis/gesture_visualization.csv`</span> <span class="pp">|</span> <span class="in">`gesture`</span> <span class="pp">|</span> — <span class="pp">|</span></span>
-<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Video <span class="pp">|</span> <span class="in">`videos/&lt;pair&gt;/&lt;role&gt;/`</span> <span class="pp">|</span> <span class="in">`metadata.video_*`</span> <span class="pp">|</span> video, s <span class="pp">|</span></span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Audio <span class="pp">|</span> <span class="in">`audios/&lt;pair&gt;/`</span> <span class="pp">|</span> <span class="in">`metadata.audio_file_name`</span> <span class="pp">|</span> audio, s <span class="pp">|</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cheatsheet: Loading the PARSEL Corpus"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "MDIG2026"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r format(Sys.time(), '%B %d, %Y')`"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>#<span class="al">![](images/banner.gif)</span>{fig-align="center" width=100%} ## here possible to add image</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>Here can be explained the naming convention</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Setup</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_require</span>(<span class="fu">c</span>(<span class="st">"pandas"</span>, <span class="st">"numpy"</span>, <span class="st">"matplotlib"</span>, <span class="st">"scipy"</span>, <span class="st">"moviepy"</span>, <span class="st">"pympi-ling"</span>))</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>required_packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"phonfieldwork"</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop over the packages and check if they are installed</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (package <span class="cf">in</span> required_packages) {</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(package, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, re, glob</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>CORPUS    <span class="op">=</span> <span class="st">"../.."</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>acoustics <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/TS_acoustics"</span></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>gestures  <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/gestureclassifications"</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>videos    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/videos"</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>audios    <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>CORPUS<span class="sc">}</span><span class="ss">/audios"</span></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_pid(filename):</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(<span class="vs">r"PID_</span><span class="dv">\d</span><span class="op">+</span><span class="vs">"</span>, filename)</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> match.group() <span class="cf">if</span> match <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mask_from_spans(spans, time):</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> np.zeros(<span class="bu">len</span>(time), dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> on, off <span class="kw">in</span> spans[[<span class="st">"onset"</span>, <span class="st">"offset"</span>]].itertuples(index<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>        m <span class="op">|=</span> (time <span class="op">&gt;=</span> on) <span class="op">&amp;</span> (time <span class="op">&lt;=</span> off)</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## R</span></span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>CORPUS    <span class="ot">&lt;-</span> <span class="st">"../.."</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>acoustics <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"TS_acoustics"</span>)</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>gestures  <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"gestureclassifications"</span>)</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>videos    <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"videos"</span>)</span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>audios    <span class="ot">&lt;-</span> <span class="fu">file.path</span>(CORPUS, <span class="st">"audios"</span>)</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a><span class="fu"># Metadata</span></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>Can we display something from demographics if data is not publicly shared?</span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demographics</span></span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a>Same question</span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="fu"># Acoustics</span></span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Amplitude envelope</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a><span class="in">`time`</span> is in **milliseconds**.</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="op">=</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/env_*.csv"</span>)</span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a>pcn <span class="op">=</span> extract_pid(os.path.basename(envelope_files[<span class="dv">0</span>]))</span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> pd.read_csv(envelope_files[<span class="dv">0</span>])</span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a>env[<span class="st">"time_s"</span>] <span class="op">=</span> env[<span class="st">"time"</span>] <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(env.shape)</span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a>env.head()</span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">2.4</span>))</span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>ax.plot(env[<span class="st">"time_s"</span>], env[<span class="st">"envelope"</span>], lw<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"time (s)"</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">"envelope"</span>)</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>envelope_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^env_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(envelope_files[<span class="dv">1</span>]) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">time_s =</span> time <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env)</span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## F0 and voicing on/offsets</span></span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a><span class="in">`f0`</span> is blank where unvoiced. Rising/falling edges of that give voiced segments.</span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> voicing_segments(f0_path):</span>
+<span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(f0_path)</span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> df[<span class="st">"time_ms"</span>].to_numpy() <span class="op">/</span> <span class="fl">1000.0</span></span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a>    voiced <span class="op">=</span> df[<span class="st">"f0"</span>].notna().to_numpy()</span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> np.diff(voiced.astype(<span class="bu">int</span>))</span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a>    onsets, offsets <span class="op">=</span> t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="dv">1</span>], t[<span class="dv">1</span>:][edges <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="dv">0</span>]:  onsets  <span class="op">=</span> np.r_[t[<span class="dv">0</span>], onsets]</span>
+<span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> voiced[<span class="op">-</span><span class="dv">1</span>]: offsets <span class="op">=</span> np.r_[offsets, t[<span class="op">-</span><span class="dv">1</span>]]</span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"onset"</span>: onsets, <span class="st">"offset"</span>: offsets})</span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> []</span>
+<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> glob.glob(<span class="ss">f"</span><span class="sc">{</span>acoustics<span class="sc">}</span><span class="ss">/f0_*.csv"</span>):</span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> extract_pid(os.path.basename(f))</span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a>    seg <span class="op">=</span> voicing_segments(f)</span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a>    seg[<span class="st">"pcn"</span>] <span class="op">=</span> p</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a>    voicing.append(seg)</span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a>voicing <span class="op">=</span> pd.concat(voicing, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voicing<span class="sc">.</span>groupby([<span class="st">'pcn'</span>])<span class="sc">.</span>ngroups<span class="sc">}</span><span class="ss"> trials, </span><span class="sc">{</span><span class="bu">len</span>(voicing)<span class="sc">}</span><span class="ss"> voiced segments"</span>)</span>
+<span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a>voicing.head()</span>
+<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a>vspan <span class="op">=</span> voicing[(voicing[<span class="st">"pcn"</span>] <span class="op">==</span> p)]</span>
+<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a>voiced_mask <span class="op">=</span> mask_from_spans(vspan, env[<span class="st">"time_s"</span>].to_numpy())</span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>voiced_mask<span class="sc">.</span>mean()<span class="sc">:.0%}</span><span class="ss"> voiced"</span>)</span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a>voicing_segments <span class="ot">&lt;-</span> <span class="cf">function</span>(f0_path) {</span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f0_path, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> df<span class="sc">$</span>time_ms <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a>  voiced <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>f0)</span>
+<span id="cb19-174"><a href="#cb19-174" aria-hidden="true" tabindex="-1"></a>  edges <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">as.integer</span>(voiced))</span>
+<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a>  onsets  <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span>  <span class="dv">1</span>]</span>
+<span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a>  offsets <span class="ot">&lt;-</span> t[<span class="sc">-</span><span class="dv">1</span>][edges <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="dv">1</span>]) onsets <span class="ot">&lt;-</span> <span class="fu">c</span>(t[<span class="dv">1</span>], onsets)</span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (voiced[<span class="fu">length</span>(voiced)]) offsets <span class="ot">&lt;-</span> <span class="fu">c</span>(offsets, t[<span class="fu">length</span>(t)])</span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">onset =</span> onsets, <span class="at">offset =</span> offsets)</span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a>f0_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(acoustics, <span class="at">pattern =</span> <span class="st">"^f0_.*</span><span class="sc">\\</span><span class="st">.csv$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">voicing_segments</span>(f0_files[<span class="dv">1</span>]))</span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a><span class="fu"># OpenSmile</span></span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="fu"># OpenFace</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a><span class="fu"># Video and audio</span></span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a><span class="co"># can we view audio/video sample?</span></span>
+<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="fu"># Channel summary</span></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

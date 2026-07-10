@@ -10,6 +10,22 @@ Every channel is keyed by **pair** (`103_203`) and **trial** (`12`). Set `CORPUS
 
 # Setup
 
+```{r}
+#| include: false
+reticulate::py_require(c("pandas", "numpy", "matplotlib", "scipy", "moviepy", "pympi-ling"))
+
+required_packages <- c("tidyverse", "phonfieldwork")
+
+# Loop over the packages and check if they are installed
+for (package in required_packages) {
+  if (!require(package, character.only = TRUE)) {
+    install.packages(package, repos = "https://cloud.r-project.org")
+    library(package, character.only = TRUE)
+  }
+}
+```
+
+
 ::: {.panel-tabset}
 
 ## Python

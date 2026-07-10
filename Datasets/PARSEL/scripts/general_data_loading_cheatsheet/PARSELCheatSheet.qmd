@@ -10,6 +10,21 @@ Here can be explained the naming convention
 
 # Setup
 
+```{r}
+#| include: false
+reticulate::py_require(c("pandas", "numpy", "matplotlib", "scipy", "moviepy", "pympi-ling"))
+
+required_packages <- c("tidyverse", "phonfieldwork")
+
+# Loop over the packages and check if they are installed
+for (package in required_packages) {
+  if (!require(package, character.only = TRUE)) {
+    install.packages(package, repos = "https://cloud.r-project.org")
+    library(package, character.only = TRUE)
+  }
+}
+```
+
 ::: {.panel-tabset}
 
 ## Python
@@ -26,6 +41,16 @@ gestures  = f"{CORPUS}/gestureclassifications"
 videos    = f"{CORPUS}/videos"
 audios    = f"{CORPUS}/audios"
 
+def extract_pid(filename):
+    match = re.search(r"PID_\d+", filename)
+    return match.group() if match else None
+  
+def mask_from_spans(spans, time):
+    m = np.zeros(len(time), dtype=bool)
+    for on, off in spans[["onset", "offset"]].itertuples(index=False):
+        m |= (time >= on) & (time <= off)
+    return m
+
 ```
 
 ## R
@@ -41,6 +66,8 @@ acoustics <- file.path(CORPUS, "TS_acoustics")
 gestures  <- file.path(CORPUS, "gestureclassifications")
 videos    <- file.path(CORPUS, "videos")
 audios    <- file.path(CORPUS, "audios")
+
+
 ```
 
 :::
@@ -66,11 +93,10 @@ Same question
 
 ```{python}
 envelope_files = glob.glob(f"{acoustics}/env_*.csv")
-pair, trial = parse_pair_trial(envelope_files[0])
-
+pcn = extract_pid(os.path.basename(envelope_files[0]))
 env = pd.read_csv(envelope_files[0])
 env["time_s"] = env["time"] / 1000.0
-print(pair, trial, env.shape)
+print(env.shape)
 env.head()
 ```
 
@@ -105,18 +131,18 @@ def voicing_segments(f0_path):
 
 voicing = []
 for f in glob.glob(f"{acoustics}/f0_*.csv"):
-    p, tr = parse_pair_trial(f)
+    p = extract_pid(os.path.basename(f))
     seg = voicing_segments(f)
-    seg["pair"], seg["trial"] = p, tr
+    seg["pcn"] = p
     voicing.append(seg)
 voicing = pd.concat(voicing, ignore_index=True)
 
-print(f"{voicing.groupby(['pair','trial']).ngroups} trials, {len(voicing)} voiced segments")
+print(f"{voicing.groupby(['pcn']).ngroups} trials, {len(voicing)} voiced segments")
 voicing.head()
 ```
 
 ```{python}
-vspan = voicing[(voicing["pair"] == pair) & (voicing["trial"] == trial)]
+vspan = voicing[(voicing["pcn"] == p)]
 voiced_mask = mask_from_spans(vspan, env["time_s"].to_numpy())
 print(f"{voiced_mask.mean():.0%} voiced")
 ```
@@ -139,6 +165,10 @@ f0_files <- list.files(acoustics, pattern = "^f0_.*\\.csv$", full.names = TRUE)
 head(voicing_segments(f0_files[1]))
 ```
 
+# OpenSmile
+
+# OpenFace
+
 # Video and audio
 
 ```{python}
@@ -148,18 +178,4 @@ head(voicing_segments(f0_files[1]))
 
 # Channel summary
 
-| Channel | File | Key | Clock |
-|---|---|---|---|
-| Metadata | `metadata.csv` | `pair_id`, `trial_number` | — |
-| Demographics | `demographics.csv` | `participant_id` | — |
-| Envelope | `TS_acoustics/env_*.csv` | filename | audio, ms |
-| F0 / voicing | `TS_acoustics/f0_*.csv` | filename | audio, ms |
-| Gyroscope | `gyroscope.csv` | `group_name`, `trial_number` | ISO timestamps |
-| Gesture kinematics | `gestureclassifications/analysis/kinematic_features.csv` | `gesture_id` | video, s |
-| Detector frames | `**/*_predictions.csv` | filename | video, frames |
-| ELAN | `**/<video>.mp4.eaf` | filename | video, ms |
-| DTW distances | `gestureclassifications/analysis/dtw_distances.csv` | `gesture_id` | — |
-| UMAP | `gestureclassifications/analysis/gesture_visualization.csv` | `gesture` | — |
-| Video | `videos/<pair>/<role>/` | `metadata.video_*` | video, s |
-| Audio | `audios/<pair>/` | `metadata.audio_file_name` | audio, s |
 

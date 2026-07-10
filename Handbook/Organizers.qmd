@@ -10,23 +10,23 @@ title: About organizers
 :::
 ::: {.g-col-4}
 **Andrea González Sánchez**<br> 
-[keywords]
+Topics: multimodal communication, group coordination dynamics, music, aesthetic experiences, Python
 :::
 
 ::: {.g-col-2}
 ![](../images/anna.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Anna Palmann<br>
-[keywords]
+**Anna Palmann**<br>
+Topics: multimodal communication, hearing impairments, accessibility and inclusion, dyadic interaction
 :::
 
 ::: {.g-col-2}
 ![](../images/babajide.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Babajide Owoyele<br>
-Topics: design science, socio-semantic analysis, natural language processing, data archiving, multimodal analytics interfaces.
+**Babajide Owoyele**<br>
+Topics: design science, socio-semantic analysis, natural language processing, data archiving, multimodal analytics interfaces
 :::
 
 ::: {.g-col-2}
@@ -49,8 +49,8 @@ Topics: multimodal communication, neurodiversity, virtual/artificial agents, emb
 ![](../images/marijn.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
-Marijn Hafkamp<br>
-[keywords]
+**Marijn Hafkamp**<br>
+Topics: motor learning, interpersonal coordination, joint action, ecological psychology, complex/dynamical systems theory, motion capture
 :::
 
 ::: {.g-col-2}
@@ -66,7 +66,7 @@ Topics: pose estimation, gesture detection (envisionhgdetector), privacy-enabled
 :::
 ::: {.g-col-4}
 **Šárka Kadavá**<br>
-Topics: multimodal communication, pose estimation, physical effort, signal processing, Python, reproducibility
+Topics: multimodal communication, multimodal data collection, pose estimation, physical effort, signal processing, Python, reproducibility
 :::
 
 ::: {.g-col-2}

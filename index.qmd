@@ -1,6 +1,7 @@
 ---
 title: "Handbook for MDIG2026 Summer School in Tilburg"
 subtitle: "Scripts for processing and analysis"
+contributors: Andrea González Sánchéz Anna Palmann, Babajide Owoyele, Davide Ahmar, James Trujillo, Marijn Hafkamp, Sharjeel Ahmed Shaikh, Šárka Kadavá, Tifanny Matej Hrkalović, Travis Wiltshire, Wim Pouw
 date-modified: today
 format:
   html:
@@ -10,6 +11,7 @@ toc: true
 toc-depth: 4
 toc-expand: 2
 toc-title: Contents
+jupyter: python3
 ---
 
 ![](images/banner.png){fig-align="center" width=100%}
@@ -22,11 +24,47 @@ this handbook collects all scripts associated with the program of MDIG2026 Summe
 You will find here introduction of the datasets you will be working in your group projects, scripts that process
 these datasets into analyzable time series and features and finally, all scripts associated with the lectures.
 
-The two datasets that we picked for this year consist of:
+The two datasets that we picked for this year are:
 
-- XY
-- XY
+- **Balance Corpus** (Li, Yang, Fuchs & Aussems, 2026)
+
+```{=html}
+
+```
+
+[📄 Download the paper (PDF)](Datasets/BalanceCorpus/documentation/LiYangFuchsAussems2026.pdf){target="_blank"}
+
+- **PARSEL dataset** (Hrkalovic, Dudzik, Balliet, Hung, 2024)
+
+Each of these scripts have their own **cheatsheet** to help you get started with the data available for the respective corpus.
+
+```{=html}
+
+```
+
+[📄 Download the paper (PDF)](Datasets/PARSEL/documentation/HrkalovicDudzikBallietHung2024.pdf){target="_blank"}
+
+## Setup
+
+[here info about envs]
 
 ## Program
 
-[INSERT PROGRAM]
+```{python}
+#| echo: false
+#| output: asis
+
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get("https://www.envisionbox.org/summerschool2026.html",
+                 headers={"User-Agent": "Mozilla/5.0"})
+soup = BeautifulSoup(r.content, "html.parser")
+
+styles = "".join(str(s) for s in soup.find_all("style"))
+table = soup.find("table")
+
+print(styles)
+print(table)
+```
+

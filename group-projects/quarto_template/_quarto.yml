@@ -43,10 +43,7 @@ format:
         font-size: 10px;
       }
 
-engine: quarto
-
 execute:
-  enabled: false
   freeze: false
   warning: false
   message: false
