@@ -70,7 +70,7 @@ Topics: multimodal communication, multimodal data collection, pose estimation, p
 :::
 
 ::: {.g-col-2}
-![](../images/tifanny.webp){fig-align="left"}
+![](../images/tiffany.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
 **Tifanny Matej Hrkalović**<br>

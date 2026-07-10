@@ -1,7 +1,7 @@
 ---
 title: "Handbook for MDIG2026 Summer School in Tilburg"
 subtitle: "Scripts for processing and analysis"
-contributors: Andrea González Sánchéz Anna Palmann, Babajide Owoyele, Davide Ahmar, James Trujillo, Marijn Hafkamp, Sharjeel Ahmed Shaikh, Šárka Kadavá, Tifanny Matej Hrkalović, Travis Wiltshire, Wim Pouw
+author: Andrea González Sánchéz Anna Palmann, Babajide Owoyele, Davide Ahmar, James Trujillo, Marijn Hafkamp, Sharjeel Ahmed Shaikh, Šárka Kadavá, Tifanny Matej Hrkalović, Travis Wiltshire, Wim Pouw
 date-modified: today
 format:
   html:
