@@ -59,7 +59,7 @@ By the end of the project, participants should be able to:
 **Deliverable:** A one-paragraph project pitch shared with instructors, and a live shared repository that all group members can access and contribute to.
 
 ::: {.callout-note}
-We have prepared quarto template for you that you can copy to your repository and use according to your liking.
+We have prepared quarto template for you that you can copy to your repository and use according to your liking (see group-projects/quarto_template in Github the repository).
 :::
 
 ### Day 2 - Explore & Decide (~2 hrs)
