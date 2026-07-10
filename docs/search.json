@@ -261,6 +261,17 @@
     ]
   },
   {
+    "objectID": "group-projects/MDIG2026_group_projects.html#groups",
+    "href": "group-projects/MDIG2026_group_projects.html#groups",
+    "title": "",
+    "section": "Groups",
+    "text": "Groups\n● Purple\n\nYing Cui\nEthel Pruss\nOliver Eksteins\nT’kara Mullins\nZeynep M. Suata\n\n■ Blue\n\nKristina Koch\nMatteo Schmelzer\nNthabiseng Shongwe\nSolveigh Janzen\n\n▲ Green\n\nApollo Reyes Martes\nLisa Gottschalk\nHester van Beek\nSébastien Vandenitte\nWard Deferm\n\n★ Yellow\n\nJemima Agnew\nMadalina Sas\nMoritz Bammel\nSatyajeet Prabhu\nSvea Boesch\n\n◆ Orange\n\nMichal Weiss\nTessa Cancio Pastor\nTimo Kalliokoski\nXuancu Hong\nAnn Hogenhuis\n\n✚ Pink\n\nKyle Samson\nMariana Carneiro de Andrade\nNgoungouo Yiagnigni Abass\nTeona Banu\nThibaud Glasman\nTobias Ashdown",
+    "crumbs": [
+      "Group Projects",
+      "Group Projects Overview"
+    ]
+  },
+  {
     "objectID": "DeveloperREADME.html",
     "href": "DeveloperREADME.html",
     "title": "",
@@ -432,7 +443,7 @@
     "href": "Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.html#dtw-similarity-and-umap",
     "title": "Cheatsheet: Loading the BalanceCorpus",
     "section": "DTW similarity and UMAP",
-    "text": "DTW similarity and UMAP\nanalysis/ holds kinematic_features.csv, dtw_distances.csv (symmetric gesture × gesture), and gesture_visualization.csv (x, y, gesture — the UMAP of that matrix).\n\n\nCode\numap = pd.read_csv(f\"{gestures}/analysis/gesture_visualization.csv\")\numap[\"condition\"] = np.where(umap[\"gesture\"].str.contains(\"_board_\"), \"board\", \"ground\")\numap.head()\n\n\n          x  ...  condition\n0  7.650042  ...      board\n1  9.918681  ...      board\n2  8.758283  ...      board\n3  7.663474  ...      board\n4  9.935769  ...      board\n\n[5 rows x 4 columns]\n\n\n\n\nCode\nfig, ax = plt.subplots(figsize=(5.5, 5))\nfor cond, sub in umap.groupby(\"condition\"):\n    ax.scatter(sub[\"x\"], sub[\"y\"], s=10, alpha=0.6, label=cond)\nax.set_xlabel(\"UMAP 1\"); ax.set_ylabel(\"UMAP 2\"); ax.legend(fontsize=8)\nplt.tight_layout(); plt.show()\n\n\n\n\n\n\n\n\n\n\n\nCode\numap_kin = umap.merge(gest, left_on=\"gesture\", right_on=\"gesture_id\", how=\"inner\")\n\nfig, ax = plt.subplots(figsize=(5.5, 5))\nsc = ax.scatter(umap_kin[\"x\"], umap_kin[\"y\"], c=umap_kin[\"hand_peak_speed\"], s=12, cmap=\"viridis\")\nfig.colorbar(sc, ax=ax, label=\"hand peak speed\")\n\n\n&lt;matplotlib.colorbar.Colorbar object at 0x00000293575FB830&gt;\n\n\nCode\nplt.tight_layout(); plt.show()\n\n\n\n\n\n\n\n\n\n\n\nCode\numap &lt;- read_csv(file.path(gestures, \"analysis\", \"gesture_visualization.csv\")) |&gt;\n  mutate(condition = if_else(str_detect(gesture, \"_board_\"), \"board\", \"ground\"))\n\nggplot(umap, aes(x, y, colour = condition)) +\n  geom_point(size = 1, alpha = 0.6) +\n  labs(x = \"UMAP 1\", y = \"UMAP 2\") + theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteFull distance matrix\n\n\n\n\n\n\n\nCode\ndtw = pd.read_csv(f\"{gestures}/analysis/dtw_distances.csv\", index_col=0)\nprint(dtw.shape)\ndtw.loc[dtw.index[0]].nsmallest(6)[1:]      # nearest neighbours, skipping self\n\n\n\n\nCode\nfrom scipy.cluster.hierarchy import linkage, fcluster\nfrom scipy.spatial.distance import squareform\n\nZ = linkage(squareform(dtw.to_numpy(), checks=False), method=\"average\")\nclusters = fcluster(Z, t=5, criterion=\"maxclust\")",
+    "text": "DTW similarity and UMAP\nanalysis/ holds kinematic_features.csv, dtw_distances.csv (symmetric gesture × gesture), and gesture_visualization.csv (x, y, gesture — the UMAP of that matrix).\n\n\nCode\numap = pd.read_csv(f\"{gestures}/analysis/gesture_visualization.csv\")\numap[\"condition\"] = np.where(umap[\"gesture\"].str.contains(\"_board_\"), \"board\", \"ground\")\numap.head()\n\n\n          x  ...  condition\n0  7.650042  ...      board\n1  9.918681  ...      board\n2  8.758283  ...      board\n3  7.663474  ...      board\n4  9.935769  ...      board\n\n[5 rows x 4 columns]\n\n\n\n\nCode\nfig, ax = plt.subplots(figsize=(5.5, 5))\nfor cond, sub in umap.groupby(\"condition\"):\n    ax.scatter(sub[\"x\"], sub[\"y\"], s=10, alpha=0.6, label=cond)\nax.set_xlabel(\"UMAP 1\"); ax.set_ylabel(\"UMAP 2\"); ax.legend(fontsize=8)\nplt.tight_layout(); plt.show()\n\n\n\n\n\n\n\n\n\n\n\nCode\numap_kin = umap.merge(gest, left_on=\"gesture\", right_on=\"gesture_id\", how=\"inner\")\n\nfig, ax = plt.subplots(figsize=(5.5, 5))\nsc = ax.scatter(umap_kin[\"x\"], umap_kin[\"y\"], c=umap_kin[\"hand_peak_speed\"], s=12, cmap=\"viridis\")\nfig.colorbar(sc, ax=ax, label=\"hand peak speed\")\n\n\n&lt;matplotlib.colorbar.Colorbar object at 0x0000019A3A8F9760&gt;\n\n\nCode\nplt.tight_layout(); plt.show()\n\n\n\n\n\n\n\n\n\n\n\nCode\numap &lt;- read_csv(file.path(gestures, \"analysis\", \"gesture_visualization.csv\")) |&gt;\n  mutate(condition = if_else(str_detect(gesture, \"_board_\"), \"board\", \"ground\"))\n\nggplot(umap, aes(x, y, colour = condition)) +\n  geom_point(size = 1, alpha = 0.6) +\n  labs(x = \"UMAP 1\", y = \"UMAP 2\") + theme_minimal()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteFull distance matrix\n\n\n\n\n\n\n\nCode\ndtw = pd.read_csv(f\"{gestures}/analysis/dtw_distances.csv\", index_col=0)\nprint(dtw.shape)\ndtw.loc[dtw.index[0]].nsmallest(6)[1:]      # nearest neighbours, skipping self\n\n\n\n\nCode\nfrom scipy.cluster.hierarchy import linkage, fcluster\nfrom scipy.spatial.distance import squareform\n\nZ = linkage(squareform(dtw.to_numpy(), checks=False), method=\"average\")\nclusters = fcluster(Z, t=5, criterion=\"maxclust\")",
     "crumbs": [
       "Dataset A: Balance Corpus",
       "Cheatsheet: Loading the BalanceCorpus"
@@ -822,7 +833,7 @@
     "href": "group-projects/Groups_overview.html",
     "title": "Overview of Group Projects",
     "section": "",
-    "text": "Group I Members:\n\n\nTopic:  Repository: \n\n\nGroup II Members:\n\n\nTopic:  Repository: \n\n\nGroup III Members:\n\n\nTopic:  Repository: \n\n\nGroup IV Members:\n\n\nTopic:  Repository: \n\n\nGroup V Members:\n\n\nTopic:  Repository:",
+    "text": "Group ● Purple \nMembers:\n\nYing Cui\nEthel Pruss\nOliver Eksteins\nT’kara Mullins\nZeynep M. Suata\n\n\n\nTopic:  Repository: \n\n\nGroup ■ Blue\nMembers:\n\nKristina Koch\nMatteo Schmelzer\nNthabiseng Shongwe\nSolveigh Janzen\n\n\n\nTopic:  Repository: \n\n\nGroup ▲ Green\nMembers:\n\nApollo Reyes Martes\nLisa Gottschalk\nHester van Beek\nSébastien Vandenitte\nWard Deferm\n\n\n\nTopic:  Repository: \n\n\nGroup ★ Yellow\nMembers:\n\nJemima Agnew\nMadalina Sas\nMoritz Bammel\nSatyajeet Prabhu\nSvea Boesch\n\n\n\nTopic:  Repository: \n\n\nGroup ◆ Orange\nMembers:\n\nMichal Weiss\nTessa Cancio Pastor\nTimo Kalliokoski\nXuancu Hong\nAnn Hogenhuis\n\n\n\nTopic:  Repository: \n\n\nGroup ✚ Pink\nMembers:\n\nKyle Samson\nMariana Carneiro de Andrade\nNgoungouo Yiagnigni Abass\nTeona Banu\nThibaud Glasman\nTobias Ashdown\n\n\n\nTopic:  Repository:",
     "crumbs": [
       "Group Projects",
       "Overview of Group Projects"
