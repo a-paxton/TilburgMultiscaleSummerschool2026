@@ -1,0 +1,56 @@
+---
+title: "Overview of Group Projects"
+format: html
+---
+
+
+
+::: {.grid}
+
+
+::: {.g-col-2}
+**Group I**<br> 
+Members:
+:::
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+::: {.g-col-2}
+**Group II**<br> 
+Members:
+:::
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+::: {.g-col-2}
+**Group III**<br> 
+Members:
+:::
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+::: {.g-col-2}
+**Group IV**<br> 
+Members:
+:::
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+::: {.g-col-2}
+**Group V**<br> 
+Members:
+:::
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+:::

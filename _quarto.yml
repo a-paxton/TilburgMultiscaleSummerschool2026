@@ -26,6 +26,8 @@ website:
             contents:
               - Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.ipynb
               - Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.ipynb
+          - section: "Classification"
+            contents:
               - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
 
       - section: "Dataset B: PARSEL"
@@ -42,10 +44,18 @@ website:
             contents:
               - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
               - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
+
+          - section: "Classification"
+            contents:
               - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
 
 
       - section: "Analyses & Tools"
+
+      - section: "Group Projects"
+        contents:
+          - group-projects\MDIG2026_group_projects.md
+          - group-projects\Groups_overview.qmd
 
   navbar:
     tools:
