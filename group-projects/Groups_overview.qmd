@@ -9,48 +9,107 @@ format: html
 
 
 ::: {.g-col-2}
-**Group I**<br> 
+**Group ● Purple **<br> 
+
 Members:
+
+- Ying Cui
+- Ethel Pruss
+- Oliver Eksteins
+- T’kara Mullins
+- Zeynep M. Suata
 :::
+
 ::: {.g-col-4}
 Topic: <br>
 Repository: <br>
 :::
 
 ::: {.g-col-2}
-**Group II**<br> 
+**Group ■ Blue**<br> 
+
 Members:
+
+- Kristina Koch
+- Matteo Schmelzer
+- Nthabiseng Shongwe
+- Solveigh Janzen
 :::
+
 ::: {.g-col-4}
 Topic: <br>
 Repository: <br>
 :::
 
 ::: {.g-col-2}
-**Group III**<br> 
+**Group ▲ Green**<br> 
+
 Members:
+
+- Apollo Reyes Martes
+- Lisa Gottschalk
+- Hester van Beek
+- Sébastien Vandenitte
+- Ward Deferm
+
 :::
+
 ::: {.g-col-4}
 Topic: <br>
 Repository: <br>
 :::
 
 ::: {.g-col-2}
-**Group IV**<br> 
+**Group ★ Yellow**<br> 
+
 Members:
+
+- Jemima Agnew
+- Madalina Sas
+- Moritz Bammel
+- Satyajeet Prabhu
+- Svea Boesch
 :::
+
 ::: {.g-col-4}
 Topic: <br>
 Repository: <br>
 :::
 
 ::: {.g-col-2}
-**Group V**<br> 
+**Group ◆ Orange**<br> 
+
 Members:
+
+- Michal Weiss
+- Tessa Cancio Pastor
+- Timo Kalliokoski
+- Xuancu Hong
+- Ann Hogenhuis
 :::
+
+::: {.g-col-4}
+Topic: <br>
+Repository: <br>
+:::
+
+::: {.g-col-2}
+**Group ✚ Pink**<br>
+
+Members:
+
+- Kyle Samson
+- Mariana Carneiro de Andrade
+- Ngoungouo Yiagnigni Abass
+- Teona Banu
+- Thibaud Glasman
+- Tobias Ashdown
+:::
+
 ::: {.g-col-4}
 Topic: <br>
 Repository: <br>
 :::
 
 :::
+
