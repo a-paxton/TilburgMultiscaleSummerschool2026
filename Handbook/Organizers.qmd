@@ -6,11 +6,27 @@ title: About organizers
 ::: {.grid}
 
 ::: {.g-col-2}
+![](../images/alex.webp){fig-align="left"}
+:::
+::: {.g-col-4}
+**Alexandra Paxton**<br> 
+Topics: data-rich approach to social dynamics, complex systems, dynamical/ecological perspectives, language and movement alignment, open science, data ethics, diversity/equity/inclusion
+:::
+
+::: {.g-col-2}
 ![](../images/andrea.webp){fig-align="left"}
 :::
 ::: {.g-col-4}
 **Andrea González Sánchez**<br> 
 Topics: multimodal communication, group coordination dynamics, music, aesthetic experiences, Python
+:::
+
+::: {.g-col-2}
+![](../images/bryant.webp){fig-align="left"}
+:::
+::: {.g-col-4}
+**Annie Bryant**<br>
+Topics: computational neuroscience, neuroimaging, complex systems science, time-series analysis, brain network dynamics, Python, R, open science
 :::
 
 ::: {.g-col-2}
