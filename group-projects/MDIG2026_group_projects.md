@@ -1,6 +1,5 @@
-# MDIG2026 Summer School Tilburg
-## Multiscale Social Dynamics in Individuals and Groups
-### Group Projects Overview
+
+# Group Projects Overview
 
 Each group will conduct a mini research project applying one or more multiscale analysis pipelines to real social dynamics data (e.g., interpersonal coordination, group interaction, or collective behavior). Groups will work with a curated subset of a larger dataset. The main goal is to apply analyses covered during the summer school to this subset in a way that is principled enough to scale up to the full dataset.
 
