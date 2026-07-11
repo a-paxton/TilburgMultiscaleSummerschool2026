@@ -39,22 +39,12 @@ website:
               - Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.ipynb
               - Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb
               - "Open Smile"
-
-          - section: "Processing: Motion tracking"
-            contents:
-              - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
-              - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
-
-          - section: "Classification"
-            contents:
-              - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
-
-
+      
       - section: "Analyses & Tools"
         contents:
-          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/envelope_emd_demo.ipynb
-          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/preprocessing.ipynb
-          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/analysis.ipynb
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.ipynb
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.ipynb
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.ipynb
 
       - section: "Group Projects"
         contents:
