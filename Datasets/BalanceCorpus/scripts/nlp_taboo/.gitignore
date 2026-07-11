@@ -1,0 +1,7 @@
+# Generated locally by Notebook 1 (do not commit — see README)
+transcripts/
+# model / HF caches if they land here
+.cache/
+*.pt
+# scratch / check logs
+*.log

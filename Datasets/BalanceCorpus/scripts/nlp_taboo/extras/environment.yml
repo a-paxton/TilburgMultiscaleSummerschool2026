@@ -1,0 +1,25 @@
+# One-shot conda setup for the NLP track (recommended for Anaconda users):
+#   conda env create -f environment.yml
+#   conda activate mdig-nlp
+#   python -m ipykernel install --user --name mdig-nlp   # then pick this kernel in Jupyter
+name: mdig-nlp
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - faster-whisper>=1.0
+      - sentence-transformers>=2.7
+      - librosa>=0.10
+      - soundfile>=0.12
+      - scikit-learn>=1.3
+      - spacy>=3.7
+      - networkx>=3.0
+      - certifi
+      - pandas>=2.0
+      - numpy>=1.24
+      - matplotlib>=3.7
+      - jupyter
+      - ipykernel
+      # after creating the env, also run:  python -m spacy download en_core_web_sm
