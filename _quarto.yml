@@ -51,6 +51,10 @@ website:
 
 
       - section: "Analyses & Tools"
+        contents:
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/envelope_emd_demo.ipynb
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/preprocessing.ipynb
+          - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/analysis.ipynb
 
       - section: "Group Projects"
         contents:
@@ -81,7 +85,7 @@ format:
     toc-title: "Contents"
     toc-depth: 3
     number-sections: false
-    code-fold: true
+    code-fold: false
     code-tools: true
     css: |
       .quarto-container {

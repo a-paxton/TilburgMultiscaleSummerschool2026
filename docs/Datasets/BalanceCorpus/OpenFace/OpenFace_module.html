@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.29">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,15 +67,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../../">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-8c84aca3a1c0a8f36b5692110b870ec5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-844e6f79d844699b73a6b1f2d631f146.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -142,7 +141,9 @@ body {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+An Introduction to OpenFace for Head and Face Tracking
+</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -329,8 +330,24 @@ body {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Analyses &amp; Tools</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyses &amp; Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/envelope_emd_demo.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/preprocessing.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/analysis.ipynb</span>
+  </li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -364,15 +381,15 @@ body {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">
+An Introduction to OpenFace for Head and Face Tracking
+</h1></header>
 
 
 
 
 <center>
-<h1>
-An Introduction to OpenFace for Head and Face Tracking
-</h1>
+
 <h3 class="anchored">
 James Trujillo ( j.p.trujillo@uva.nl)<br> Anna Palmann (a.palmann@uva.nl)<br> 01-07-2026
 </h3>
@@ -429,21 +446,16 @@ FeatureExtraction.exe -f “./samples/2015-10-15-15-14.avi”</i> OpenFace will 
 Part 1: Getting started with OpenFace
 </h1>
 <div id="a046315e-02f2-45c2-b0a7-f8f4695c3e5c" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Main directories</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>VIDEO_DIR <span class="op">=</span> <span class="st">"./videos_to_process/"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR <span class="op">=</span>  <span class="st">"./OF_output/"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_DIR <span class="op">=</span>  <span class="st">"./OF_output/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="435cfe8e-1b66-4641-be59-26f917f1c91f" class="cell" data-scrolled="true">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the OpenFace directory (e.g. OpenFace_2.2.0_win_x64)</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the OpenFace directory (e.g. OpenFace_2.2.0_win_x64)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openface_dir <span class="op">=</span> <span class="st">"./OpenFace_2.2.0_win_x64/"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># path to FeatureExtraction.exe</span></span>
@@ -501,8 +513,7 @@ Part 1: Getting started with OpenFace
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> failed:</span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  - </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"All videos processed successfully."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"All videos processed successfully."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 class="anchored">
 OpenFace Output
@@ -528,9 +539,7 @@ Importing OpenFace into ELAN Using ExploFace
 </h3>
 <p>This first command just gets the .csv file and loads them into a dataframe. This can be a useful starting point if you want to run further analyses.</p>
 <div id="eed47623" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> exploface</span>
@@ -544,22 +553,18 @@ Importing OpenFace into ELAN Using ExploFace
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>openface_features <span class="op">=</span> exploface.get_feature_time_series(output_filename)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>openface_features <span class="op">=</span> exploface.get_feature_time_series(output_filename)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want a full list of what the different columns correspond to, you can check the OpenFace 2.0 Github page: https://github.com/TadasBaltrusaitis/OpenFace/wiki/Output-Format</p>
 <p>let’s have a look at the dataframe <br><br></p>
 <p>Note that this notebook is designed for a dataframe from the BALANCE corpus and the parameters and comments make sense for that. <br> If you want to use a dataframe from the PARSEL corpus instead, some parameters and thresholds need to be adapted</p>
 <div id="4f9b6cb4" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>openface_features.head(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>openface_features.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -588,7 +593,7 @@ Importing OpenFace into ELAN Using ExploFace
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
+<td data-quarto-table-cell-role="th">0</td>
 <td>1</td>
 <td>0</td>
 <td>0.000</td>
@@ -612,7 +617,7 @@ Importing OpenFace into ELAN Using ExploFace
 <td>0.0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
+<td data-quarto-table-cell-role="th">1</td>
 <td>2</td>
 <td>0</td>
 <td>0.033</td>
@@ -636,7 +641,7 @@ Importing OpenFace into ELAN Using ExploFace
 <td>0.0</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
+<td data-quarto-table-cell-role="th">2</td>
 <td>3</td>
 <td>0</td>
 <td>0.067</td>
@@ -660,7 +665,7 @@ Importing OpenFace into ELAN Using ExploFace
 <td>0.0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
+<td data-quarto-table-cell-role="th">3</td>
 <td>4</td>
 <td>0</td>
 <td>0.100</td>
@@ -684,7 +689,7 @@ Importing OpenFace into ELAN Using ExploFace
 <td>0.0</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
+<td data-quarto-table-cell-role="th">4</td>
 <td>5</td>
 <td>0</td>
 <td>0.133</td>
@@ -716,16 +721,13 @@ Importing OpenFace into ELAN Using ExploFace
 </div>
 <p>Exploface can do a bit more than this though. A useful feature here is to get some summary statistics of what’s happening in your video.</p>
 <div id="18bddd99" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stats_df <span class="op">=</span> exploface.get_statistics(output_filename)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stats_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stats_df <span class="op">=</span> exploface.get_statistics(output_filename)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>stats_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -736,85 +738,85 @@ Importing OpenFace into ELAN Using ExploFace
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU01</th>
+<td data-quarto-table-cell-role="th">AU01</td>
 <td>6</td>
 <td>0.551667</td>
 <td>0.545616</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU02</th>
+<td data-quarto-table-cell-role="th">AU02</td>
 <td>5</td>
 <td>0.172000</td>
 <td>0.057184</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU04</th>
+<td data-quarto-table-cell-role="th">AU04</td>
 <td>3</td>
 <td>5.700000</td>
 <td>5.784280</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU05</th>
+<td data-quarto-table-cell-role="th">AU05</td>
 <td>7</td>
 <td>2.002857</td>
 <td>1.744560</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU06</th>
+<td data-quarto-table-cell-role="th">AU06</td>
 <td>8</td>
 <td>0.592500</td>
 <td>0.613672</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU07</th>
+<td data-quarto-table-cell-role="th">AU07</td>
 <td>3</td>
 <td>5.700000</td>
 <td>5.784280</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU10</th>
+<td data-quarto-table-cell-role="th">AU10</td>
 <td>9</td>
 <td>1.726667</td>
 <td>1.776739</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU12</th>
+<td data-quarto-table-cell-role="th">AU12</td>
 <td>13</td>
 <td>0.283846</td>
 <td>0.190374</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU14</th>
+<td data-quarto-table-cell-role="th">AU14</td>
 <td>3</td>
 <td>5.700000</td>
 <td>5.784280</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU17</th>
+<td data-quarto-table-cell-role="th">AU17</td>
 <td>11</td>
 <td>0.322727</td>
 <td>0.272694</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU23</th>
+<td data-quarto-table-cell-role="th">AU23</td>
 <td>4</td>
 <td>3.715000</td>
 <td>2.811340</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU25</th>
+<td data-quarto-table-cell-role="th">AU25</td>
 <td>4</td>
 <td>0.812500</td>
 <td>0.714020</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">AU26</th>
+<td data-quarto-table-cell-role="th">AU26</td>
 <td>3</td>
 <td>0.110000</td>
 <td>0.017321</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">AU45</th>
+<td data-quarto-table-cell-role="th">AU45</td>
 <td>6</td>
 <td>0.353333</td>
 <td>0.199064</td>
@@ -827,9 +829,7 @@ Importing OpenFace into ELAN Using ExploFace
 </div>
 <p>Here we see the Action Unit detections, along with how many there were of each one, and their durations. <br> One of the nicer features here is that we can also convert these .csv data into a .eaf file for use in ELAN. We could then import these annotations into ELAN for further checking/cleaning, or for further analysis in ELAN itself.</p>
 <div id="4cd59383" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>feature_detections <span class="op">=</span> exploface.get_detections(</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>feature_detections <span class="op">=</span> exploface.get_detections(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                            openface_features,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                            skip_seconds_at_end<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                            intensity_threshold<span class="op">=</span><span class="fl">0.8</span>,</span>
@@ -843,8 +843,7 @@ Importing OpenFace into ELAN Using ExploFace
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dataframe_timestamp <span class="op">=</span> exploface.write_elan_file(feature_detections,</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                                                  video_path<span class="op">=</span>video_file,</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                                                  output_path<span class="op">=</span><span class="st">"sample_vid.eaf"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 class="anchored">
 Potential Applications
@@ -868,15 +867,10 @@ Kinematic-prosodic alignment
 </h3>
 <p>First, let’s load in the data and apply some smoothing. We use a Savitzky-Golay-Filter for that.</p>
 <div id="2e18bd13-8ece-45c4-a3af-fac69d189162" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> signal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> signal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="891e6dfc-4a79-4775-bbd4-5f7dc21060a0" class="cell" data-execution_count="20">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's compare raw and smoothed position</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's compare raw and smoothed position</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.plot(openface_features.loc[<span class="dv">250</span>:<span class="dv">300</span>,<span class="st">"timestamp"</span>],openface_features.loc[<span class="dv">250</span>:<span class="dv">300</span>,<span class="st">"y_24"</span>])</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time (sec)"</span>)</span>
@@ -888,8 +882,7 @@ Kinematic-prosodic alignment
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"left eyebrow position (px)"</span>)</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Smoothed data"</span>)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -900,9 +893,7 @@ Kinematic-prosodic alignment
 </div>
 <p>As we see above, the smoothing helps to iron our some of the jitter that is inherent to video based tracking, without affecting the main shape of the signal. <br> Before we go on to any analysis, we need to get a time-series that is useful for us. In this case, we currently only have the position of the eyebrow landmarks in pixel space. This isn’t always helpful, as movement of the head will also affect this position, and (at least for A/V coupling) we are mostly interested in kinematics, not position.<br></p>
 <div id="7ae362b1-8350-4385-88f2-df548ff914ba" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>eyebrow_L <span class="op">=</span> openface_features[[<span class="st">"timestamp"</span>,<span class="st">"x_24"</span>,<span class="st">"y_24"</span>]].rename({<span class="st">"x_24"</span>:<span class="st">'X'</span>,<span class="st">"y_24"</span>:<span class="st">"Y"</span>},axis<span class="op">=</span><span class="st">'columns'</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>eyebrow_R <span class="op">=</span> openface_features[[<span class="st">"timestamp"</span>,<span class="st">"x_19"</span>,<span class="st">"y_19"</span>]].rename({<span class="st">"x_19"</span>:<span class="st">'X'</span>,<span class="st">"y_19"</span>:<span class="st">"Y"</span>},axis<span class="op">=</span><span class="st">'columns'</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>nose <span class="op">=</span> openface_features[[<span class="st">"timestamp"</span>,<span class="st">"x_33"</span>,<span class="st">"y_33"</span>]].rename({<span class="st">"x_33"</span>:<span class="st">'X'</span>,<span class="st">"y_33"</span>:<span class="st">"Y"</span>},axis<span class="op">=</span><span class="st">'columns'</span>)</span>
@@ -936,14 +927,11 @@ Kinematic-prosodic alignment
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> vel_sm</span>
 <span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>eyebrow_L_sm <span class="op">=</span> nosecorrected_velocity(eyebrow_L, nose, <span class="dv">25</span>)</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>eyebrow_R_sm <span class="op">=</span> nosecorrected_velocity(eyebrow_R, nose, <span class="dv">25</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>eyebrow_R_sm <span class="op">=</span> nosecorrected_velocity(eyebrow_R, nose, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have some time series to work with, let’s get some annotations and use these to calculate the kinematic-prosodic coupling. For our prosody calculations, we’ll be using a package called Parselmouth. Parselmouth provides a Python interface for PRAAT and allows us to directly calculate (and manipulae) many features of a speech signal.<br> First, let’s load in the annotations, get the speech signal, and extract the pitch values. <br> For the sake of this tutorial, we’ll just grab the first annotation file that corresponds to our current file name. To fully process a batch of files, you’d need to wrap this into a loop. <br> <b>Note:</b> the annotation file provided here was generated using the silence detector in ELAN 6.8. Just a quick and dirty approximation of utterance timestamps. For a proper analysis, you’d need to generate these annotations for all of your files, and you need to decide what types of annotations you are interested in: single words, clauses, utterances? That’s beyond the scope of this module. For now, let’s just see how we can calculate the temporal correspondence between a facial feature (in this case, eyebrow movement) and speech acoustics, within some set annotation time-windows.</p>
 <div id="ce9c8c05-3ed8-43a0-9520-7cd71ce751e2" class="cell" data-execution_count="27">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install pympi-ling</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install pympi-ling</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pympi</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> parselmouth</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> parselmouth.praat <span class="im">import</span> call</span>
@@ -1000,28 +988,21 @@ Kinematic-prosodic alignment
 <span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    annot_file.loc[annot_idx,<span class="st">"brow_R_val"</span>] <span class="op">=</span> max_brow_R</span>
 <span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    annot_file.loc[annot_idx,<span class="st">"brow_L_time"</span>] <span class="op">=</span> timestamps_current.loc[max_brow_L_index,<span class="st">"timestamp"</span>]</span>
 <span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    annot_file.loc[annot_idx,<span class="st">"brow_R_time"</span>] <span class="op">=</span> timestamps_current.loc[max_brow_R_index,<span class="st">"timestamp"</span>]</span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To get a correspondence between the two signals, we need to calculate the offset between them. The code below calculates the time difference between the peak eyebrow movement and the peak pitch. The hypothesis then, is that the peaks of the respective signals should align with one another in an utterance.</p>
 <div id="827f2e29-8576-4fb0-9b30-c462ecbc44e9" class="cell" data-execution_count="28">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>annot_file[<span class="st">"pitch_browL_diff"</span>] <span class="op">=</span> annot_file[<span class="st">"brow_L_time"</span>] <span class="op">-</span> annot_file[<span class="st">"pitch_peak_time"</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>annot_file[<span class="st">"pitch_browR_diff"</span>] <span class="op">=</span> annot_file[<span class="st">"brow_R_time"</span>] <span class="op">-</span> annot_file[<span class="st">"pitch_peak_time"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>annot_file[<span class="st">"pitch_browL_diff"</span>] <span class="op">=</span> annot_file[<span class="st">"brow_L_time"</span>] <span class="op">-</span> annot_file[<span class="st">"pitch_peak_time"</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>annot_file[<span class="st">"pitch_browR_diff"</span>] <span class="op">=</span> annot_file[<span class="st">"brow_R_time"</span>] <span class="op">-</span> annot_file[<span class="st">"pitch_peak_time"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can draw the distributions and see if there is any correspondence/alignment. Note that we could also save this dataframe as a new .csv file, so we don’t have to repeat these steps, or in case you wish to continue analyses in R, but for now let’s see what we can do in Python.<br> For plotting, we’ll use the seaborn package.</p>
 <div id="ee81fb76-e01a-402e-801d-10595e4d24d5" class="cell" data-execution_count="41">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>annot_file.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>annot_file.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1040,7 +1021,7 @@ Kinematic-prosodic alignment
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
+<td data-quarto-table-cell-role="th">0</td>
 <td>400</td>
 <td>680</td>
 <td>x</td>
@@ -1054,7 +1035,7 @@ Kinematic-prosodic alignment
 <td>0.013000</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
+<td data-quarto-table-cell-role="th">1</td>
 <td>1080</td>
 <td>6260</td>
 <td>x</td>
@@ -1068,7 +1049,7 @@ Kinematic-prosodic alignment
 <td>0.443000</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
+<td data-quarto-table-cell-role="th">2</td>
 <td>7060</td>
 <td>10060</td>
 <td>x</td>
@@ -1082,7 +1063,7 @@ Kinematic-prosodic alignment
 <td>0.497000</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
+<td data-quarto-table-cell-role="th">3</td>
 <td>10420</td>
 <td>13920</td>
 <td>x</td>
@@ -1096,7 +1077,7 @@ Kinematic-prosodic alignment
 <td>-0.967000</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
+<td data-quarto-table-cell-role="th">4</td>
 <td>14260</td>
 <td>17414</td>
 <td>x</td>
@@ -1116,9 +1097,7 @@ Kinematic-prosodic alignment
 </div>
 </div>
 <div id="c33e5d6f-b53e-49cd-8377-dfed4d421078" class="cell" data-execution_count="48">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
@@ -1156,8 +1135,7 @@ Kinematic-prosodic alignment
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean offset of left eyebrow: "</span> <span class="op">+</span> <span class="bu">str</span>(np.mean(annot_file[<span class="st">"pitch_browL_diff"</span>])) <span class="op">+</span> <span class="st">" seconds"</span>)</span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean offset of right eyebrow: "</span> <span class="op">+</span> <span class="bu">str</span>(np.mean(annot_file[<span class="st">"pitch_browR_diff"</span>])) <span class="op">+</span> <span class="st">" seconds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean offset of right eyebrow: "</span> <span class="op">+</span> <span class="bu">str</span>(np.mean(annot_file[<span class="st">"pitch_browR_diff"</span>])) <span class="op">+</span> <span class="st">" seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1177,9 +1155,7 @@ Head Pose Analysis
 <p>Let’s have a look at how the head moves. As mentioned above, we have data for the <b>translation</b> (the location of the head with respect to the camera centre) and the <b>rotation</b> on three axes. Consider that the head moves by rotating in several directions around a joint. We can identify three axes, x [horizontal], y [depth], z [vertical]. There are then three complementary rotations that we can track. One is the head raise position, called head <b>pitch</b>, important for tracking head nodding, which is a rotation around the x-axis. Another is called <b>yaw</b>, which is important for tracking head shaking, which is a rotation around the z-axis. Finally there is head tilt, called <b>roll</b>, which is a rotation around the y axis. Each rotation is expressed in angles (degrees in this case). How do you determine which direction is a negative versus positive direction? You use the right hand rule: Grab an axis, such your hand curl in the direction of the rotation, and then see what direction your thumb is directed at on the axis. Is that the positive or negative direction on that axis (remember, on the vertical z axis up is positive, on the horizontal x axis rightward is positive, and in the depth y dimension forward is positive).</p>
 <p>Let’s have a look at rotation. We will load in the data and apply some smoothing to the relevant columns: Rx, Ry, Rz with the following formula for rotation: <b>R = Rx * Ry * Rz</b></p>
 <div id="7dd6427f" class="cell" data-execution_count="21">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define variables</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define variables</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>xrot <span class="op">=</span> openface_features[<span class="st">'pose_Rx'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>yrot <span class="op">=</span> openface_features[<span class="st">'pose_Ry'</span>]</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>zrot <span class="op">=</span> openface_features[<span class="st">'pose_Rz'</span>]</span>
@@ -1209,8 +1185,7 @@ Head Pose Analysis
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Rotation in degrees'</span>)</span>
 <span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Head rotations (smoothed)'</span>)</span>
 <span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1227,9 +1202,7 @@ Head Pose Analysis
 </div>
 </div>
 <div id="d7b2080c" class="cell" data-execution_count="22">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can also create one plot to compare thesmoothed and unsmoothed signals</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can also create one plot to compare thesmoothed and unsmoothed signals</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw (solid)</span></span>
@@ -1247,8 +1220,7 @@ Head Pose Analysis
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Head rotations: raw vs. smoothed'</span>)</span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>plt.legend(ncol<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1260,9 +1232,7 @@ Head Pose Analysis
 <p>If you look carefully at the plot, you can see the dotted lines (the smoothed signal) smoother than the full lines (unsmoothed signal). However, sometimes it also smooths out some peaks and troughs, as in the yaw signal around frame 350. If we decrease the span when defining the filter, the smoothing will be less but it might also keep the information about peaks. You can play around with those parameters (e.g change from 21 to 11 and see how it changes the signal) and ultimately you want to retain information but smooth out jitter.</p>
 <p>Now we can look into some behavior patterns that might be relevant for conversation, such as how many head shakes or nods, and how deep these are overall or maximally. Let’s start with the number of peaks, and the prominences of the peaks (i.e.&nbsp;how the peak stands out relative to the surrounding of the signal). Troughs are peaks in the negative direction, so all the dips in the signal. In this example, we’ll do that for pitch (Rx) but you can apply the same analysis also to yaw and roll.</p>
 <div id="72bbd90e" class="cell" data-execution_count="23">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks, peak_prominences</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1292,29 +1262,23 @@ Head Pose Analysis
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>            avgprom <span class="op">=</span> np.mean(np.concatenate([peak_prom, trough_prom])) <span class="cf">if</span> (<span class="bu">len</span>(peak_prom)<span class="op">+</span><span class="bu">len</span>(trough_prom)) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>            maxprom <span class="op">=</span> np.<span class="bu">max</span>(np.concatenate([peak_prom, trough_prom])) <span class="cf">if</span> (<span class="bu">len</span>(peak_prom)<span class="op">+</span><span class="bu">len</span>(trough_prom)) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
 <span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> peaks, peak_prom, troughs, trough_prom, numpeaks, avgprom, maxprom</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> peaks, peak_prom, troughs, trough_prom, numpeaks, avgprom, maxprom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cb6698da" class="cell" data-execution_count="24">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the function for pitch</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the function for pitch</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>xrot_smooth <span class="op">=</span> np.nan_to_num(xrot_smooth) <span class="co"># replace missing values with 0</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>peaks, peak_prom, troughs, trough_prom, numpeaks, avgprom, maxprom <span class="op">=</span> get_peak_head_data(xrot_smooth)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"peaks:"</span>, peaks)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"troughs:"</span>, troughs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"troughs:"</span>, troughs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>peaks: [ 98 137 230 254 348 397 465]
 troughs: [ 67 124 194 241 331 375 420 480]</code></pre>
 </div>
 </div>
 <div id="679e2948" class="cell" data-execution_count="25">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now we can plot peaks and troughs</span></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now we can plot peaks and troughs</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plt.plot(xrot_smooth, label<span class="op">=</span><span class="st">'pitch'</span>)</span>
@@ -1340,8 +1304,7 @@ troughs: [ 67 124 194 241 331 375 420 480]</code></pre>
 <span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'degrees'</span>)</span>
 <span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">' head pitch'</span>)</span>
 <span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1356,9 +1319,7 @@ Speed of Head Movements
 </h3>
 <p>Another aspect we can look at is speed of head movements. We can do that overall or spearately for the x,y,z dimensions.</p>
 <div id="62db4c64" class="cell" data-execution_count="26">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcrotationspeed(openface_features, fps <span class="op">=</span> <span class="dv">30</span>):</span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcrotationspeed(openface_features, fps <span class="op">=</span> <span class="dv">30</span>):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""This function calculates the speed of the head rotation"""</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    dRx <span class="op">=</span> np.diff(xrot, prepend<span class="op">=</span>xrot[<span class="dv">0</span>])</span>
@@ -1370,27 +1331,20 @@ Speed of Head Movements
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    speed <span class="op">=</span> np.nan_to_num(speed)</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    speed <span class="op">=</span> signal.savgol_filter(speed, <span class="dv">7</span>, <span class="dv">3</span>) <span class="co"># smooth the speed</span></span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> speed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="9e94f317" class="cell" data-execution_count="27">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span> calcrotationspeed(openface_features, fps <span class="op">=</span> <span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span> calcrotationspeed(openface_features, fps <span class="op">=</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="ff24a70f" class="cell" data-execution_count="28">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot it</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot it</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.plot(speed)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Overall Head Rotation Speed'</span>)</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frame'</span>)</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Angular Velocity (degrees/s)'</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1400,9 +1354,7 @@ Speed of Head Movements
 </div>
 </div>
 <div id="a4b6912f" class="cell" data-execution_count="31">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_speed(openface_features, fps<span class="op">=</span><span class="dv">30</span>):</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_speed(openface_features, fps<span class="op">=</span><span class="dv">30</span>):</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""This function calculates the speed of pitch, roll, and yaw separately"""</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    Rx_speed <span class="op">=</span> openface_features[<span class="st">'pose_Rx'</span>].diff().fillna(<span class="dv">0</span>) <span class="op">*</span> fps</span>
@@ -1414,13 +1366,10 @@ Speed of Head Movements
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    Ry_speed <span class="op">=</span> signal.savgol_filter(Ry_speed, <span class="dv">7</span>, <span class="dv">3</span>)</span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    Rz_speed <span class="op">=</span> signal.savgol_filter(Rz_speed, <span class="dv">7</span>, <span class="dv">3</span>)</span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Rx_speed, Ry_speed, Rz_speed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Rx_speed, Ry_speed, Rz_speed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="87e1ad2f" class="cell" data-execution_count="32">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the speed</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the speed</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>Rx_speed, Ry_speed, Rz_speed <span class="op">=</span> calc_speed(openface_features)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot it</span></span>
@@ -1444,8 +1393,7 @@ Speed of Head Movements
 <span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Yaw Speed'</span>)</span>
 <span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frame'</span>)</span>
 <span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Angular Velocity (degrees/s)'</span>)</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1470,21 +1418,16 @@ Speed of Head Movements
 </div>
 <p>Now that we have the speed we can also look at acceleration, i.e the change in velocity, which is useful to detect sudden head movements. We’ll do this separately for yaw, roll, and pitch but theoretically you can also do it avaraged over the three signals for head rotation in general. Just like with speed.</p>
 <div id="da306086" class="cell" data-execution_count="33">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_acceleration(Rx_speed, Ry_speed, Rz_speed, fps<span class="op">=</span><span class="dv">30</span>):</span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_acceleration(Rx_speed, Ry_speed, Rz_speed, fps<span class="op">=</span><span class="dv">30</span>):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    Rx_acc <span class="op">=</span> np.diff(Rx_speed, prepend<span class="op">=</span>Rx_speed[<span class="dv">0</span>]) <span class="op">*</span> fps</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    Ry_acc <span class="op">=</span> np.diff(Ry_speed, prepend<span class="op">=</span>Ry_speed[<span class="dv">0</span>]) <span class="op">*</span> fps</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    Rz_acc <span class="op">=</span> np.diff(Rz_speed, prepend<span class="op">=</span>Rz_speed[<span class="dv">0</span>]) <span class="op">*</span> fps   </span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Rx_acc, Ry_acc, Rz_acc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Rx_acc, Ry_acc, Rz_acc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="3634738f" class="cell" data-execution_count="34">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the acceleration</span></span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the acceleration</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Rx_acc, Ry_acc, Rz_acc <span class="op">=</span> calc_acceleration(Rx_speed, Ry_speed, Rz_speed)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plot it</span></span>
@@ -1508,8 +1451,7 @@ Speed of Head Movements
 <span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Yaw Acceleration'</span>)</span>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frame'</span>)</span>
 <span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Degrees/s'</span>)</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1538,9 +1480,7 @@ Eye Gaze Analysis
 <p>Now let’s take a look at the eye gaze. We have x,y,z coordinates for both eyes. Eye 0 is the leftmost in the video and eye 1 is the rightmost one (in the direction of the eye gaze). We further have gaze angle for the x (left-right) and y (up-down) axis.</p>
 <p>The first thing we want to investigate is gaze direction.</p>
 <div id="d7b18826" class="cell" data-execution_count="36">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's plot gaze direction for the left and right eye</span></span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's plot gaze direction for the left and right eye</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1562,8 +1502,7 @@ Eye Gaze Analysis
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].legend()</span>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1575,9 +1514,7 @@ Eye Gaze Analysis
 <p>You can see here that the z-axis is quite different than the other two. It measures how much the person is looking forward, i.e.&nbsp;how much the gaze is aligned with the camera axis. Depending on your data collection this might not be so informative. And depending on your analysis focus, you can also decide to drop z.</p>
 <p>Generally, we can also average both eyes because the two eye vectors are probably very similar since people tend to look in the same direction with both eyes.</p>
 <div id="e7a5d1f6" class="cell" data-execution_count="37">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>openface_features[<span class="st">'gaze_x'</span>] <span class="op">=</span> (</span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>openface_features[<span class="st">'gaze_x'</span>] <span class="op">=</span> (</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    openface_features[<span class="st">'gaze_0_x'</span>] <span class="op">+</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    openface_features[<span class="st">'gaze_1_x'</span>]</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">/</span> <span class="dv">2</span></span>
@@ -1600,8 +1537,7 @@ Eye Gaze Analysis
 <span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frame'</span>)</span>
 <span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Direction'</span>)</span>
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1612,9 +1548,7 @@ Eye Gaze Analysis
 </div>
 <p>Alternatively, we can use the gaze angle data to plot horizontal (x-axis) and vertical (y-axis) changes in gaze. These are described in radians (angular measures) in world coordinates.</p>
 <div id="fb35dad6" class="cell" data-execution_count="38">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(openface_features[<span class="st">'gaze_angle_x'</span>])</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Horizontal Gaze Angle'</span>)</span>
@@ -1626,8 +1560,7 @@ Eye Gaze Analysis
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_ylabel(<span class="st">'Radians'</span>)</span>
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1639,21 +1572,16 @@ Eye Gaze Analysis
 <p>Have a look at the difference between the averaged gaze direction plot and the gaze angle plot. Essentially the two describe the same pattern, i.e.&nbsp;the gaze direction, but in different dimensions.</p>
 <p>Something else we can do is create a heat map from the gaze angle data.</p>
 <div id="29b56d2c" class="cell" data-execution_count="39">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define variables</span></span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define variables</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> openface_features[<span class="st">'gaze_angle_x'</span>]</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> openface_features[<span class="st">'gaze_angle_y'</span>]</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize to 0 to 1 range</span></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>x_norm <span class="op">=</span> (x <span class="op">-</span> x.<span class="bu">min</span>()) <span class="op">/</span> (x.<span class="bu">max</span>() <span class="op">-</span> x.<span class="bu">min</span>())</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>y_norm <span class="op">=</span> (y <span class="op">-</span> y.<span class="bu">min</span>()) <span class="op">/</span> (y.<span class="bu">max</span>() <span class="op">-</span> y.<span class="bu">min</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>y_norm <span class="op">=</span> (y <span class="op">-</span> y.<span class="bu">min</span>()) <span class="op">/</span> (y.<span class="bu">max</span>() <span class="op">-</span> y.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="14640109" class="cell" data-execution_count="40">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create heatmap</span></span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create heatmap</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
@@ -1669,8 +1597,7 @@ Eye Gaze Analysis
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Gaze Heatmap (from gaze angles)"</span>)</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Gaze X"</span>)</span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Gaze Y"</span>)</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1686,9 +1613,7 @@ Gaze Velocity, Fixations, and Saccades
 <p>Using the gaze angle data, we can investigate gaze behaviour further, looking at gaze switches, that is the change in gaze direction between fixations (stable gaze) and saccades (fast movement between fixations).</p>
 <p>The formula for velocity is v = delta s / delta t, where delta s is the angular distance (in radians or degrees) and delat t the time between samples.</p>
 <div id="609b5018" class="cell" data-execution_count="42">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first we want to calculate the gaze velocity and plot the distribution</span></span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first we want to calculate the gaze velocity and plot the distribution</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>gaze_velocity <span class="op">=</span> np.sqrt(</span>
@@ -1709,8 +1634,7 @@ Gaze Velocity, Fixations, and Saccades
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Frame'</span>)</span>
 <span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Velocity (degrees/s)'</span>)</span>
 <span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1721,18 +1645,13 @@ Gaze Velocity, Fixations, and Saccades
 </div>
 <p>Gaze velocity can give us information about fixations and saccades but we first need to define a threshold for the two. From the literature we know that velocity is low for fixation (&lt; 100 degrees/s) and high for saccades (&gt; 300 degrees/s)(https://www.sciencedirect.com/topics/engineering/saccades-and-fixation). But because of the low resolution of OpenFace compared to Eye Trackers, we might need to adjust those values a bit in order to detect gaze movement. Looking at the plot, we can try to determine a good threshold for our saccades. To me, 25 seems reasonable, so I will define this as threshold but you are welcome to think along and try out other values.</p>
 <div id="94a80773" class="cell" data-execution_count="43">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define saccades and fixations</span></span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define saccades and fixations</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="dv">25</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>is_saccade <span class="op">=</span> gaze_velocity_deg <span class="op">&gt;</span> threshold</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>is_fixation <span class="op">=</span> gaze_velocity_deg <span class="op">&lt;</span> threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>is_fixation <span class="op">=</span> gaze_velocity_deg <span class="op">&lt;</span> threshold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="f8e4da88" class="cell" data-execution_count="44">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot gaze speed over time and highlight switches</span></span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot gaze speed over time and highlight switches</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1753,8 +1672,7 @@ Gaze Velocity, Fixations, and Saccades
 <span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1823,14 +1741,13 @@ Gaze Velocity and Switches
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

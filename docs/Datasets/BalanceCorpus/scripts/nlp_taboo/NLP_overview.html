@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.29">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,15 +67,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../../../">
 <script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-8c84aca3a1c0a8f36b5692110b870ec5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-844e6f79d844699b73a6b1f2d631f146.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -326,8 +325,24 @@ body {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Analyses &amp; Tools</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyses &amp; Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/envelope_emd_demo.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/preprocessing.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/analysis.ipynb</span>
+  </li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -381,7 +396,7 @@ body {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">NLP Track — Overview &amp; live demo</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title">NLP Track — Overview &amp; live demo</h1>
 </div>
 
 
@@ -450,10 +465,10 @@ body {
 <section id="setup-create-the-mdig-nlp-conda-environment-once" class="level3">
 <h3 class="anchored" data-anchor-id="setup-create-the-mdig-nlp-conda-environment-once">Setup — create the <code>mdig-nlp</code> conda environment (once)</h3>
 <p>Run these in a terminal <strong>from this folder</strong> (<code>Datasets/BalanceCorpus/scripts/nlp_taboo</code>):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml       <span class="co"># creates the "mdig-nlp" env (Python 3.11, all deps)</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml       <span class="co"># creates the "mdig-nlp" env (Python 3.11, all deps)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate mdig-nlp</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> spacy download en_core_web_sm    <span class="co"># only Notebook 0 needs this</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> mdig-nlp   <span class="co"># registers the Jupyter kernel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> mdig-nlp   <span class="co"># registers the Jupyter kernel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, in the notebook, select the <strong><code>mdig-nlp</code></strong> kernel (kernel picker, top-right) before running any cells.</p>
 <blockquote class="blockquote">
 <p>No conda? A plain venv works too: <code>python -m venv .venv &amp;&amp; .venv\Scripts\activate</code> (Windows) or <code>source .venv/bin/activate</code> (macOS/Linux), then <code>pip install -r requirements.txt</code>.</p>
@@ -463,9 +478,7 @@ body {
 <section id="locate-the-corpus" class="level2">
 <h2 class="anchored" data-anchor-id="locate-the-corpus">0 · Locate the corpus</h2>
 <div id="4f63bb95" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, certifi</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, certifi</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(os.environ.get(<span class="st">"SSL_CERT_FILE"</span>, <span class="st">""</span>)):   <span class="co"># heal broken Anaconda cert path</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"SSL_CERT_FILE"</span>] <span class="op">=</span> certifi.where()<span class="op">;</span> os.environ[<span class="st">"REQUESTS_CA_BUNDLE"</span>] <span class="op">=</span> certifi.where()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_corpus(start<span class="op">=</span><span class="va">None</span>):</span>
@@ -480,34 +493,28 @@ body {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Open this notebook from inside the cloned repository."</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>CORPUS <span class="op">=</span> find_corpus()</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>TRANSCRIPTS <span class="op">=</span> os.path.join(CORPUS, <span class="st">"scripts"</span>, <span class="st">"nlp_taboo"</span>, <span class="st">"transcripts"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Corpus root:"</span>, CORPUS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Corpus root:"</span>, CORPUS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-dataset-in-one-cell" class="level2">
 <h2 class="anchored" data-anchor-id="the-dataset-in-one-cell">1 · The dataset in one cell</h2>
 <p><code>metadata.csv</code> drives everything: per trial, the target word, its five taboos, who the clue-giver was, and the board/ground condition.</p>
 <div id="bd75ad1d" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>meta <span class="op">=</span> pd.read_csv(os.path.join(CORPUS, <span class="st">"metadata.csv"</span>), encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>meta[<span class="st">"pair_id"</span>] <span class="op">=</span> meta[<span class="st">"pair_id"</span>].astype(<span class="bu">str</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>n_audio <span class="op">=</span> <span class="bu">len</span>(glob.glob(os.path.join(CORPUS, <span class="st">"audios"</span>, <span class="st">"*"</span>, <span class="st">"*.wav"</span>)))</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>meta<span class="sc">.</span>target_word<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss"> unique target words · </span><span class="sc">{</span>n_audio<span class="sc">}</span><span class="ss"> trials with audio on disk · "</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"conditions: </span><span class="sc">{</span>meta[<span class="st">'clue_giver_condition'</span>]<span class="sc">.</span>value_counts()<span class="sc">.</span>to_dict()<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>meta[[<span class="st">"pair_id"</span>,<span class="st">"target_word"</span>,<span class="st">"taboo_1"</span>,<span class="st">"taboo_2"</span>,<span class="st">"taboo_3"</span>,<span class="st">"clue_giver_condition"</span>]].head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>meta[[<span class="st">"pair_id"</span>,<span class="st">"target_word"</span>,<span class="st">"taboo_1"</span>,<span class="st">"taboo_2"</span>,<span class="st">"taboo_3"</span>,<span class="st">"clue_giver_condition"</span>]].head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stage-1-audio-transcripts-live" class="level2">
 <h2 class="anchored" data-anchor-id="stage-1-audio-transcripts-live">2 · Stage 1 — Audio → transcripts (live)</h2>
 <p>Each trial’s <code>.wav</code> is <strong>stereo with one speaker per channel</strong> (separate lavalier mics), so we get speaker separation for free. We <em>recover</em> which channel is which speaker from the data (the clue-giver talks more), remove the faint <strong>crosstalk</strong> between mics, and transcribe with Whisper. Here we demo a few trials; <strong>Notebook 1</strong> does all 80.</p>
 <div id="42d62697" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> wave, numpy <span class="im">as</span> np, librosa</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> wave, numpy <span class="im">as</span> np, librosa</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_stem(p):</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    q <span class="op">=</span> os.path.basename(p).rsplit(<span class="st">"."</span>, <span class="dv">1</span>)[<span class="dv">0</span>].split(<span class="st">"_"</span>)</span>
@@ -526,13 +533,10 @@ body {
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>trials <span class="op">=</span> pd.DataFrame(rows)</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>DEMO <span class="op">=</span> trials.groupby(<span class="st">"condition"</span>, group_keys<span class="op">=</span><span class="va">False</span>).head(<span class="dv">2</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)  <span class="co"># 2 board + 2 ground</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(trials)<span class="sc">}</span><span class="ss"> trials available; live-transcribing </span><span class="sc">{</span><span class="bu">len</span>(DEMO)<span class="sc">}</span><span class="ss"> for the demo."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(trials)<span class="sc">}</span><span class="ss"> trials available; live-transcribing </span><span class="sc">{</span><span class="bu">len</span>(DEMO)<span class="sc">}</span><span class="ss"> for the demo."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="5e27c4ec" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- recover channel-&gt;speaker mapping (clue-giver = louder channel), per pair ---</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- recover channel-&gt;speaker mapping (clue-giver = louder channel), per pair ---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> channels(p):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> wave.<span class="bu">open</span>(p, <span class="st">"rb"</span>)<span class="op">;</span> sr <span class="op">=</span> w.getframerate()</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    raw <span class="op">=</span> np.frombuffer(w.readframes(w.getnframes()), dtype<span class="op">=</span>np.int16).astype(np.float64)</span>
@@ -589,17 +593,14 @@ body {
 <span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    t0 <span class="op">=</span> cg.trial_id.iloc[<span class="dv">0</span>]<span class="op">;</span> tgt <span class="op">=</span> demo_tx[demo_tx.trial_id <span class="op">==</span> t0].target_word.iloc[<span class="dv">0</span>]</span>
 <span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"clue-giver on '</span><span class="sc">{</span>tgt<span class="sc">}</span><span class="ss">':"</span>)</span>
 <span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _, s <span class="kw">in</span> cg[cg.trial_id <span class="op">==</span> t0].sort_values(<span class="st">"start"</span>).iterrows():</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  [</span><span class="sc">{</span>s<span class="sc">.</span>start<span class="sc">:5.1f}</span><span class="ss">] </span><span class="sc">{</span>s<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  [</span><span class="sc">{</span>s<span class="sc">.</span>start<span class="sc">:5.1f}</span><span class="ss">] </span><span class="sc">{</span>s<span class="sc">.</span>text<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="which-transcripts-do-the-analyses-use" class="level2">
 <h2 class="anchored" data-anchor-id="which-transcripts-do-the-analyses-use">3 · Which transcripts do the analyses use?</h2>
 <p>The demo transcribed a few trials. If you have already run <strong>Notebook 1</strong> (all 80 trials), the analyses below automatically use that <strong>full</strong> set for meaningful numbers; otherwise they fall back to the handful we just transcribed.</p>
 <div id="eb62c293" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>full <span class="op">=</span> os.path.join(TRANSCRIPTS, <span class="st">"transcripts_all.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>full <span class="op">=</span> os.path.join(TRANSCRIPTS, <span class="st">"transcripts_all.csv"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> os.path.exists(full):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    tx <span class="op">=</span> pd.read_csv(full, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Using the FULL corpus: </span><span class="sc">{</span>tx<span class="sc">.</span>trial_id<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss"> trials (from Notebook 1)."</span>)</span>
@@ -612,17 +613,14 @@ body {
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ModuleNotFoundError</span>:</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ModuleNotFoundError</span>(<span class="st">"sentence-transformers is not installed — see the Setup note at the top."</span>)</span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>EMB <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> embed(t): <span class="cf">return</span> EMB.encode(<span class="bu">list</span>(t), normalize_embeddings<span class="op">=</span><span class="va">True</span>, show_progress_bar<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> embed(t): <span class="cf">return</span> EMB.encode(<span class="bu">list</span>(t), normalize_embeddings<span class="op">=</span><span class="va">True</span>, show_progress_bar<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stage-2-semantic-homing" class="level2">
 <h2 class="anchored" data-anchor-id="stage-2-semantic-homing">4 · Stage 2 — Semantic homing</h2>
 <p>Two things at a glance: (a) are the <strong>taboo</strong> words really the target’s near neighbours? and (b) does the clue-giver’s running speech <strong>close in</strong> on the target over a trial? → deep dive in <a href="02_semantic_homing.ipynb">Notebook 2</a>.</p>
 <div id="67425b3d" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (a) taboo vs random neighbours (metadata only)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> meta.drop_duplicates(<span class="st">"target_word"</span>)<span class="op">;</span> tset <span class="op">=</span> words.target_word.tolist()</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tv <span class="op">=</span> {w: v <span class="cf">for</span> w, v <span class="kw">in</span> <span class="bu">zip</span>(tset, embed(tset))}</span>
@@ -646,17 +644,14 @@ body {
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"time in trial (s)"</span>)<span class="op">;</span> plt.ylabel(<span class="ss">f"cosine to '</span><span class="sc">{</span>tgt<span class="sc">}</span><span class="ss">'"</span>)</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"(b) Semantic homing · </span><span class="sc">{</span>tid[:<span class="dv">34</span>]<span class="sc">}</span><span class="ss">"</span>)<span class="op">;</span> plt.tight_layout()<span class="op">;</span> plt.show()</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"(b) need a trial with &gt;=3 clue-giver segments for a homing curve."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"(b) need a trial with &gt;=3 clue-giver segments for a homing curve."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stage-3-lexical-alignment" class="level2">
 <h2 class="anchored" data-anchor-id="stage-3-lexical-alignment">5 · Stage 3 — Lexical alignment</h2>
 <p>Do partners <strong>reuse each other’s words</strong>? We measure content-word overlap between adjacent cross-speaker turns. → deep dive in <a href="03_lexical_alignment.ipynb">Notebook 3</a>.</p>
 <div id="bf7ffdd6" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>STOP <span class="op">=</span> <span class="bu">set</span>((<span class="st">"a an the of to in on at for and or but is are was were be been am i you he she it we "</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"they me him her us them my your this that these those de het een van en of maar"</span>).split())</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> toks(s): <span class="cf">return</span> [w <span class="cf">for</span> w <span class="kw">in</span> re.findall(<span class="vs">r"</span><span class="pp">[a-zA-Zà-ÿ']</span><span class="op">+</span><span class="vs">"</span>, <span class="bu">str</span>(s).lower()) <span class="cf">if</span> w <span class="kw">not</span> <span class="kw">in</span> STOP]</span>
@@ -672,34 +667,28 @@ body {
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            c, p <span class="op">=</span> <span class="bu">set</span>(seq[i][<span class="dv">1</span>]), <span class="bu">set</span>(seq[i<span class="op">-</span><span class="dv">1</span>][<span class="dv">1</span>])</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> c: reuse.append(<span class="bu">len</span>(c <span class="op">&amp;</span> p) <span class="op">/</span> <span class="bu">len</span>(c))</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"content-word reuse from partner's previous turn: </span><span class="sc">{</span>np<span class="sc">.</span>mean(reuse)<span class="sc">:.3f}</span><span class="ss">"</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> reuse <span class="cf">else</span> <span class="st">"not enough cross-speaker turns yet — run Notebook 1 on more trials."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> reuse <span class="cf">else</span> <span class="st">"not enough cross-speaker turns yet — run Notebook 1 on more trials."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stage-4-language-meets-the-body" class="level2">
 <h2 class="anchored" data-anchor-id="stage-4-language-meets-the-body">6 · Stage 4 — Language meets the body</h2>
 <p>The corpus exists to study <strong>postural load</strong>. The board’s motion sensor shows the manipulation starkly — and it’s the channel Notebook 4 lines up against the language. → deep dive in <a href="04_multimodal_bonus.ipynb">Notebook 4</a>.</p>
 <div id="65c82852" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> pd.read_csv(os.path.join(CORPUS, <span class="st">"gyroscope.csv"</span>))</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> pd.read_csv(os.path.join(CORPUS, <span class="st">"gyroscope.csv"</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>AS <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> g.columns <span class="cf">if</span> c.startswith((<span class="st">"AsX"</span>, <span class="st">"AsY"</span>, <span class="st">"AsZ"</span>))]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>g[<span class="st">"mag"</span>] <span class="op">=</span> np.sqrt((g[AS] <span class="op">**</span> <span class="dv">2</span>).<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>cond <span class="op">=</span> {(<span class="bu">str</span>(r.pair_id), <span class="bu">int</span>(r.trial_number)): r.clue_giver_condition <span class="cf">for</span> _, r <span class="kw">in</span> meta.iterrows()}</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>g[<span class="st">"cond"</span>] <span class="op">=</span> [cond.get((<span class="bu">str</span>(a), <span class="bu">int</span>(b))) <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(g.group_name, g.trial_number)]</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sway <span class="op">=</span> g.groupby(<span class="st">"cond"</span>)[<span class="st">"mag"</span>].mean().<span class="bu">round</span>(<span class="dv">2</span>).to_dict()</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean board sway (deg/s): </span><span class="sc">{</span>sway<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On the ground there's no board to balance -&gt; ~0; on the board the body works constantly."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"On the ground there's no board to balance -&gt; ~0; on the board the body works constantly."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stage-5-clue-giving-themes" class="level2">
 <h2 class="anchored" data-anchor-id="stage-5-clue-giving-themes">7 · Stage 5 — Clue-giving themes</h2>
 <p>Group the clue-giver utterances by meaning and label each group with its distinctive words. → deep dive in <a href="05_topic_modeling.ipynb">Notebook 5</a>.</p>
 <div id="d31f4116" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>docs <span class="op">=</span> tx[tx.role <span class="op">==</span> <span class="st">"clue_giver"</span>].text.astype(<span class="bu">str</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>docs <span class="op">=</span> docs[docs.<span class="bu">str</span>.split().<span class="bu">str</span>.<span class="bu">len</span>() <span class="op">&gt;=</span> <span class="dv">2</span>].tolist()</span>
@@ -715,8 +704,7 @@ body {
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(K):</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"topic </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">: "</span> <span class="op">+</span> <span class="st">", "</span>.join(voc[np.argsort(<span class="op">-</span>ct[c])[:<span class="dv">6</span>]]))</span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Need more clue utterances for topics — run Notebook 1 on more trials."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Need more clue utterances for topics — run Notebook 1 on more trials."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="where-to-go-next" class="level2">
@@ -784,14 +772,13 @@ body {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
