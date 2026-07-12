@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,14 +67,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-844e6f79d844699b73a6b1f2d631f146.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8c84aca3a1c0a8f36b5692110b870ec5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,7 +118,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -167,7 +168,7 @@ body {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Audio de-identification — from redaction to voice anonymization</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyses &amp; Tools</li><li class="breadcrumb-item"><a href="../../thursday-masking/notebooks/audio_deidentification.html">Babajide Owoyele: Masking Audio and Video</a></li><li class="breadcrumb-item"><a href="../../thursday-masking/notebooks/audio_deidentification.html">Audio de-identification — from redaction to voice anonymization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -266,12 +267,50 @@ body {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Classification</span></a>
+ <span class="menu-text">NLP Methods</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Datasets/BalanceCorpus/scripts/nlp_taboo/NLP_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NLP Track — Overview &amp; live demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Datasets/BalanceCorpus/scripts/nlp_taboo/00_dataset_preview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 0 — Preview the corpus’s language (no audio, no ASR)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Datasets/BalanceCorpus/scripts/nlp_taboo/01_audio_to_transcripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 1 — From audio to role-labeled transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Datasets/BalanceCorpus/scripts/nlp_taboo/02_semantic_homing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 2 — Semantic homing in the Taboo game</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/nlp_taboo/03_leyical_alignment.ipynb</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gesture Classification</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.html" class="sidebar-item-text sidebar-link">
@@ -284,13 +323,13 @@ body {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Dataset B: PARSEL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.html" class="sidebar-item-text sidebar-link">
@@ -299,13 +338,13 @@ body {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Processing: Acoustics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
@@ -324,13 +363,36 @@ body {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">Analyses &amp; Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Alex Paxton: State of the Art Multimodal Analysis (ALIGN R package)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html" class="sidebar-item-text sidebar-link">
@@ -351,15 +413,71 @@ body {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Group Projects</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Travis Wiltshire: Multiscale Methods (WMS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../wednesday-coordination/wms_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WMS - Windowed Multiscale Synchrony Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Annie Bryant: Multi-Scale Dynamical Approach in Brain Signals</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Babajide Owoyele: Masking Audio and Video</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../thursday-masking/notebooks/audio_deidentification.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Audio de-identification — from redaction to voice anonymization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../thursday-masking/notebooks/masking-lite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Masking-lite — Media-Pipe full-body tracking, masking, blurring &amp; movement tracing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">Group Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../group-projects/MDIG2026_group_projects.html" class="sidebar-item-text sidebar-link">
@@ -409,7 +527,7 @@ body {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyses &amp; Tools</li><li class="breadcrumb-item"><a href="../../thursday-masking/notebooks/audio_deidentification.html">Babajide Owoyele: Masking Audio and Video</a></li><li class="breadcrumb-item"><a href="../../thursday-masking/notebooks/audio_deidentification.html">Audio de-identification — from redaction to voice anonymization</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Audio de-identification — from redaction to voice anonymization</h1>
 </div>
@@ -465,7 +583,7 @@ body {
 <section id="setup-a-sample-recording" class="level2">
 <h2 class="anchored" data-anchor-id="setup-a-sample-recording">0 · Setup &amp; a sample recording</h2>
 <div id="3b5d6be4" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob, numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob, numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># use only locally-cached models if faster-whisper/resemblyzer pull anything</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>os.environ.setdefault(<span class="st">"HF_HUB_OFFLINE"</span>, <span class="st">"1"</span>)<span class="op">;</span> os.environ.setdefault(<span class="st">"TRANSFORMERS_OFFLINE"</span>, <span class="st">"1"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> librosa, librosa.display, soundfile <span class="im">as</span> sf</span>
@@ -473,10 +591,10 @@ body {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Audio</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>SR <span class="op">=</span> <span class="dv">16000</span>  <span class="co"># everything runs at 16 kHz mono — plenty for speech, and what ASR/embeddings expect</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>SR <span class="op">=</span> <span class="dv">16000</span>  <span class="co"># everything runs at 16 kHz mono — plenty for speech, and what ASR/embeddings expect</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="ca7e20d3" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_sample():</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_sample():</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Walk up from the notebook to find a BalanceCorpus .wav; None if not in the repo."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> os.path.abspath(os.getcwd())</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
@@ -517,10 +635,10 @@ body {
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    orig <span class="op">=</span> synth_voice()</span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No corpus audio found — using a synthetic voice-like fallback."</span>)</span>
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>orig <span class="op">=</span> orig[: <span class="bu">int</span>(<span class="fl">5.0</span> <span class="op">*</span> SR)]</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"duration: </span><span class="sc">%.1f</span><span class="st">s   sr: </span><span class="sc">%d</span><span class="st">"</span> <span class="op">%</span> (<span class="bu">len</span>(orig) <span class="op">/</span> SR, SR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"duration: </span><span class="sc">%.1f</span><span class="st">s   sr: </span><span class="sc">%d</span><span class="st">"</span> <span class="op">%</span> (<span class="bu">len</span>(orig) <span class="op">/</span> SR, SR))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="c2a96c66" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_spec(y, sr, title, ax):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_spec(y, sr, title, ax):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    D <span class="op">=</span> librosa.amplitude_to_db(np.<span class="bu">abs</span>(librosa.stft(y, n_fft<span class="op">=</span><span class="dv">512</span>, hop_length<span class="op">=</span><span class="dv">128</span>)), ref<span class="op">=</span>np.<span class="bu">max</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    librosa.display.specshow(D, sr<span class="op">=</span>sr, hop_length<span class="op">=</span><span class="dv">128</span>, x_axis<span class="op">=</span><span class="st">"time"</span>, y_axis<span class="op">=</span><span class="st">"hz"</span>, ax<span class="op">=</span>ax, cmap<span class="op">=</span><span class="st">"magma"</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="dv">0</span>, <span class="dv">5000</span>)<span class="op">;</span> ax.set_title(title)</span>
@@ -535,7 +653,7 @@ body {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># the original, to hear and see once</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">3</span>))<span class="op">;</span> plot_spec(orig, SR, <span class="st">"original"</span>, ax)<span class="op">;</span> plt.tight_layout()<span class="op">;</span> plt.show()</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>display(Audio(orig, rate<span class="op">=</span>SR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>display(Audio(orig, rate<span class="op">=</span>SR))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="part-a-basic-de-identification-transparent-dsp" class="level2">
@@ -545,7 +663,7 @@ body {
 <h3 class="anchored" data-anchor-id="a1-redaction-mute-or-beep-a-known-sensitive-span">A1 · Redaction — mute or beep a known-sensitive span</h3>
 <p>The bluntest tool: when you know <em>exactly when</em> something identifying is said (a name, an address), delete it. Perfect privacy for that span, zero utility for it. Everything else is untouched.</p>
 <div id="ad1095f2" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> redact(y, sr, spans, mode<span class="op">=</span><span class="st">"silence"</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> redact(y, sr, spans, mode<span class="op">=</span><span class="st">"silence"</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""spans: list of (t0, t1) seconds. mode: 'silence' | 'beep' | 'noise'."""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> y.copy()</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> t0, t1 <span class="kw">in</span> spans:</span>
@@ -564,29 +682,29 @@ body {
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> redact(orig, SR, spans<span class="op">=</span>[(<span class="fl">1.0</span>, <span class="fl">1.8</span>)], mode<span class="op">=</span><span class="st">"beep"</span>)   <span class="co"># beep out 1.0-1.8 s as a demo</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>compare(orig, red, SR, <span class="st">"redacted (beep over 1.0-1.8s)"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: everything outside the span.  Removes: the span entirely (content AND identity)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: everything outside the span.  Removes: the span entirely (content AND identity)."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="a2-pitch-shift-a-quick-voice-disguise" class="level3">
 <h3 class="anchored" data-anchor-id="a2-pitch-shift-a-quick-voice-disguise">A2 · Pitch shift — a quick voice disguise</h3>
 <p>Shift the whole signal up/down in pitch. It <em>sounds</em> like a different person, but note two things on the spectrogram: the formant bands move too (so vowels can sound ‘chipmunk’/‘giant’), and — critically — <strong>it is invertible</strong>: shift back by the same amount and you largely recover the original. So this is <em>disguise</em>, not de-identification.</p>
 <div id="76e2f0b6" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pitch <span class="op">=</span> librosa.effects.pitch_shift(orig, sr<span class="op">=</span>SR, n_steps<span class="op">=-</span><span class="dv">4</span>)   <span class="co"># 4 semitones down</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pitch <span class="op">=</span> librosa.effects.pitch_shift(orig, sr<span class="op">=</span>SR, n_steps<span class="op">=-</span><span class="dv">4</span>)   <span class="co"># 4 semitones down</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>compare(orig, pitch, SR, <span class="st">"pitch-shifted (-4 semitones)"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: words, timing.  Weakens: pitch cue.  BUT invertible (+4 semitones) -&gt; disguise only."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: words, timing.  Weakens: pitch cue.  BUT invertible (+4 semitones) -&gt; disguise only."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="a3-telephone-band-limiting" class="level3">
 <h3 class="anchored" data-anchor-id="a3-telephone-band-limiting">A3 · Telephone band-limiting</h3>
 <p>Keep only the 300–3400 Hz ‘telephone band’. Speech stays intelligible (phones work!), but the very low and high frequencies — which carry some speaker-specific colour — are gone. Mild privacy, mild utility cost.</p>
 <div id="017b680d" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> telephone(y, sr, lo<span class="op">=</span><span class="dv">300</span>, hi<span class="op">=</span><span class="dv">3400</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> telephone(y, sr, lo<span class="op">=</span><span class="dv">300</span>, hi<span class="op">=</span><span class="dv">3400</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    sos <span class="op">=</span> butter(<span class="dv">6</span>, [lo, hi], btype<span class="op">=</span><span class="st">"band"</span>, fs<span class="op">=</span>sr, output<span class="op">=</span><span class="st">"sos"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sosfiltfilt(sos, y).astype(np.float32)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>tel <span class="op">=</span> telephone(orig, SR)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>compare(orig, tel, SR, <span class="st">"telephone band (300-3400 Hz)"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: intelligibility.  Removes: sub-300 / super-3400 Hz colour.  Weak on its own."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Keeps: intelligibility.  Removes: sub-300 / super-3400 Hz colour.  Weak on its own."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Takeaway for Part A.</strong> These are transparent and cheap, but each is <em>disguise</em>: pitch-shift is invertible, band-limiting leaves the formant pattern intact, and redaction only helps where you already know the sensitive moment. For genuine voice anonymization we need to change the thing a speaker-recogniser actually keys on — the <strong>vocal-tract resonances (formants)</strong> — while leaving the words and prosody alone.</p>
 </section>
@@ -597,7 +715,7 @@ body {
 <p><strong>The recipe (per short frame):</strong> 1. Fit an <strong>LPC</strong> all-pole filter <span class="math inline">\(1/A(z)\)</span> to the frame — this is the vocal-tract estimate. 2. Inverse-filter to get the <strong>residual</strong> (the source/excitation) — keeps pitch, timing, energy. 3. Find the filter’s <strong>poles</strong> and shift each pole’s <strong>angle</strong> <span class="math inline">\(\theta \mapsto \theta^{\,\alpha}\)</span> by the <strong>McAdams coefficient</strong> <span class="math inline">\(\alpha\)</span> (pole <em>magnitudes</em> unchanged → still stable). This moves the formant frequencies. 4. Re-synthesise the residual through the <strong>new</strong> filter.</p>
 <p><span class="math inline">\(\alpha &lt; 1\)</span> pushes formants up, <span class="math inline">\(\alpha &gt; 1\)</span> pulls them down; <span class="math inline">\(\alpha = 1\)</span> is a no-op. This is the <strong>VoicePrivacy 2020 baseline B2</strong> (Patino et al., 2021).</p>
 <div id="6c0f0b0c" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mcadams(y, sr, coef<span class="op">=</span><span class="fl">0.8</span>, order<span class="op">=</span><span class="dv">16</span>, frame<span class="op">=</span><span class="fl">0.025</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mcadams(y, sr, coef<span class="op">=</span><span class="fl">0.8</span>, order<span class="op">=</span><span class="dv">16</span>, frame<span class="op">=</span><span class="fl">0.025</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""McAdams-coefficient anonymization. Keeps the LPC residual (source), shifts formant</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    (pole) angles by `coef`, re-synthesises. Overlap-add with a Hann window at 50% hop."""</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(frame <span class="op">*</span> sr)<span class="op">;</span> hop <span class="op">=</span> n <span class="op">//</span> <span class="dv">2</span><span class="op">;</span> win <span class="op">=</span> np.hanning(n)</span>
@@ -608,27 +726,30 @@ body {
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            norm[st:st <span class="op">+</span> n] <span class="op">+=</span> win<span class="op">;</span> <span class="cf">continue</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> librosa.lpc(seg, order<span class="op">=</span>order)          <span class="co"># A(z), a[0] == 1</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        res <span class="op">=</span> lfilter(a, [<span class="fl">1.0</span>], seg)               <span class="co"># residual = whiten with the inverse filter</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> np.roots(a)<span class="op">;</span> ang <span class="op">=</span> np.angle(r)<span class="op">;</span> mag <span class="op">=</span> np.<span class="bu">abs</span>(r)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        new_ang <span class="op">=</span> np.sign(ang) <span class="op">*</span> (np.<span class="bu">abs</span>(ang) <span class="op">**</span> coef)     <span class="co"># raise |angle| to the McAdams power</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        new_a <span class="op">=</span> np.real(np.poly(mag <span class="op">*</span> np.exp(<span class="ot">1j</span> <span class="op">*</span> new_ang)))</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        rec <span class="op">=</span> lfilter([<span class="fl">1.0</span>], new_a, res)           <span class="co"># re-synthesise through the shifted filter</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        out[st:st <span class="op">+</span> n] <span class="op">+=</span> rec <span class="op">*</span> win<span class="op">;</span> norm[st:st <span class="op">+</span> n] <span class="op">+=</span> win</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    norm[norm <span class="op">&lt;</span> <span class="fl">1e-9</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> (out <span class="op">/</span> norm)[:<span class="bu">len</span>(y)]</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (z <span class="op">/</span> (np.<span class="bu">abs</span>(z).<span class="bu">max</span>() <span class="op">+</span> <span class="fl">1e-9</span>) <span class="op">*</span> <span class="fl">0.9</span>).astype(np.float32)   <span class="co"># normalise for playback</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>anon <span class="op">=</span> mcadams(orig, SR, coef<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>compare(orig, anon, SR, <span class="st">"McAdams anonymized (coef=0.8)"</span>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Look: the formant bands have SHIFTED, but the vertical pitch striations (timing/prosody) line up."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> np.roots(a)<span class="op">;</span> ang <span class="op">=</span> np.angle(r)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        mag <span class="op">=</span> np.minimum(np.<span class="bu">abs</span>(r), <span class="fl">0.999</span>)   <span class="co"># clamp poles inside the unit circle -&gt; filter always stable</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        new_ang <span class="op">=</span> np.sign(ang) <span class="op">*</span> (np.<span class="bu">abs</span>(ang) <span class="op">**</span> coef)     <span class="co"># raise |angle| to the McAdams power</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        new_a <span class="op">=</span> np.real(np.poly(mag <span class="op">*</span> np.exp(<span class="ot">1j</span> <span class="op">*</span> new_ang)))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        rec <span class="op">=</span> lfilter([<span class="fl">1.0</span>], new_a, res)           <span class="co"># re-synthesise through the shifted filter</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> np.<span class="bu">all</span>(np.isfinite(rec)):</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            rec <span class="op">=</span> seg                              <span class="co"># safety net: keep the original frame if it still diverges</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        out[st:st <span class="op">+</span> n] <span class="op">+=</span> rec <span class="op">*</span> win<span class="op">;</span> norm[st:st <span class="op">+</span> n] <span class="op">+=</span> win</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    norm[norm <span class="op">&lt;</span> <span class="fl">1e-9</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> (out <span class="op">/</span> norm)[:<span class="bu">len</span>(y)]</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (z <span class="op">/</span> (np.<span class="bu">abs</span>(z).<span class="bu">max</span>() <span class="op">+</span> <span class="fl">1e-9</span>) <span class="op">*</span> <span class="fl">0.9</span>).astype(np.float32)   <span class="co"># normalise for playback</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>anon <span class="op">=</span> mcadams(orig, SR, coef<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>compare(orig, anon, SR, <span class="st">"McAdams anonymized (coef=0.8)"</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Look: the formant bands have SHIFTED, but the vertical pitch striations (timing/prosody) line up."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="b2-the-coefficient-is-your-privacyutility-dial" class="level3">
 <h3 class="anchored" data-anchor-id="b2-the-coefficient-is-your-privacyutility-dial">B2 · The coefficient is your privacy↔︎utility dial</h3>
 <p>Lower <code>coef</code> = a bigger formant shift = a more different voice, but also more distortion (less natural, harder to trust downstream analysis). Sweep it and listen.</p>
 <div id="69341004" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> coef <span class="kw">in</span> (<span class="fl">0.7</span>, <span class="fl">0.85</span>, <span class="fl">0.95</span>):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> coef <span class="kw">in</span> (<span class="fl">0.7</span>, <span class="fl">0.85</span>, <span class="fl">0.95</span>):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> mcadams(orig, SR, coef<span class="op">=</span>coef)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"coef = </span><span class="sc">{</span>coef<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    display(Audio(z, rate<span class="op">=</span>SR))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    display(Audio(z, rate<span class="op">=</span>SR))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -639,7 +760,7 @@ body {
 <h3 class="anchored" data-anchor-id="c1-utility-does-the-content-survive-asr">C1 · Utility — does the content survive? (ASR)</h3>
 <p>If a speech recogniser still reads the same words off the anonymized audio, the linguistic content survived. (Optional: needs <code>faster-whisper</code>.)</p>
 <div id="c40f1580" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> faster_whisper <span class="im">import</span> WhisperModel</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    asr <span class="op">=</span> WhisperModel(<span class="st">"small"</span>, device<span class="op">=</span><span class="st">"cpu"</span>, compute_type<span class="op">=</span><span class="st">"int8"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> transcribe(y):</span>
@@ -649,14 +770,14 @@ body {
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"ANONYMIZED:"</span>, transcribe(anon) <span class="kw">or</span> <span class="st">"(no speech detected)"</span>)</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">If the words broadly match, McAdams kept the content while changing the voice."</span>)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Skipping ASR check (install faster-whisper to enable). Reason:"</span>, <span class="bu">type</span>(e).<span class="va">__name__</span>, e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Skipping ASR check (install faster-whisper to enable). Reason:"</span>, <span class="bu">type</span>(e).<span class="va">__name__</span>, e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="c2-privacy-proxy-how-much-did-the-timbre-change" class="level3">
 <h3 class="anchored" data-anchor-id="c2-privacy-proxy-how-much-did-the-timbre-change">C2 · Privacy proxy — how much did the <em>timbre</em> change?</h3>
 <p>A dependency-free proxy: the cosine between the two clips’ <strong>average MFCC</strong> (spectral-envelope) vectors. <strong>Read this carefully</strong> — it measures how much the <em>spectral colour</em> changed, <strong>not</strong> verified speaker identity. It is a distortion/timbre signal, not a security guarantee.</p>
 <div id="b923ae31" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> envelope_vec(x):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> envelope_vec(x):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> librosa.feature.mfcc(y<span class="op">=</span>x.astype(<span class="bu">float</span>), sr<span class="op">=</span>SR, n_mfcc<span class="op">=</span><span class="dv">20</span>)[<span class="dv">1</span>:].mean(axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># drop c0 (energy)</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cos(a, b):</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(a <span class="op">@</span> b <span class="op">/</span> (np.linalg.norm(a) <span class="op">*</span> np.linalg.norm(b) <span class="op">+</span> <span class="fl">1e-9</span>))</span>
@@ -664,14 +785,14 @@ body {
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MFCC-envelope cosine  original vs anonymized:  </span><span class="sc">%.3f</span><span class="st">  (lower = timbre changed more)"</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">%</span> cos(envelope_vec(orig), envelope_vec(anon)))</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Caveat: this shows the VOICE COLOUR moved. It does NOT prove a speaker-verification system</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"could no longer identify the person. For that you need a real speaker embedding -&gt; C3."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"could no longer identify the person. For that you need a real speaker embedding -&gt; C3."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="c3-privacy-properly-a-speaker-embedding-check-optional" class="level3">
 <h3 class="anchored" data-anchor-id="c3-privacy-properly-a-speaker-embedding-check-optional">C3 · Privacy, properly — a speaker-embedding check (optional)</h3>
 <p>The honest way to measure de-identification is with the <em>same weapon an attacker uses</em>: a <strong>speaker embedding</strong> (d-vector). We compare the anonymized clip to the original speaker. A good anonymizer pushes that similarity <strong>down</strong> toward the level of an unrelated speaker. (Optional: needs <code>resemblyzer</code>, which pulls a small PyTorch model.)</p>
 <div id="4bd64c6f" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> resemblyzer <span class="im">import</span> VoiceEncoder, preprocess_wav</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    enc <span class="op">=</span> VoiceEncoder(verbose<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> emb(y): <span class="cf">return</span> enc.embed_utterance(preprocess_wav(np.asarray(y, dtype<span class="op">=</span>np.float32), source_sr<span class="op">=</span>SR))</span>
@@ -687,7 +808,7 @@ body {
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>          <span class="st">"the anonymization is weak against this attacker."</span>)</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Skipping speaker-embedding check (pip install resemblyzer to enable)."</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Reason:"</span>, <span class="bu">type</span>(e).<span class="va">__name__</span>, e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Reason:"</span>, <span class="bu">type</span>(e).<span class="va">__name__</span>, e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="honest-limitations-say-these-out-loud-to-students" class="level3">
@@ -771,13 +892,14 @@ body {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

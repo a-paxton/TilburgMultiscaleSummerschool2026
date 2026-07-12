@@ -12,6 +12,7 @@ execute:
 ```{r}
 #| label: install-wms
 #| eval: false
+
 # Run this once to install the wms package from GitHub
 if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
 remotes::install_github("travisjwiltshire/wms")
