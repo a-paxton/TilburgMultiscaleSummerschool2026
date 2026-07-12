@@ -45,6 +45,7 @@ website:
           - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.ipynb
           - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.ipynb
           - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.ipynb
+          - wednesday-coordination/wms_exercises.qmd
 
       - section: "Group Projects"
         contents:
