@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Notebook 4 (bonus, advanced) — The multimodal, multiscale picture</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap-8c84aca3a1c0a8f36b5692110b870ec5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href=".quarto-container {
+  max-width: 8000px !important;
+}
+body {
+  font-size: 10px;
+}">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/WimPouw/TilburgMultiscaleSummerschool2026">
+            Source Code
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Notebook 4 (bonus, advanced) — The multimodal, multiscale picture</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main page</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Handbook/Organizers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About organizers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dataset A: Balance Corpus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/general_data_loading_cheatsheet/BalanceCorpusCheatSheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheet: Loading the BalanceCorpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Processing: Acoustics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Acoustics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/continuousacoustics/Speaker_diarization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Speaker diarization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Open Smile</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Processing: Motion tracking</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Media-Pipe for full-body tracking, masking, blurring, and movement tracing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenFace_analysis.html</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">NLP Methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/NLP_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NLP Track — Overview &amp; live demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/00_dataset_preview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 0 — Preview the corpus’s language (no audio, no ASR)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/01_audio_to_transcripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 1 — From audio to role-labeled transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/02_semantic_homing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 2 — Semantic homing in the Taboo game</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/nlp_taboo/03_leyical_alignment.ipynb</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gesture Classification</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using the EnvisionHGdetector Package</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dataset B: PARSEL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheet: Loading the PARSEL Corpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Processing: Acoustics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing: Acoustics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">Open Smile</span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyses &amp; Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Alex Paxton: State of the Art Multimodal Analysis (ALIGN R package)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Envelope + pyEMD demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing: BalanceCorpus gesture, speech, and sway</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis: gesture, speech, and sway coupling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Travis Wiltshire: Multiscale Methods (WMS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../wednesday-coordination/wms_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WMS - Windowed Multiscale Synchrony Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Annie Bryant: Multi-Scale Dynamical Approach in Brain Signals</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Babajide Owoyele: Masking Audio and Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../thursday-masking/notebooks/audio_deidentification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio de-identification — from redaction to voice anonymization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../thursday-masking/notebooks/masking-lite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Masking-lite — Media-Pipe full-body tracking, masking, blurring &amp; movement tracing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">Group Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../group-projects/MDIG2026_group_projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Projects Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../group-projects/Groups_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Group Projects</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#install-run-once" id="toc-install-run-once" class="nav-link active" data-scroll-target="#install-run-once">0 · Install (run once)</a></li>
+  <li><a href="#config-transcripts-embedding-model" id="toc-config-transcripts-embedding-model" class="nav-link" data-scroll-target="#config-transcripts-embedding-model">1 · Config, transcripts, embedding model</a></li>
+  <li><a href="#three-loaders-one-per-stream" id="toc-three-loaders-one-per-stream" class="nav-link" data-scroll-target="#three-loaders-one-per-stream">2 · Three loaders — one per stream</a></li>
+  <li><a href="#one-trial-three-streams-one-clock" id="toc-one-trial-three-streams-one-clock" class="nav-link" data-scroll-target="#one-trial-three-streams-one-clock">3 · One trial, three streams, one clock</a></li>
+  <li><a href="#cross-modal-across-trials" id="toc-cross-modal-across-trials" class="nav-link" data-scroll-target="#cross-modal-across-trials">4 · Cross-modal, across trials</a></li>
+  <li><a href="#bonus-does-board-sway-lead-or-lag-semantic-homingthe-scatter-in-4-asked-whether-homing-and-sway-co-vary-per-trial.-here-we-ask-a-sharpertemporal-question-within-a-trial-when-meaning-approaches-the-target-does-the-body-getbusier-before-during-or-after-we-cross-correlate-the-two-streams-at-a-range-oflags-and-average-the-result-across-trials.the-mechanics1.-put-both-streams-on-a-common-10-hz-grid-homing-is-only-a-few-points-per-trial-the-gyro-is-high-rate-we-interpolate-both.2.-linearly-detrend-z-score-each-homing-has-a-strong-upward-trend-we-dont-want-to-dominate-the-correlation-we-care-about-the-fluctuations-riding-on-it.3.-for-each-lag-correlate-homingt-with-swayt-lag-so-positive-lag-sway-leads-homing.-average-the-lag-curve-across-trials.board-trials-only-ground-sway-0-so-theres-nothing-to-correlate.-and-the-usual-caveatharder-here-than-anywhere-2-dyads-14-s-trials-510-homing-points-each-the-lag-axis-iscoarse-and-this-is-strictly-hypothesis-generating.-read-the-shape-and-sign-of-the-peak-nota-p-value." id="toc-bonus-does-board-sway-lead-or-lag-semantic-homingthe-scatter-in-4-asked-whether-homing-and-sway-co-vary-per-trial.-here-we-ask-a-sharpertemporal-question-within-a-trial-when-meaning-approaches-the-target-does-the-body-getbusier-before-during-or-after-we-cross-correlate-the-two-streams-at-a-range-oflags-and-average-the-result-across-trials.the-mechanics1.-put-both-streams-on-a-common-10-hz-grid-homing-is-only-a-few-points-per-trial-the-gyro-is-high-rate-we-interpolate-both.2.-linearly-detrend-z-score-each-homing-has-a-strong-upward-trend-we-dont-want-to-dominate-the-correlation-we-care-about-the-fluctuations-riding-on-it.3.-for-each-lag-correlate-homingt-with-swayt-lag-so-positive-lag-sway-leads-homing.-average-the-lag-curve-across-trials.board-trials-only-ground-sway-0-so-theres-nothing-to-correlate.-and-the-usual-caveatharder-here-than-anywhere-2-dyads-14-s-trials-510-homing-points-each-the-lag-axis-iscoarse-and-this-is-strictly-hypothesis-generating.-read-the-shape-and-sign-of-the-peak-nota-p-value." class="nav-link" data-scroll-target="#bonus-does-board-sway-lead-or-lag-semantic-homingthe-scatter-in-4-asked-whether-homing-and-sway-co-vary-per-trial.-here-we-ask-a-sharpertemporal-question-within-a-trial-when-meaning-approaches-the-target-does-the-body-getbusier-before-during-or-after-we-cross-correlate-the-two-streams-at-a-range-oflags-and-average-the-result-across-trials.the-mechanics1.-put-both-streams-on-a-common-10-hz-grid-homing-is-only-a-few-points-per-trial-the-gyro-is-high-rate-we-interpolate-both.2.-linearly-detrend-z-score-each-homing-has-a-strong-upward-trend-we-dont-want-to-dominate-the-correlation-we-care-about-the-fluctuations-riding-on-it.3.-for-each-lag-correlate-homingt-with-swayt-lag-so-positive-lag-sway-leads-homing.-average-the-lag-curve-across-trials.board-trials-only-ground-sway-0-so-theres-nothing-to-correlate.-and-the-usual-caveatharder-here-than-anywhere-2-dyads-14-s-trials-510-homing-points-each-the-lag-axis-iscoarse-and-this-is-strictly-hypothesis-generating.-read-the-shape-and-sign-of-the-peak-nota-p-value.">5 · Bonus — does board sway <em>lead or lag</em> semantic homing?The scatter in §4 asked whether homing and sway co-vary <em>per trial</em>. Here we ask a sharper,<strong>temporal</strong> question: within a trial, when meaning approaches the target, does the body getbusier <strong>before</strong>, <strong>during</strong>, or <strong>after</strong>? We cross-correlate the two streams at a range oflags and average the result across trials.The mechanics:1. Put both streams on a <strong>common 10 Hz grid</strong> (homing is only a few points per trial; the gyro is high-rate — we interpolate both).2. <strong>Linearly detrend + z-score</strong> each — homing has a strong upward trend we don’t want to dominate the correlation; we care about the <em>fluctuations</em> riding on it.3. For each lag, correlate <code>homing(t)</code> with <code>sway(t − lag)</code>, so <strong>positive lag = sway leads homing</strong>. Average the lag curve across trials.<strong>Board trials only</strong> (ground sway ≈ 0, so there’s nothing to correlate). And the usual caveat,harder here than anywhere: 2 dyads, ~14 s trials, ~5–10 homing points each → the lag axis iscoarse and this is strictly <em>hypothesis-generating</em>. Read the <strong>shape and sign of the peak</strong>, nota p-value.</a></li>
+  <li><a href="#bonus-are-gesture-onsets-time-locked-just-before-semantic-homing-jumps5-asked-about-the-board-here-we-ask-about-the-hands.-when-the-clue-givers-cumulative-cluesuddenly-gets-closer-to-the-target-a-semantic-jump-is-there-a-gesture-onset-in-the-shortwindow-just-before-itthe-test-is-event-based1.-a-homing-jump-a-clue-segment-where-similarity-to-target-rose-over-the-previous-one.2.-a-gesture-precedes-a-jump-if-a-gesture-onset-falls-in-the-w-second-window-before-it.3.-we-compare-the-real-fraction-of-jumps-preceded-by-a-gesture-against-a-time-shifted-null-the-whole-onset-train-is-circularly-shifted-by-a-random-offset-which-keeps-the-number-and-the-clustering-of-gestures-intact-and-only-breaks-their-alignment-to-the-jumps.-a-uniform-random-scatter-would-be-an-unfair-null-real-gestures-bunch-inside-speech-exactly-where-jumps-live-so-real-would-beat-uniform-even-with-no-genuine-timing-relationship.read-this-honestly-not-as-proof-of-anticipation.-because-jumps-are-timestamped-at-speech-segmentends-a-gesture-that-merely-overlaps-the-segment-that-produced-the-jump-already-counts-aspreceding-it.-so-this-measures-gesturespeech-co-occurrence-with-a-slight-lead-not-that-thehands-lead-meaning.-and-its-2-dyads-with-sparse-events-an-exploratory-template-read-thedirection-versus-the-null-never-a-p-value." id="toc-bonus-are-gesture-onsets-time-locked-just-before-semantic-homing-jumps5-asked-about-the-board-here-we-ask-about-the-hands.-when-the-clue-givers-cumulative-cluesuddenly-gets-closer-to-the-target-a-semantic-jump-is-there-a-gesture-onset-in-the-shortwindow-just-before-itthe-test-is-event-based1.-a-homing-jump-a-clue-segment-where-similarity-to-target-rose-over-the-previous-one.2.-a-gesture-precedes-a-jump-if-a-gesture-onset-falls-in-the-w-second-window-before-it.3.-we-compare-the-real-fraction-of-jumps-preceded-by-a-gesture-against-a-time-shifted-null-the-whole-onset-train-is-circularly-shifted-by-a-random-offset-which-keeps-the-number-and-the-clustering-of-gestures-intact-and-only-breaks-their-alignment-to-the-jumps.-a-uniform-random-scatter-would-be-an-unfair-null-real-gestures-bunch-inside-speech-exactly-where-jumps-live-so-real-would-beat-uniform-even-with-no-genuine-timing-relationship.read-this-honestly-not-as-proof-of-anticipation.-because-jumps-are-timestamped-at-speech-segmentends-a-gesture-that-merely-overlaps-the-segment-that-produced-the-jump-already-counts-aspreceding-it.-so-this-measures-gesturespeech-co-occurrence-with-a-slight-lead-not-that-thehands-lead-meaning.-and-its-2-dyads-with-sparse-events-an-exploratory-template-read-thedirection-versus-the-null-never-a-p-value." class="nav-link" data-scroll-target="#bonus-are-gesture-onsets-time-locked-just-before-semantic-homing-jumps5-asked-about-the-board-here-we-ask-about-the-hands.-when-the-clue-givers-cumulative-cluesuddenly-gets-closer-to-the-target-a-semantic-jump-is-there-a-gesture-onset-in-the-shortwindow-just-before-itthe-test-is-event-based1.-a-homing-jump-a-clue-segment-where-similarity-to-target-rose-over-the-previous-one.2.-a-gesture-precedes-a-jump-if-a-gesture-onset-falls-in-the-w-second-window-before-it.3.-we-compare-the-real-fraction-of-jumps-preceded-by-a-gesture-against-a-time-shifted-null-the-whole-onset-train-is-circularly-shifted-by-a-random-offset-which-keeps-the-number-and-the-clustering-of-gestures-intact-and-only-breaks-their-alignment-to-the-jumps.-a-uniform-random-scatter-would-be-an-unfair-null-real-gestures-bunch-inside-speech-exactly-where-jumps-live-so-real-would-beat-uniform-even-with-no-genuine-timing-relationship.read-this-honestly-not-as-proof-of-anticipation.-because-jumps-are-timestamped-at-speech-segmentends-a-gesture-that-merely-overlaps-the-segment-that-produced-the-jump-already-counts-aspreceding-it.-so-this-measures-gesturespeech-co-occurrence-with-a-slight-lead-not-that-thehands-lead-meaning.-and-its-2-dyads-with-sparse-events-an-exploratory-template-read-thedirection-versus-the-null-never-a-p-value.">6 · Bonus — are gesture onsets time-locked <em>just before</em> semantic-homing jumps?§5 asked about the <em>board</em>; here we ask about the <em>hands</em>. When the clue-giver’s cumulative cluesuddenly gets <strong>closer</strong> to the target (a semantic “jump”), is there a <strong>gesture onset in the shortwindow just before</strong> it?The test is event-based:1. A <strong>homing jump</strong> = a clue segment where similarity-to-target <em>rose</em> over the previous one.2. A gesture <strong>precedes</strong> a jump if a gesture <strong>onset</strong> falls in the <code>W</code>-second window before it.3. We compare the real <em>“fraction of jumps preceded by a gesture”</em> against a <strong>time-shifted null</strong>: the whole onset train is circularly shifted by a random offset, which keeps the <em>number</em> <strong>and</strong> the <em>clustering</em> of gestures intact and only breaks their alignment to the jumps. (A uniform-random scatter would be an unfair null — real gestures bunch inside speech, exactly where jumps live, so real would beat uniform even with no genuine timing relationship.)<strong>Read this honestly, not as proof of anticipation.</strong> Because jumps are timestamped at speech-segment<em>ends</em>, a gesture that merely overlaps the segment that produced the jump already counts as”preceding” it. So this measures <strong>gesture–speech co-occurrence with a slight lead</strong>, not that thehands lead meaning. And it’s 2 dyads with sparse events → an exploratory <em>template</em>: read thedirection versus the null, never a p-value.</a></li>
+  <li><a href="#recap-where-this-goes" id="toc-recap-where-this-goes" class="nav-link" data-scroll-target="#recap-where-this-goes">Recap &amp; where this goes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Notebook 4 (bonus, advanced) — The multimodal, multiscale picture</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>MDIG2026 Summer School · NLP track · bonus</strong></p>
+<p>Notebooks 1–3 stayed inside language. This bonus notebook connects language to the corpus’s <em>other</em> channels — the whole point of a <strong>multiscale</strong> summer school. For a single trial we put three time-locked streams on one shared clock:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 30%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>stream</th>
+<th>scale</th>
+<th>source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>semantic homing</strong> — clue meaning → target</td>
+<td>slow, cognitive</td>
+<td>transcripts (Nb 2)</td>
+</tr>
+<tr class="even">
+<td><strong>gesture bouts</strong> — the clue-giver’s hands</td>
+<td>mid, motor</td>
+<td><code>gestureclassifications/…_segments.csv</code></td>
+</tr>
+<tr class="odd">
+<td><strong>postural sway</strong> — the balance board</td>
+<td>fast, bodily</td>
+<td><code>gyroscope.csv</code></td>
+</tr>
+</tbody>
+</table>
+<p>Then we ask a cross-modal question across trials: <strong>is semantic homing accompanied by more gesturing and more sway?</strong></p>
+<blockquote class="blockquote">
+<p>Prereqs: run <strong>Notebook 1</strong> with <code>MAX_TRIALS = None</code>, then peek at <strong>Notebook 2</strong>. Everything is time-aligned to <em>trial start = 0 s</em> (the gyro is cut per trial; gesture times and transcript times are already trial-relative).</p>
+</blockquote>
+<div id="83b3ea99" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use locally-cached models only — never phone home to Hugging Face.# (The embedding model is already downloaded; this prevents a hang if the#  network blocks HF's version-check request. Must run before any model load.)import osos.environ["HF_HUB_OFFLINE"] = "1"os.environ["TRANSFORMERS_OFFLINE"] = "1"print("Hugging Face offline mode ON — using cached models only.")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="install-run-once" class="level2">
+<h2 class="anchored" data-anchor-id="install-run-once">0 · Install (run once)</h2>
+<div id="8bb5622a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install sentence-transformers pandas numpy matplotlib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="config-transcripts-embedding-model" class="level2">
+<h2 class="anchored" data-anchor-id="config-transcripts-embedding-model">1 · Config, transcripts, embedding model</h2>
+<div id="10200caf" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, certifi</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(os.environ.get(<span class="st">"SSL_CERT_FILE"</span>, <span class="st">""</span>)):   <span class="co"># fix broken Anaconda cert path</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"SSL_CERT_FILE"</span>] <span class="op">=</span> certifi.where()<span class="op">;</span> os.environ[<span class="st">"REQUESTS_CA_BUNDLE"</span>] <span class="op">=</span> certifi.where()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_corpus(start<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> os.path.abspath(start <span class="kw">or</span> os.getcwd())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.isfile(os.path.join(d, <span class="st">"metadata.csv"</span>)) <span class="kw">and</span> os.path.isdir(os.path.join(d, <span class="st">"audios"</span>)):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> d</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        parent <span class="op">=</span> os.path.dirname(d)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> parent <span class="op">==</span> d: <span class="cf">break</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> parent</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"Could not find the BalanceCorpus root (metadata.csv + audios/)."</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>CORPUS <span class="op">=</span> find_corpus()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>TRANSCRIPTS <span class="op">=</span> os.path.join(CORPUS, <span class="st">"scripts"</span>, <span class="st">"nlp_taboo"</span>, <span class="st">"transcripts"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Corpus root:"</span>, CORPUS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c7abb13a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tx_path <span class="op">=</span> os.path.join(TRANSCRIPTS, <span class="st">"transcripts_all.csv"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(tx_path):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(<span class="st">"Run Notebook 1 first (MAX_TRIALS = None) to create transcripts_all.csv."</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tx <span class="op">=</span> pd.read_csv(tx_path, encoding<span class="op">=</span><span class="st">"utf-8"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>meta <span class="op">=</span> pd.read_csv(os.path.join(CORPUS, <span class="st">"metadata.csv"</span>), encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>meta[<span class="st">"pair_id"</span>] <span class="op">=</span> meta[<span class="st">"pair_id"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(tx)<span class="sc">}</span><span class="ss"> segments · </span><span class="sc">{</span>tx<span class="sc">.</span>trial_id<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss"> trials"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="97d3d5b5" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ModuleNotFoundError</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ModuleNotFoundError</span>(<span class="st">"sentence-transformers is not installed — run the install cell "</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"in Section 0, then re-run this cell."</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>EMB <span class="op">=</span> SentenceTransformer(<span class="st">"sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> embed(texts): <span class="cf">return</span> EMB.encode(<span class="bu">list</span>(texts), normalize_embeddings<span class="op">=</span><span class="va">True</span>, show_progress_bar<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Embedding model ready."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="three-loaders-one-per-stream" class="level2">
+<h2 class="anchored" data-anchor-id="three-loaders-one-per-stream">2 · Three loaders — one per stream</h2>
+<p>Each returns trial-relative time so the streams line up.</p>
+<div id="56450aea" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (a) semantic homing: cumulative clue similarity to the target ---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> homing(trial_id):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> tx[(tx.trial_id <span class="op">==</span> trial_id) <span class="op">&amp;</span> (tx.role <span class="op">==</span> <span class="st">"clue_giver"</span>)].sort_values(<span class="st">"start"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(d) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    target <span class="op">=</span> tx[tx.trial_id <span class="op">==</span> trial_id].target_word.iloc[<span class="dv">0</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    tvec <span class="op">=</span> embed([target])[<span class="dv">0</span>]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    cum, ts, sims <span class="op">=</span> <span class="st">""</span>, [], []</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _, s <span class="kw">in</span> d.iterrows():</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        cum <span class="op">=</span> (cum <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="bu">str</span>(s.text)).strip()</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        ts.append(s.end)<span class="op">;</span> sims.append(<span class="bu">float</span>(embed([cum])[<span class="dv">0</span>] <span class="op">@</span> tvec))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(ts), np.array(sims), target</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c74d9afd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (b) postural sway: RMS of angular-velocity magnitude from the balance board ---import globGYRO = pd.read_csv(os.path.join(CORPUS, "gyroscope.csv"))# angular-velocity columns carry a degree symbol that may be mojibaked -&gt; match by prefixAS = [next(c for c in GYRO.columns if c.startswith(p)) for p in ("AsX", "AsY", "AsZ")]def sway(pair_id, trial_number, smooth=10):    g = GYRO[(GYRO.group_name == pair_id) &amp; (GYRO.trial_number == int(trial_number))].copy()    if len(g) == 0: return None    t = pd.to_datetime(g["time"]); secs = (t - t.min()).dt.total_seconds().to_numpy()    mag = np.sqrt((g[AS].to_numpy() ** 2).sum(axis=1))              # deg/s, total rotation rate    order = np.argsort(secs); secs, mag = secs[order], mag[order]   # gyro rows are NOT time-sorted: sort BEFORE smoothing    env = pd.Series(mag).rolling(smooth, center=True, min_periods=1).mean().to_numpy()    return secs, env</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ba536062" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- (c) gesture bouts: the clue-giver's hand-gesture segments (CNN model) ---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gesture_bouts(trial_id):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    stem <span class="op">=</span> trial_id <span class="op">+</span> <span class="st">"_clueGiver_cam02.mp4_segments.csv"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> os.path.join(CORPUS, <span class="st">"gestureclassifications"</span>, stem)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(path): <span class="cf">return</span> []</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> pd.read_csv(path)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> s[s.model <span class="op">==</span> <span class="st">"CNN"</span>] <span class="cf">if</span> <span class="st">"model"</span> <span class="kw">in</span> s <span class="cf">else</span> s</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">list</span>(<span class="bu">zip</span>(s.start_time, s.end_time))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-trial-three-streams-one-clock" class="level2">
+<h2 class="anchored" data-anchor-id="one-trial-three-streams-one-clock">3 · One trial, three streams, one clock</h2>
+<div id="2c67e6cd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># choose a trial that has all three streams</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> has_all(t):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> tx[tx.trial_id <span class="op">==</span> t].iloc[<span class="dv">0</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (homing(t) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> sway(r.pair_id, r.trial_number) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="kw">and</span> <span class="bu">len</span>(gesture_bouts(t)) <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> tx.trial_id.unique() <span class="cf">if</span> has_all(t)), <span class="va">None</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> example <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"No trial currently has all three streams (transcript + gyroscope + gesture). "</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Run Notebook 1 on more trials, and check the gyroscope/gesture files are present."</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> tx[tx.trial_id <span class="op">==</span> example].iloc[<span class="dv">0</span>]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> homing(example)<span class="op">;</span> S <span class="op">=</span> sway(r.pair_id, r.trial_number)<span class="op">;</span> B <span class="op">=</span> gesture_bouts(example)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>ht, hs, target <span class="op">=</span> H<span class="op">;</span> st, se <span class="op">=</span> S</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(ht, hs, <span class="st">"-o"</span>, color<span class="op">=</span><span class="st">"#c44"</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="ss">f"cosine to</span><span class="ch">\n</span><span class="ss">'</span><span class="sc">{</span>target<span class="sc">}</span><span class="ss">'"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="ss">f"Multimodal timeline · </span><span class="sc">{</span>example<span class="sc">}</span><span class="ss">  (</span><span class="sc">{</span>r<span class="sc">.</span>condition<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].plot(st, se, color<span class="op">=</span><span class="st">"#2a7"</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_ylabel(<span class="st">"board sway</span><span class="ch">\n</span><span class="st">(deg/s)"</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (a, b) <span class="kw">in</span> B:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> ax: row.axvspan(a, b, color<span class="op">=</span><span class="st">"#48a"</span>, alpha<span class="op">=</span><span class="fl">.12</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_ylim(<span class="dv">0</span>, <span class="dv">1</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_yticks([])</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (a, b) <span class="kw">in</span> B: ax[<span class="dv">2</span>].axvspan(a, b, color<span class="op">=</span><span class="st">"#48a"</span>, alpha<span class="op">=</span><span class="fl">.5</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_ylabel(<span class="st">"gesture</span><span class="ch">\n</span><span class="st">bouts"</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_xlabel(<span class="st">"time in trial (s)"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Blue bands = clue-giver gesturing. Do homing rises coincide with gesture/sway bursts?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="cross-modal-across-trials" class="level2">
+<h2 class="anchored" data-anchor-id="cross-modal-across-trials">4 · Cross-modal, across trials</h2>
+<p>For every trial we reduce each stream to one number and look for relationships:</p>
+<ul>
+<li><strong>homing slope</strong> — how fast meaning approaches the target (linear fit over normalized time)</li>
+<li><strong>gesture fraction</strong> — share of the trial spent gesturing</li>
+<li><strong>mean sway</strong> — average board rotation rate</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Expect ground sway ≈ 0.</strong> In <em>ground</em> trials there is no balance board to stabilise, so the board’s IMU barely moves (~0 °/s) while <em>board</em> trials average ~8 °/s. That flat ground line is the real manipulation working, not a bug.</p>
+</blockquote>
+<p>Exploratory only (2 dyads) — read the <em>pattern</em>, colour-coded by board vs ground.</p>
+<div id="c02adcba" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rec <span class="op">=</span> []<span class="cf">for</span> t <span class="kw">in</span> tx.trial_id.unique():    r <span class="op">=</span> tx[tx.trial_id <span class="op">==</span> t].iloc[<span class="dv">0</span>]    H <span class="op">=</span> homing(t)<span class="op">;</span> S <span class="op">=</span> sway(r.pair_id, r.trial_number)<span class="op">;</span> B <span class="op">=</span> gesture_bouts(t)    <span class="cf">if</span> H <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> S <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> <span class="bu">len</span>(H[<span class="dv">0</span>]) <span class="op">&lt;</span> <span class="dv">3</span>: <span class="cf">continue</span>    ht, hs, _ <span class="op">=</span> H    tn <span class="op">=</span> (ht <span class="op">-</span> ht.<span class="bu">min</span>()) <span class="op">/</span> (ht.<span class="bu">max</span>() <span class="op">-</span> ht.<span class="bu">min</span>() <span class="op">+</span> <span class="fl">1e-9</span>)    slope <span class="op">=</span> <span class="bu">float</span>(np.polyfit(tn, hs, <span class="dv">1</span>)[<span class="dv">0</span>])    dur <span class="op">=</span> <span class="bu">max</span>(ht.<span class="bu">max</span>(), <span class="bu">max</span>((b <span class="cf">for</span> _, b <span class="kw">in</span> B), default<span class="op">=</span>ht.<span class="bu">max</span>()))   <span class="co"># union span so gesture_frac stays &lt;= 1    gfrac = sum(b - a for a, b in B) / dur if dur &gt; 0 else np.nan    rec.append(dict(trial=t, condition=r.condition, homing_slope=slope,                    gesture_frac=gfrac, mean_sway=float(np.mean(S[1]))))cm = pd.DataFrame(rec)fig, ax = plt.subplots(1, 2, figsize=(10, 3.6))for cond, col in [("board", "#c44"), ("ground", "#48a")]:    d = cm[cm.condition == cond]    ax[0].scatter(d.gesture_frac, d.homing_slope, color=col, label=cond, alpha=.8)    ax[1].scatter(d.mean_sway,   d.homing_slope, color=col, label=cond, alpha=.8)ax[0].set_xlabel("fraction of trial gesturing"); ax[0].set_ylabel("semantic-homing slope")ax[1].set_xlabel("mean board sway (deg/s)");    ax[1].set_ylabel("semantic-homing slope")for a in ax: a.legend()ax[0].set_title("Homing vs gesturing"); ax[1].set_title("Homing vs sway")plt.tight_layout(); plt.show()print(cm.groupby("condition")[["homing_slope", "gesture_frac", "mean_sway"]].mean().round(3))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bonus-does-board-sway-lead-or-lag-semantic-homingthe-scatter-in-4-asked-whether-homing-and-sway-co-vary-per-trial.-here-we-ask-a-sharpertemporal-question-within-a-trial-when-meaning-approaches-the-target-does-the-body-getbusier-before-during-or-after-we-cross-correlate-the-two-streams-at-a-range-oflags-and-average-the-result-across-trials.the-mechanics1.-put-both-streams-on-a-common-10-hz-grid-homing-is-only-a-few-points-per-trial-the-gyro-is-high-rate-we-interpolate-both.2.-linearly-detrend-z-score-each-homing-has-a-strong-upward-trend-we-dont-want-to-dominate-the-correlation-we-care-about-the-fluctuations-riding-on-it.3.-for-each-lag-correlate-homingt-with-swayt-lag-so-positive-lag-sway-leads-homing.-average-the-lag-curve-across-trials.board-trials-only-ground-sway-0-so-theres-nothing-to-correlate.-and-the-usual-caveatharder-here-than-anywhere-2-dyads-14-s-trials-510-homing-points-each-the-lag-axis-iscoarse-and-this-is-strictly-hypothesis-generating.-read-the-shape-and-sign-of-the-peak-nota-p-value." class="level2">
+<h2 class="anchored" data-anchor-id="bonus-does-board-sway-lead-or-lag-semantic-homingthe-scatter-in-4-asked-whether-homing-and-sway-co-vary-per-trial.-here-we-ask-a-sharpertemporal-question-within-a-trial-when-meaning-approaches-the-target-does-the-body-getbusier-before-during-or-after-we-cross-correlate-the-two-streams-at-a-range-oflags-and-average-the-result-across-trials.the-mechanics1.-put-both-streams-on-a-common-10-hz-grid-homing-is-only-a-few-points-per-trial-the-gyro-is-high-rate-we-interpolate-both.2.-linearly-detrend-z-score-each-homing-has-a-strong-upward-trend-we-dont-want-to-dominate-the-correlation-we-care-about-the-fluctuations-riding-on-it.3.-for-each-lag-correlate-homingt-with-swayt-lag-so-positive-lag-sway-leads-homing.-average-the-lag-curve-across-trials.board-trials-only-ground-sway-0-so-theres-nothing-to-correlate.-and-the-usual-caveatharder-here-than-anywhere-2-dyads-14-s-trials-510-homing-points-each-the-lag-axis-iscoarse-and-this-is-strictly-hypothesis-generating.-read-the-shape-and-sign-of-the-peak-nota-p-value.">5 · Bonus — does board sway <em>lead or lag</em> semantic homing?The scatter in §4 asked whether homing and sway co-vary <em>per trial</em>. Here we ask a sharper,<strong>temporal</strong> question: within a trial, when meaning approaches the target, does the body getbusier <strong>before</strong>, <strong>during</strong>, or <strong>after</strong>? We cross-correlate the two streams at a range oflags and average the result across trials.The mechanics:1. Put both streams on a <strong>common 10 Hz grid</strong> (homing is only a few points per trial; the gyro is high-rate — we interpolate both).2. <strong>Linearly detrend + z-score</strong> each — homing has a strong upward trend we don’t want to dominate the correlation; we care about the <em>fluctuations</em> riding on it.3. For each lag, correlate <code>homing(t)</code> with <code>sway(t − lag)</code>, so <strong>positive lag = sway leads homing</strong>. Average the lag curve across trials.<strong>Board trials only</strong> (ground sway ≈ 0, so there’s nothing to correlate). And the usual caveat,harder here than anywhere: 2 dyads, ~14 s trials, ~5–10 homing points each → the lag axis iscoarse and this is strictly <em>hypothesis-generating</em>. Read the <strong>shape and sign of the peak</strong>, nota p-value.</h2>
+<div id="577485c9" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-correlate homing vs sway at a range of lags, averaged over board trials.# Reuses homing() and sway() from section 2. Positive lag = sway LEADS homing.DT      = 0.1                                    # common-grid step (s) -&gt; 10 HzMAX_LAG = 3.0                                    # inspect lags within +/- 3 slags    = np.arange(-MAX_LAG, MAX_LAG + DT / 2, DT)def _detrend_z(y):    """Remove a linear trend, then z-score. None if the series is flat."""    x = np.arange(len(y))    b, a = np.polyfit(x, y, 1)    r = y - (a + b * x)    sd = r.std()    return r / sd if sd &gt; 1e-9 else Nonedef xcorr_trial(trial_id, pair_id, trial_number):    """Lag-correlation curve for one trial, aligned to `lags`. None if unusable."""    H = homing(trial_id); S = sway(pair_id, trial_number)    if H is None or S is None:        return None    ht, hs, _ = H; st, se = S    t0, t1 = max(ht.min(), st.min()), min(ht.max(), st.max())    if t1 - t0 &lt; 2 * MAX_LAG + 1:               # need room for the lag window        return None    grid = np.arange(t0, t1, DT)    h = _detrend_z(np.interp(grid, ht, hs))     # homing on the grid    s = _detrend_z(np.interp(grid, st, se))     # sway envelope on the grid    if h is None or s is None:        return None    n = len(grid); out = []    for lag in lags:        k = int(round(lag / DT))                # corr( h(t), s(t-lag) )        a, b = (h[k:], s[:n - k]) if k &gt;= 0 else (h[:n + k], s[-k:])        out.append(float(np.corrcoef(a, b)[0, 1]) if len(a) &gt;= 5 else np.nan)    return np.array(out)curves = []for t in tx.trial_id.unique():    r = tx[tx.trial_id == t].iloc[0]    if r.condition != "board":                  # ground sway ~ 0 -&gt; skip        continue    c = xcorr_trial(t, r.pair_id, r.trial_number)    if c is not None:        curves.append(c)if not curves:    print("No board trials with both streams long enough for a lagged cross-correlation.")else:    M = np.vstack(curves)    mean, sem = np.nanmean(M, 0), np.nanstd(M, 0) / np.sqrt(np.sum(~np.isnan(M), 0))    peak = int(np.nanargmax(np.abs(mean)))      # strongest coupling (either sign)    fig, ax = plt.subplots(figsize=(7, 3.6))    ax.axhline(0, color="#999", lw=.8); ax.axvline(0, color="#999", lw=.8, ls=":")    ax.plot(lags, mean, "-", color="#c44", label=f"mean over {len(curves)} board trials")    ax.fill_between(lags, mean - sem, mean + sem, color="#c44", alpha=.15)    ax.plot(lags[peak], mean[peak], "o", color="#000")    ax.set_xlabel("lag (s)   —   negative: sway trails homing   ·   positive: sway leads homing")    ax.set_ylabel("cross-correlation"); ax.legend()    ax.set_title("Do sway fluctuations lead or lag semantic homing? (board trials)")    plt.tight_layout(); plt.show()    lead = "sway LEADS homing" if lags[peak] &gt; 0 else ("sway TRAILS homing" if lags[peak] &lt; 0 else "synchronous")    print(f"peak |correlation| = {mean[peak]:+.3f} at lag {lags[peak]:+.1f}s  -&gt;  {lead}")    print("Exploratory (2 dyads, short trials): read the shape/sign of the peak, not significance.")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="bonus-are-gesture-onsets-time-locked-just-before-semantic-homing-jumps5-asked-about-the-board-here-we-ask-about-the-hands.-when-the-clue-givers-cumulative-cluesuddenly-gets-closer-to-the-target-a-semantic-jump-is-there-a-gesture-onset-in-the-shortwindow-just-before-itthe-test-is-event-based1.-a-homing-jump-a-clue-segment-where-similarity-to-target-rose-over-the-previous-one.2.-a-gesture-precedes-a-jump-if-a-gesture-onset-falls-in-the-w-second-window-before-it.3.-we-compare-the-real-fraction-of-jumps-preceded-by-a-gesture-against-a-time-shifted-null-the-whole-onset-train-is-circularly-shifted-by-a-random-offset-which-keeps-the-number-and-the-clustering-of-gestures-intact-and-only-breaks-their-alignment-to-the-jumps.-a-uniform-random-scatter-would-be-an-unfair-null-real-gestures-bunch-inside-speech-exactly-where-jumps-live-so-real-would-beat-uniform-even-with-no-genuine-timing-relationship.read-this-honestly-not-as-proof-of-anticipation.-because-jumps-are-timestamped-at-speech-segmentends-a-gesture-that-merely-overlaps-the-segment-that-produced-the-jump-already-counts-aspreceding-it.-so-this-measures-gesturespeech-co-occurrence-with-a-slight-lead-not-that-thehands-lead-meaning.-and-its-2-dyads-with-sparse-events-an-exploratory-template-read-thedirection-versus-the-null-never-a-p-value." class="level2">
+<h2 class="anchored" data-anchor-id="bonus-are-gesture-onsets-time-locked-just-before-semantic-homing-jumps5-asked-about-the-board-here-we-ask-about-the-hands.-when-the-clue-givers-cumulative-cluesuddenly-gets-closer-to-the-target-a-semantic-jump-is-there-a-gesture-onset-in-the-shortwindow-just-before-itthe-test-is-event-based1.-a-homing-jump-a-clue-segment-where-similarity-to-target-rose-over-the-previous-one.2.-a-gesture-precedes-a-jump-if-a-gesture-onset-falls-in-the-w-second-window-before-it.3.-we-compare-the-real-fraction-of-jumps-preceded-by-a-gesture-against-a-time-shifted-null-the-whole-onset-train-is-circularly-shifted-by-a-random-offset-which-keeps-the-number-and-the-clustering-of-gestures-intact-and-only-breaks-their-alignment-to-the-jumps.-a-uniform-random-scatter-would-be-an-unfair-null-real-gestures-bunch-inside-speech-exactly-where-jumps-live-so-real-would-beat-uniform-even-with-no-genuine-timing-relationship.read-this-honestly-not-as-proof-of-anticipation.-because-jumps-are-timestamped-at-speech-segmentends-a-gesture-that-merely-overlaps-the-segment-that-produced-the-jump-already-counts-aspreceding-it.-so-this-measures-gesturespeech-co-occurrence-with-a-slight-lead-not-that-thehands-lead-meaning.-and-its-2-dyads-with-sparse-events-an-exploratory-template-read-thedirection-versus-the-null-never-a-p-value.">6 · Bonus — are gesture onsets time-locked <em>just before</em> semantic-homing jumps?§5 asked about the <em>board</em>; here we ask about the <em>hands</em>. When the clue-giver’s cumulative cluesuddenly gets <strong>closer</strong> to the target (a semantic “jump”), is there a <strong>gesture onset in the shortwindow just before</strong> it?The test is event-based:1. A <strong>homing jump</strong> = a clue segment where similarity-to-target <em>rose</em> over the previous one.2. A gesture <strong>precedes</strong> a jump if a gesture <strong>onset</strong> falls in the <code>W</code>-second window before it.3. We compare the real <em>“fraction of jumps preceded by a gesture”</em> against a <strong>time-shifted null</strong>: the whole onset train is circularly shifted by a random offset, which keeps the <em>number</em> <strong>and</strong> the <em>clustering</em> of gestures intact and only breaks their alignment to the jumps. (A uniform-random scatter would be an unfair null — real gestures bunch inside speech, exactly where jumps live, so real would beat uniform even with no genuine timing relationship.)<strong>Read this honestly, not as proof of anticipation.</strong> Because jumps are timestamped at speech-segment<em>ends</em>, a gesture that merely overlaps the segment that produced the jump already counts as”preceding” it. So this measures <strong>gesture–speech co-occurrence with a slight lead</strong>, not that thehands lead meaning. And it’s 2 dyads with sparse events → an exploratory <em>template</em>: read thedirection versus the null, never a p-value.</h2>
+<div id="188d2738" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Event test: does a gesture ONSET fall just before a semantic-homing JUMP?# Reuses homing() and gesture_bouts() from section 2.W     = 2.0                                  # a gesture "precedes" a jump if it starts within W s beforeNSHUF = 50                                   # circular-shift nulls per trialrng   = np.random.default_rng(0)def homing_jumps(trial_id):    """Times of positive homing increments (the semantic 'jumps'), at clue-segment end times."""    H = homing(trial_id)    if H is None:        return None    ht, hs, _ = H    if len(ht) &lt; 3:        return None    j = ht[1:][np.diff(hs) &gt; 0]             # segment times where similarity rose    return j if len(j) else Nonedef preceded_fraction(jumps, onsets, W):    """Fraction of jumps with &gt;=1 gesture onset in (jump - W, jump]."""    if len(jumps) == 0 or len(onsets) == 0:        return np.nan    onsets = np.asarray(onsets, dtype=float)    return float(np.mean([np.any((onsets &lt;= j) &amp; (onsets &gt; j - W)) for j in jumps]))real, shuf, latency = [], [], []for t in tx.trial_id.unique():    J = homing_jumps(t); B = gesture_bouts(t)    if J is None or not B:        continue    onsets = np.array([a for a, _ in B], dtype=float)    dur = max(J.max(), onsets.max(), max(b for _, b in B))    real.append(preceded_fraction(J, onsets, W))    # Null: circularly shift the whole onset train by a random offset -&gt; preserves the NUMBER and the    # clustering/spacing of gestures, only breaks their alignment to the jumps (fairer than uniform scatter).    sh = [preceded_fraction(J, np.sort((onsets + rng.uniform(0, dur)) % dur), W) for _ in range(NSHUF)]    shuf.append(float(np.nanmean(sh)))    for j in J:                             # latency from nearest preceding onset        prev = onsets[onsets &lt;= j]        if len(prev):            latency.append(j - prev.max())real, shuf = np.array(real), np.array(shuf)if np.isnan(real).all():    print("Not enough trials with both gesture bouts and homing jumps to run this test.")else:    fig, ax = plt.subplots(1, 2, figsize=(10, 3.4))    ax[0].bar(["gesture precedes\n(real)", "time-shifted\nnull"],              [np.nanmean(real), np.nanmean(shuf)], color=["#48a", "#999"])    ax[0].set_ylim(0, 1)    ax[0].set_ylabel(f"fraction of jumps with a gesture\nonset within {W:.0f}s before")    ax[0].set_title("Do gestures precede semantic jumps?")    if latency:        ax[1].hist(latency, bins=np.arange(0, 6.5, 0.5), color="#48a", alpha=.8)        ax[1].axvline(W, color="#c44", ls="--", label=f"{W:.0f}s window")        ax[1].set_xlabel("jump − nearest preceding gesture onset (s)")        ax[1].set_ylabel("count"); ax[1].legend()        ax[1].set_title("How long before a jump did the last gesture start?")    plt.tight_layout(); plt.show()    print(f"gesture-precedes-jump fraction:  real={np.nanmean(real):.2f}  "          f"time-shifted null={np.nanmean(shuf):.2f}  (n={np.sum(~np.isnan(real))} trials)")    print("Exploratory: jumps are at speech-segment ENDS, so this is gesture/speech CO-OCCURRENCE with a")    print("slight lead, not proof gesture anticipates meaning. Read direction vs the null, not significance.")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="recap-where-this-goes" class="level2">
+<h2 class="anchored" data-anchor-id="recap-where-this-goes">Recap &amp; where this goes</h2>
+<ul>
+<li>We aligned <strong>meaning (language), motor (gesture), and body (sway)</strong> on a single trial clock — a concrete multiscale, multimodal object.</li>
+<li>We reduced each trial to cross-modal summaries and looked for language↔︎body coupling, split by the <strong>board/ground</strong> manipulation.</li>
+</ul>
+<p><strong>Caveats (state them):</strong> 2 dyads, short trials, coarse gesture/sway summaries — everything is <em>hypothesis-generating</em>. The value is the <strong>template</strong>: this is exactly the multiscale story a group project would scale to the full Zenodo corpus, and the join keys (<code>pair_id</code> + <code>trial_number</code>, trial-relative time) are the same throughout.</p>
+<p><strong>Ideas to extend:</strong> cross-correlate the homing curve with the sway envelope at a lag; test whether gesture <em>onsets</em> precede jumps in semantic similarity; bring in the prosody streams in <code>TS_acoustics/</code> (envelope, f0) as a fourth channel.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

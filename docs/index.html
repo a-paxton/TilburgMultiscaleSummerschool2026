@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,14 +68,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-879e17e0943005addc3f92108f1b325f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3450c851ae01cc05197ec386adbdd027.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -238,12 +239,50 @@ body {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Classification</span></a>
+ <span class="menu-text">NLP Methods</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/nlp_taboo/NLP_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NLP Track — Overview &amp; live demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/nlp_taboo/00_dataset_preview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 0 — Preview the corpus’s language (no audio, no ASR)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/nlp_taboo/01_audio_to_transcripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 1 — From audio to role-labeled transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/nlp_taboo/02_semantic_homing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 2 — Semantic homing in the Taboo game</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/nlp_taboo/03_leyical_alignment.ipynb</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gesture Classification</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.html" class="sidebar-item-text sidebar-link">
@@ -256,13 +295,13 @@ body {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Dataset B: PARSEL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.html" class="sidebar-item-text sidebar-link">
@@ -271,13 +310,13 @@ body {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Processing: Acoustics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
@@ -292,68 +331,125 @@ body {
   </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Processing: Motion tracking</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb</span>
-  </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">Classification</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb</span>
-  </li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
  <span class="menu-text">Analyses &amp; Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Alex Paxton: State of the Art Multimodal Analysis (ALIGN R package)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/envelope_emd_demo.ipynb</span>
+ <span class="menu-text">tba</span>
   </li>
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/preprocessing.ipynb</span>
+      </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
- <span class="menu-text">Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis/analysis.ipynb</span>
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Envelope + pyEMD demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing: BalanceCorpus gesture, speech, and sway</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis: gesture, speech, and sway coupling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Travis Wiltshire: Multiscale Methods (WMS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wednesday-coordination/wms_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WMS - Windowed Multiscale Synchrony Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Annie Bryant: Multi-Scale Dynamical Approach in Brain Signals</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Babajide Owoyele: Masking Audio and Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./thursday-masking/notebooks/audio_deidentification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio de-identification — from redaction to voice anonymization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./thursday-masking/notebooks/masking-lite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Masking-lite — Media-Pipe full-body tracking, masking, blurring &amp; movement tracing</span></a>
+  </div>
+</li>
+      </ul>
   </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
  <span class="menu-text">Group Projects</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./group-projects/MDIG2026_group_projects.html" class="sidebar-item-text sidebar-link">
@@ -380,7 +476,6 @@ body {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#program" id="toc-program" class="nav-link" data-scroll-target="#program">Program</a></li>
   </ul>
 </nav>
     </div>
@@ -408,7 +503,7 @@ body {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 11, 2026</p>
+      <p class="date-modified">July 13, 2026</p>
     </div>
   </div>
     
@@ -428,6 +523,7 @@ body {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Dear participants,</p>
 <p>this handbook collects all scripts associated with the program of MDIG2026 Summer School. You will find here introduction of the datasets you will be working in your group projects, scripts that process these datasets into analyzable time series and features and finally, all scripts associated with the lectures.</p>
+<p>For full program and other organizational information, please visit <a href="https://www.envisionbox.org/summerschool2026.html">EnvisionBox website</a>.</p>
 <p>The two datasets that we picked for this year are:</p>
 <ul>
 <li><strong>Balance Corpus</strong> (Li, Yang, Fuchs &amp; Aussems, 2026)</li>
@@ -443,1239 +539,17 @@ body {
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<p>[here info about envs]</p>
-</section>
-<section id="program" class="level2">
-<h2 class="anchored" data-anchor-id="program">Program</h2>
-<style>
-        /* ── Banner image fix: show full flyer, no crop ── */
-        #banner .image {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            flex-shrink: 0;
-            width: 42%;
-            margin: 0 0 2em 3em;
-        }
-
-        #banner .image img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            /* override main.css cover */
-            border-radius: 0.375em;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-        }
-
-        /* keep content side from being squeezed */
-        #banner .content {
-            flex-shrink: 1;
-            width: 58%;
-        }
-
-        @media screen and (orientation: portrait) {
-            #banner .image {
-                width: 100%;
-                margin: 0 0 2em 0;
-                max-height: none;
-            }
-
-            #banner .content {
-                width: 100%;
-            }
-        }
-
-        /* ── Schedule ── */
-        .schedule-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 0 0 2em 0;
-        }
-
-        table.schedule {
-            min-width: 820px;
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0;
-            font-size: 1em;
-        }
-
-        table.schedule thead th {
-            font-family: "Montserrat", sans-serif;
-            font-size: 0.82em;
-            padding: 0.9em 0.8em;
-            text-align: left;
-            vertical-align: top;
-            border: none;
-        }
-
-        table.schedule thead th.th-time {
-            background-color: #3d4449;
-            color: #ffffff;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            width: 5em;
-            min-width: 4.5em;
-        }
-
-        table.schedule thead th.th-day {
-            background-color: #f56a6a;
-            color: #ffffff;
-            font-weight: 700;
-            border-left: solid 1px rgba(255, 255, 255, 0.25);
-            text-align: center;
-        }
-
-        table.schedule thead th .day-name {
-            display: block;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.1em;
-            letter-spacing: 0.05em;
-        }
-
-        table.schedule thead th .day-theme {
-            display: block;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 1.05em;
-            opacity: 0.93;
-            margin-top: 0.3em;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            line-height: 1.4;
-        }
-
-        table.schedule tbody tr {
-            border: solid 1px rgba(210, 215, 217, 0.75);
-            border-left: 0;
-            border-right: 0;
-        }
-
-        table.schedule tbody tr:nth-child(2n+1) {
-            background-color: rgba(230, 235, 237, 0.2);
-        }
-
-        table.schedule td {
-            padding: 0.6em 0.8em;
-            vertical-align: middle;
-            line-height: 1.5;
-            color: #3c4146;
-        }
-
-        table.schedule td.td-time {
-            background-color: #f5f6f7;
-            color: #7f888f;
-            font-family: "Montserrat", sans-serif;
-            font-size: 0.82em;
-            font-weight: 700;
-            text-align: center;
-            white-space: nowrap;
-            border-right: solid 2px rgba(210, 215, 217, 0.75);
-            padding: 0.6em 0.5em;
-        }
-
-        table.schedule td.td-day {
-            border-left: solid 1px rgba(210, 215, 217, 0.4);
-            text-align: center;
-        }
-
-        tr.slot-reg td {
-            color: #5c6370;
-            font-style: italic;
-        }
-
-        tr.slot-lunch td {
-            color: #5c6370;
-            font-style: italic;
-        }
-
-        tr.slot-closing td {
-            color: #5c6370;
-            font-style: italic;
-            font-size: 0.9em;
-        }
-
-        tr.slot-closing {
-            border-top: solid 2px rgba(210, 215, 217, 0.75) !important;
-        }
-
-        tr.slot-social td.td-day {
-            color: #f56a6a;
-            font-weight: 600;
-        }
-
-        tr.slot-highlight td.td-day {
-            color: #3d4449;
-        }
-
-        /* ── Notice box ── */
-        .notice-box {
-            background: rgba(245, 106, 106, 0.07);
-            border-left: solid 4px #f56a6a;
-            padding: 1em 1.5em;
-            margin: 0 0 2.5em 0;
-            border-radius: 0 0.375em 0.375em 0;
-        }
-
-        .notice-box p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #7f888f;
-        }
-
-        .notice-box strong {
-            color: #f56a6a;
-        }
-
-        /* ── Info grid ── */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5em;
-            margin: 0 0 2em 0;
-        }
-
-        .info-card {
-            border: solid 1px rgba(210, 215, 217, 0.75);
-            border-radius: 0.375em;
-            padding: 1.4em 1.6em;
-        }
-
-        .info-card .card-label {
-            font-size: 0.72em;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #f56a6a;
-            margin: 0 0 0.4em 0;
-            display: block;
-        }
-
-        .info-card .card-value {
-            font-size: 1em;
-            font-weight: 700;
-            color: #3d4449;
-            margin: 0 0 0.4em 0;
-        }
-
-        .info-card .card-detail {
-            font-size: 0.88em;
-            color: #7f888f;
-            line-height: 1.65;
-            margin: 0;
-        }
-
-        @media screen and (max-width: 980px) {
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ── Speakers ── */
-        .speakers-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1em 0;
-            columns: 2;
-            column-gap: 2em;
-        }
-
-        .speakers-list li {
-            padding: 0.3em 0;
-            border-top: solid 1px rgba(210, 215, 217, 0.75);
-            break-inside: avoid;
-            font-size: 0.9em;
-        }
-
-        .speakers-list li:first-child {
-            border-top: 0;
-        }
-
-        .speakers-list .sp-name {
-            font-weight: 700;
-            color: #3d4449;
-        }
-
-        .speakers-list .sp-affil {
-            color: #5c6370;
-        }
-
-        .speakers-list .sp-tag {
-            display: inline-block;
-            background: rgba(245, 106, 106, 0.1);
-            color: #f56a6a;
-            font-size: 0.75em;
-            font-weight: 600;
-            padding: 0.1em 0.55em;
-            border-radius: 1em;
-            margin-left: 0.4em;
-            vertical-align: middle;
-        }
-
-        @media screen and (max-width: 736px) {
-            .speakers-list {
-                columns: 1;
-            }
-        }
-
-        /* ── Discord button ── */
-        .button.discord {
-            background-color: #5865F2 !important;
-            box-shadow: none !important;
-            color: #ffffff !important;
-        }
-
-        .button.discord:hover {
-            background-color: #4752c4 !important;
-        }
-
-        /* ── Lightbox ── */
-        .lightbox-trigger {
-            cursor: zoom-in;
-            display: block;
-        }
-
-        .lightbox-trigger img {
-            transition: opacity 0.2s;
-        }
-
-        .lightbox-trigger:hover img {
-            opacity: 0.88;
-        }
-
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.82);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-        }
-
-        .lightbox-overlay.active {
-            display: flex;
-        }
-
-        .lightbox-overlay img {
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 0.5em;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-            object-fit: contain;
-        }
-    </style>
-<style>
-                        /* Local style overrides for a modern, highly readable schedule with true proportional scaling */
-                        #schedule {
-                            margin: 3.5em 0;
-                        }
-
-                        #schedule .notice-box {
-                            background: rgba(245, 106, 106, 0.05);
-                            border-left: solid 4px #f56a6a;
-                            padding: 1.2em 1.5em;
-                            margin: 0 0 2.5em 0;
-                            border-radius: 6px;
-                        }
-
-                        #schedule .schedule-wrapper {
-                            overflow-x: auto;
-                            -webkit-overflow-scrolling: touch;
-                            margin: 0 0 2.5em 0;
-                            border-radius: 12px;
-                            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-                            border: 1px solid rgba(210, 215, 217, 0.6);
-                            background: #ffffff;
-                            padding: 15px;
-                        }
-
-                        #schedule table.schedule {
-                            min-width: 980px;
-                            width: 100%;
-                            border-collapse: separate;
-                            border-spacing: 10px 12px;
-                            margin: 0;
-                        }
-
-                        #schedule table.schedule thead th {
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 0.85em;
-                            padding: 1.2em 1em;
-                            text-align: left;
-                            vertical-align: top;
-                            border: none;
-                            border-radius: 6px;
-                        }
-
-                        #schedule table.schedule thead th.th-time {
-                            background-color: #3d4449;
-                            color: #ffffff;
-                            text-align: center;
-                            font-weight: 700;
-                            letter-spacing: 0.08em;
-                            text-transform: uppercase;
-                            width: 6.5em;
-                            min-width: 6.5em;
-                            vertical-align: middle;
-                        }
-
-                        #schedule table.schedule thead th.th-day {
-                            background-color: #f56a6a;
-                            color: #ffffff;
-                            font-weight: 700;
-                            text-align: left;
-                        }
-
-                        #schedule table.schedule thead th .day-name {
-                            display: block;
-                            font-weight: 800;
-                            text-transform: uppercase;
-                            font-size: 1.15em;
-                            letter-spacing: 0.04em;
-                            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-                            padding-bottom: 4px;
-                            margin-bottom: 4px;
-                        }
-
-                        #schedule table.schedule thead th .day-theme {
-                            display: block;
-                            font-weight: 500;
-                            font-size: 0.76em;
-                            opacity: 0.95;
-                            text-transform: uppercase;
-                            letter-spacing: 0.04em;
-                            line-height: 1.4;
-                        }
-
-                        /* Strict Proportional Heights Mapped to Time Slots */
-                        #schedule table.schedule tbody tr {
-                            background-color: transparent !important;
-                            border: none !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-10 {
-                            height: 40px !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-15 {
-                            height: 55px !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-30 {
-                            height: 100px !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-50 {
-                            height: 155px !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-60 {
-                            height: 185px !important;
-                        }
-
-                        #schedule table.schedule tbody tr.r-dur-90 {
-                            height: 250px !important;
-                        }
-
-                        #schedule table.schedule td {
-                            padding: 0 !important;
-                            vertical-align: stretch;
-                            background-color: transparent !important;
-                            border: none !important;
-                            height: 1px;
-                            /* Classic CSS fix to make children stretch fully in table cells */
-                        }
-
-                        #schedule table.schedule td.td-time {
-                            background-color: #f5f6f7 !important;
-                            color: #495057;
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 0.8em;
-                            font-weight: 700;
-                            text-align: center;
-                            vertical-align: middle;
-                            border: 1px solid rgba(210, 215, 217, 0.5) !important;
-                            border-radius: 6px;
-                            padding: 10px 8px !important;
-                            width: 6.5em;
-                            min-width: 6.5em;
-                            height: auto;
-                            /* Reset fix for time labels */
-                        }
-
-                        /* Elegant modern card layout inside TDs */
-                        .sched-card {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: flex-start;
-                            background: #ffffff;
-                            border: 1px solid rgba(210, 215, 217, 0.5);
-                            border-left: 4px solid #7f888f;
-                            border-radius: 6px;
-                            padding: 12px;
-                            height: 100%;
-                            box-sizing: border-box;
-                            transition: all 0.2s ease-in-out;
-                            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-                        }
-
-                        .sched-card:hover {
-                            transform: translateY(-2px);
-                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-                            border-color: rgba(245, 106, 106, 0.35);
-                        }
-
-                        /* Category Tracking Color-codes */
-                        .sched-card.c-intro {
-                            border-left-color: #3b86c8;
-                            /* blue */
-                            background: rgba(59, 134, 200, 0.02);
-                        }
-
-                        .sched-card.c-talk {
-                            border-left-color: #f56a6a;
-                            /* theme coral */
-                            background: rgba(245, 106, 106, 0.02);
-                        }
-
-                        .sched-card.c-tutorial {
-                            border-left-color: #9b59b6;
-                            /* purple */
-                            background: rgba(155, 89, 182, 0.02);
-                        }
-
-                        .sched-card.c-workgroup {
-                            border-left-color: #2ea879;
-                            /* teal */
-                            background: rgba(46, 168, 121, 0.02);
-                        }
-
-                        .sched-card.c-usecase {
-                            border-left-color: #f5a623;
-                            /* gold/orange */
-                            background: rgba(245, 166, 35, 0.02);
-                        }
-
-                        .sched-card.c-empty {
-                            border-left-color: #e2e8f0;
-                            background: #fafafa;
-                            opacity: 0.6;
-                            border-left-style: dashed;
-                        }
-
-                        /* Card Typography style */
-                        .sched-title {
-                            font-weight: 700;
-                            color: #2b3033;
-                            font-size: 0.88em;
-                            line-height: 1.35;
-                            margin-bottom: 4px;
-                            display: block;
-                        }
-
-                        .sched-speaker {
-                            font-size: 0.8em;
-                            color: #5c6370;
-                            font-weight: 600;
-                            display: block;
-                            margin-bottom: 4px;
-                        }
-
-                        .sched-speaker span {
-                            font-weight: 400;
-                            color: #7f888f;
-                        }
-
-                        .sched-desc {
-                            font-size: 0.76em;
-                            color: #7f888f;
-                            line-height: 1.4;
-                            display: block;
-                            margin-top: 4px;
-                        }
-
-                        /* Uniform spacing for special rows */
-                        tr.slot-reg td.td-day,
-                        tr.slot-lunch td.td-day,
-                        tr.slot-closing td.td-day {
-                            padding: 0 !important;
-                        }
-
-                        .slot-reg-card,
-                        .slot-lunch-card,
-                        .slot-closing-card {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 6px;
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 0.82em;
-                            font-weight: 700;
-                            letter-spacing: 0.05em;
-                            text-transform: uppercase;
-                            box-sizing: border-box;
-                            min-height: 45px;
-                        }
-
-                        .slot-reg-card {
-                            background: #f8f9fa;
-                            border: 1px dashed rgba(210, 215, 217, 0.7);
-                            color: #5c6370;
-                            font-style: italic;
-                        }
-
-                        .slot-lunch-card {
-                            background: #e9ecef;
-                            border: 1px dashed rgba(173, 181, 189, 0.7);
-                            color: #495057;
-                            letter-spacing: 0.12em;
-                        }
-
-                        .slot-closing-card {
-                            background: #f8f9fa;
-                            border: 1px dashed rgba(210, 215, 217, 0.5);
-                            color: #7f888f;
-                            font-size: 0.78em;
-                            text-transform: none;
-                            font-weight: 600;
-                        }
-
-                        /* Social/Evening Blocks styling */
-                        .slot-social-card {
-                            background: #fff5f5;
-                            border: 1px solid rgba(245, 106, 106, 0.25);
-                            border-left: 4px solid #f56a6a;
-                            border-radius: 6px;
-                            padding: 10px 12px;
-                            height: 100%;
-                            box-sizing: border-box;
-                            font-size: 0.84em;
-                            line-height: 1.4;
-                        }
-
-                        .social-badge {
-                            display: inline-block;
-                            background: #f56a6a;
-                            color: #ffffff;
-                            font-size: 0.7em;
-                            font-weight: 800;
-                            padding: 1px 5px;
-                            border-radius: 3px;
-                            margin-right: 4px;
-                            text-transform: uppercase;
-                        }
-
-                        .social-title {
-                            font-weight: 700;
-                            color: #3d4449;
-                        }
-
-                        .social-note {
-                            display: block;
-                            font-size: 0.8em;
-                            color: #7f888f;
-                            margin-top: 2px;
-                            font-style: italic;
-                        }
-                    </style>
-<style>
-                        /* ── Guide tabs ── */
-                        .guide-tabs {
-                            display: flex;
-                            gap: 4px;
-                            flex-wrap: wrap;
-                            border-bottom: 2px solid #e0e0e0;
-                            margin-bottom: 1.5em;
-                        }
-
-                        .guide-tab {
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 0.78em;
-                            font-weight: 700;
-                            letter-spacing: 0.06em;
-                            text-transform: uppercase;
-                            padding: 8px 16px;
-                            border: 2px solid transparent;
-                            border-bottom: none;
-                            border-radius: 4px 4px 0 0;
-                            cursor: pointer;
-                            color: #666;
-                            background: transparent;
-                            position: relative;
-                            bottom: -2px;
-                            transition: color 0.15s, background 0.15s;
-                        }
-
-                        .guide-tab:hover {
-                            color: #3d4449;
-                            background: #f5f5f5;
-                        }
-
-                        .guide-tab.active {
-                            color: #f56a6a;
-                            border-color: #e0e0e0;
-                            border-bottom-color: #fff;
-                            background: #fff;
-                        }
-
-                        .guide-panel {
-                            display: none;
-                        }
-
-                        .guide-panel.active {
-                            display: block;
-                        }
-
-                        /* ── Guide cards ── */
-                        .gcards {
-                            display: grid;
-                            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                            gap: 12px;
-                            margin-bottom: 1.25em;
-                        }
-
-                        .gcard {
-                            border: 1px solid #e0e0e0;
-                            border-radius: 6px;
-                            padding: 14px 16px;
-                            background: #fafafa;
-                        }
-
-                        .gcard-tag {
-                            display: inline-block;
-                            font-family: "Montserrat", sans-serif;
-                            font-size: 0.6em;
-                            font-weight: 700;
-                            letter-spacing: 0.08em;
-                            text-transform: uppercase;
-                            padding: 2px 8px;
-                            border-radius: 100px;
-                            margin-bottom: 6px;
-                        }
-
-                        .gtag-sleep {
-                            background: #e8f5e9;
-                            color: #2e7d32;
-                        }
-
-                        .gtag-hotel {
-                            background: #e3f2fd;
-                            color: #1565c0;
-                        }
-
-                        .gtag-special {
-                            background: #f3e5f5;
-                            color: #6a1b9a;
-                        }
-
-                        .gtag-food {
-                            background: #fff3e0;
-                            color: #e65100;
-                        }
-
-                        .gtag-cafe {
-                            background: #fce4ec;
-                            color: #880e4f;
-                        }
-
-                        .gtag-music {
-                            background: #fce4ec;
-                            color: #880e4f;
-                        }
-
-                        .gtag-venue {
-                            background: #e8f5e9;
-                            color: #2e7d32;
-                        }
-
-                        .gtag-climb {
-                            background: #fff3e0;
-                            color: #e65100;
-                        }
-
-                        .gtag-nature {
-                            background: #e8f5e9;
-                            color: #2e7d32;
-                        }
-
-                        .gtag-culture {
-                            background: #e3f2fd;
-                            color: #1565c0;
-                        }
-
-                        .gtag-swim {
-                            background: #e3f2fd;
-                            color: #1565c0;
-                        }
-
-                        .gtag-trip {
-                            background: #f3e5f5;
-                            color: #6a1b9a;
-                        }
-
-                        .gcard-stars {
-                            color: #f56a6a;
-                            font-size: 0.8em;
-                            margin-bottom: 3px;
-                        }
-
-                        .gcard-name {
-                            font-weight: 700;
-                            font-size: 0.95em;
-                            margin-bottom: 3px;
-                            line-height: 1.3;
-                        }
-
-                        .gcard-meta {
-                            font-size: 0.78em;
-                            color: #888;
-                            margin-bottom: 6px;
-                            line-height: 1.4;
-                        }
-
-                        .gcard-note {
-                            font-size: 0.78em;
-                            color: #666;
-                            line-height: 1.55;
-                            border-top: 1px solid #e8e8e8;
-                            padding-top: 7px;
-                            margin-top: 7px;
-                        }
-
-                        .gtip {
-                            background: #f5f5f5;
-                            border-left: 3px solid #f56a6a;
-                            border-radius: 0 4px 4px 0;
-                            padding: 10px 14px;
-                            margin-bottom: 10px;
-                            font-size: 0.85em;
-                            color: #555;
-                            line-height: 1.6;
-                        }
-
-                        .gtip strong {
-                            display: block;
-                            font-weight: 700;
-                            color: #3d4449;
-                            margin-bottom: 2px;
-                        }
-
-                        /* ── Route cards ── */
-                        .route-card {
-                            border: 1px solid #e0e0e0;
-                            border-radius: 6px;
-                            padding: 14px 16px;
-                            margin-bottom: 10px;
-                            background: #fafafa;
-                        }
-
-                        .route-header {
-                            display: flex;
-                            align-items: center;
-                            gap: 10px;
-                            margin-bottom: 8px;
-                        }
-
-                        .route-icon {
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 14px;
-                            flex-shrink: 0;
-                        }
-
-                        .icon-plane {
-                            background: #e3f2fd;
-                        }
-
-                        .icon-train {
-                            background: #e8f5e9;
-                        }
-
-                        .icon-bus {
-                            background: #fff3e0;
-                        }
-
-                        .icon-bike {
-                            background: #f3e5f5;
-                        }
-
-                        .route-title {
-                            font-weight: 700;
-                            font-size: 0.92em;
-                        }
-
-                        .route-time {
-                            font-size: 0.75em;
-                            color: #888;
-                            margin-left: auto;
-                        }
-
-                        .route-body {
-                            font-size: 0.82em;
-                            color: #555;
-                            line-height: 1.65;
-                        }
-
-                        .route-body strong {
-                            font-weight: 700;
-                            color: #3d4449;
-                        }
-
-                        .mindlabs-addr {
-                            display: inline-block;
-                            background: #e8f5e9;
-                            border: 1px solid #a5d6a7;
-                            border-radius: 100px;
-                            padding: 4px 14px;
-                            font-size: 0.78em;
-                            font-weight: 700;
-                            color: #2e7d32;
-                            margin-bottom: 1.25em;
-                        }
-                    </style>
-<table class="schedule">
-<thead>
-<tr>
-<th class="th-time">
-Time
-</th>
-<th class="th-day" style="width:19%">
-<span class="day-name">Mon · July 13</span> <span class="day-theme">Datasets, Data Collection &amp; Multimodal Capturing</span>
-</th>
-<th class="th-day" style="width:19%">
-<span class="day-name">Tue · July 14</span> <span class="day-theme">Multimodal Data Analysis</span>
-</th>
-<th class="th-day" style="width:19%">
-<span class="day-name">Wed · July 15</span> <span class="day-theme">Multiscale Intra- &amp; Interpersonal Coordination Dynamics</span>
-</th>
-<th class="th-day" style="width:19%">
-<span class="day-name">Thu · July 16</span> <span class="day-theme">Masking Day</span>
-</th>
-<th class="th-day" style="width:19%">
-<span class="day-name">Fri · July 17</span> <span class="day-theme">Final WG Presentations</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<!-- Registration (09:30 - 10:00: 30 min) -->
-<tr class="slot-reg r-dur-30">
-<td class="td-time">
-09:30
-</td>
-<td class="td-day">
-<div class="slot-reg-card">
-Registration
-</div>
-</td>
-<td class="td-day">
-</td>
-<td class="td-day">
-</td>
-<td class="td-day">
-</td>
-<td class="td-day">
-</td>
-</tr>
-<!-- Morning Block 1 (10:00 - 10:30: 30 min) -->
-<tr class="r-dur-30">
-<td class="td-time">
-10:00 –<br>10:30
-</td>
-<td class="td-day">
-<div class="sched-card c-intro">
-<p><span class="sched-title">Introduction to Summer School &amp; Working Groups</span> <span class="sched-speaker">Wim Pouw &amp; Travis Wiltshire</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Talk 4: Overview of State of the Art of Multimodal Analysis</span> <span class="sched-speaker">Alex Paxton</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="2">
-<div class="sched-card c-tutorial">
-<p><span class="sched-title">Talk 5/Tutorial: Overview of Multiscale Theory and Methods (WMS, MFDFA)</span> <span class="sched-speaker">Travis Wiltshire</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="3">
-<div class="sched-card c-tutorial">
-<p><span class="sched-title">Talk 8 &amp; Tutorial: Masking Audio and Video</span> <span class="sched-speaker">Babajide Owoyele</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="3">
-<div class="sched-card c-workgroup" style="justify-content: center; text-align: center; background: rgba(46, 168, 121, 0.05);">
-<p><span class="sched-title" style="font-size: 1.05em; margin: auto 0;">Working Group Project (Final)</span></p>
-</div>
-</td>
-</tr>
-<!-- Morning Block 2 (10:30 - 11:30: 60 min) -->
-<tr class="r-dur-60">
-<td class="td-time">
-10:30 –<br>11:30
-</td>
-<td class="td-day">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Talk 1: How to Build a Mobile Multimodal Lab</span> <span class="sched-speaker">Davide Ahmar &amp; Šárka Kadavá</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="2">
-<div class="sched-card c-tutorial">
-<p><span class="sched-title">Tutorial: Specific Analysis Tools</span> <span class="sched-speaker">Alex Paxton</span> <span class="sched-desc">(e.g.&nbsp;ALIGN r package)</span></p>
-</div>
-</td>
-</tr>
-<!-- Morning Block 3 (11:30 - 12:30: 60 min) -->
-<tr class="r-dur-60">
-<td class="td-time">
-11:30 –<br>12:30
-</td>
-<td class="td-day">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Talk 2: Overview of Datasets and Measures</span> <span class="sched-speaker">Organizers</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Talk 6: Intrapersonal coupling using empirical mode decomposition</span> <span class="sched-speaker">Wim Pouw</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-empty">
-
-</div>
-</td>
-</tr>
-<!-- Lunch Block (12:30 - 13:30: 60 min) -->
-<tr class="slot-lunch r-dur-60">
-<td class="td-time">
-12:30 –<br>13:30
-</td>
-<td class="td-day">
-<div class="slot-lunch-card">
-— Lunch —
-</div>
-</td>
-<td class="td-day">
-<div class="slot-lunch-card">
-— Lunch —
-</div>
-</td>
-<td class="td-day">
-<div class="slot-lunch-card">
-— Lunch —
-</div>
-</td>
-<td class="td-day">
-<div class="slot-lunch-card">
-— Lunch —
-</div>
-</td>
-<td class="td-day">
-<div class="slot-lunch-card">
-— Lunch —
-</div>
-</td>
-</tr>
-<!-- Afternoon Use Case 1 (13:30 - 13:45: 15 min) -->
-<tr class="r-dur-15">
-<td class="td-time" rowspan="2">
-13:30 –<br>14:00
-</td>
-<td class="td-day">
-<div class="sched-card c-usecase">
-<p><span class="sched-title">Use Cases Talk (15 min)</span> <span class="sched-speaker">Tiffany Matej Hrkalović</span> <span class="sched-desc">Using ML to extract Facial &amp; Acoustic Features to predict Person Perceptions</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-usecase">
-<p><span class="sched-title">Use Cases Talk (15 min)</span> <span class="sched-speaker">Šárka Kadavá</span> <span class="sched-desc">The role of physical effort in resolving misunderstanding</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-usecase">
-<p><span class="sched-title">Use Cases Talk (15 min)</span> <span class="sched-speaker">Andrea González Sánchez</span> <span class="sched-desc">Multimodal coordination during live music</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="2">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Recap: Masking</span> <span class="sched-speaker">Babajide Owoyele</span></p>
-</div>
-</td>
-<td class="td-day" rowspan="4">
-<div class="sched-card c-workgroup" style="justify-content: center; text-align: center; background: rgba(46, 168, 121, 0.05);">
-<p><span class="sched-title" style="font-size: 1.05em; margin: auto 0;">Working Group Final Presentations</span></p>
-</div>
-</td>
-</tr>
-<!-- Afternoon Use Case 2 / Start of Monday Talk 3 (13:45 - 14:00: 15 min) -->
-<tr class="r-dur-15">
-<!-- Mon: Talk 3 starts here at 13:45 to replace the cancelled talk, spanning through to 15:00 -->
-<td class="td-day" rowspan="2">
-<div class="sched-card c-tutorial">
-<p><span class="sched-title">Talk 3/Tutorial: Tools &amp; Application</span> <span class="sched-speaker">James Trujillo, Anna Palmann</span> <span class="sched-desc">Kinematics, Acoustic Features, Transcription &amp; Gesture Detection</span> <span class="sched-desc" style="font-weight: 700; color: #f56a6a; margin-top: 6px; display: block;">⏱ 13:45 – 15:00</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-usecase">
-<p><span class="sched-title">Use Cases Talk (15 min)</span> <span class="sched-speaker">Marcella Hoogeboom</span> <span class="sched-desc">Social coordination in high-stakes teams under pressure</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-usecase">
-<p><span class="sched-title">Use Cases Talk (15 min)</span> <span class="sched-speaker">Marijn Hafkamp</span> <span class="sched-desc">Motor learning in a collaborative ball-on-board task</span></p>
-</div>
-</td>
-</tr>
-<!-- Project Groups 1 (14:00 - 15:00: 60 min) -->
-<tr class="r-dur-60">
-<td class="td-time">
-14:00 –<br>15:00
-</td>
-<!-- Mon: Spanned by Monday Talk 3/Tutorial -->
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-</tr>
-<!-- Project Groups 2 (15:00 - 16:00: 60 min) -->
-<tr class="r-dur-60">
-<td class="td-time">
-15:00 –<br>16:00
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span> <span class="sched-desc">+ Sharing, Q&amp;A &amp; stage-setting</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-talk">
-<p><span class="sched-title">Talk 7: Multi-Scale Dynamical Approach in Brain Signals</span> <span class="sched-speaker">Annie Bryant <span>(online)</span></span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-</tr>
-<!-- Project Groups 3 (16:00 - 16:50: 50 min) -->
-<tr class="r-dur-50">
-<td class="td-time">
-16:00 –<br>16:50
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span> <span class="sched-desc">+ Sharing, Q&amp;A &amp; stage-setting</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-workgroup">
-<p><span class="sched-title">Work in Project Groups</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="sched-card c-empty">
-
-</div>
-</td>
-</tr>
-<!-- Closing (16:50 - 17:00: 10 min) -->
-<tr class="slot-closing r-dur-10">
-<td class="td-time">
-16:50 –<br>17:00
-</td>
-<td class="td-day">
-<div class="slot-closing-card">
-Closing (10 min)
-</div>
-</td>
-<td class="td-day">
-<div class="slot-closing-card">
-Closing (10 min)
-</div>
-</td>
-<td class="td-day">
-<div class="slot-closing-card">
-Closing (10 min)
-</div>
-</td>
-<td class="td-day">
-<div class="slot-closing-card">
-Closing (10 min)
-</div>
-</td>
-<td class="td-day">
-</td>
-</tr>
-<!-- Social/Evening (Proportional Weight Block: ~90 min visual weight) -->
-<tr class="slot-social r-dur-90">
-<td class="td-time">
-Evening
-</td>
-<td class="td-day">
-<div class="slot-social-card">
-<p><span class="social-badge">17:30</span> <span class="social-title">Borrel @ MindLabs</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="slot-social-card">
-<p><span class="social-badge">19:00</span> <span class="social-title">Bouldering</span> <span class="social-note">(at own expense)</span></p>
-</div>
-</td>
-<td class="td-day">
-<div class="slot-social-card" style="border-left-color: #2ea879; background: #f4faf8;">
-<p><span class="social-badge" style="background: #2ea879;">18:00</span> <span class="social-title">Social Dinner @ Foodmarket Tilburg</span></p>
-</div>
-</td>
-<td class="td-day">
-</td>
-<td class="td-day">
-</td>
-</tr>
-</tbody>
-</table>
+<p>We prepared for you three environments that you can directly install (in Anaconda Prompt) using</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Address-of-summerschol-folder</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> NAME-OF-ENVIRONMENT.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you want to work with Envisionhgdetector, use <strong>detector-environment.yml</strong> (summerschool-detector-env)</p>
+<p>If you want to work with OpenFace, use <strong>kinematics-environment.yml</strong> (summerschool-kinematics-env)</p>
+<p>For all else (continuous acoustics, Opensmile), use <strong>general-environmt.yml</strong> (summerschool-general-env)</p>
+<p>Feel free to install new packages to any of your newly created environments using</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate NAME-OF-ENVIRONMENT</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install PACKAGE-NAME</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 <!-- -->
@@ -1734,13 +608,14 @@ Evening
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2133,76 +1008,78 @@ Evening
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Handbook for MDIG2026 Summer School in Tilburg"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Scripts for processing and analysis"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Andrea González Sánchéz Anna Palmann, Babajide Owoyele, Davide Ahmar, James Trujillo, Marijn Hafkamp, Sharjeel Ahmed Shaikh, Šárka Kadavá, Tifanny Matej Hrkalović, Travis Wiltshire, Wim Pouw</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-width: 1200  # Adjust the width in pixels</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 4</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="an">toc-expand:</span><span class="co"> 2</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="an">toc-title:</span><span class="co"> Contents</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/banner.png)</span>{fig-align="center" width=100%}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Dear participants,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>this handbook collects all scripts associated with the program of MDIG2026 Summer School. </span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>You will find here introduction of the datasets you will be working in your group projects, scripts that process</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>these datasets into analyzable time series and features and finally, all scripts associated with the lectures.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The two datasets that we picked for this year are:</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Balance Corpus** (Li, Yang, Fuchs &amp; Aussems, 2026)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">📄 Download the paper (PDF)</span><span class="co">](Datasets/BalanceCorpus/documentation/LiYangFuchsAussems2026.pdf)</span>{target="_blank"}</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**PARSEL dataset** (Hrkalovic, Dudzik, Balliet, Hung, 2024)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Each of these scripts have their own **cheatsheet** to help you get started with the data available for the respective corpus.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">📄 Download the paper (PDF)</span><span class="co">](Datasets/PARSEL/documentation/HrkalovicDudzikBallietHung2024.pdf)</span>{target="_blank"}</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">here info about envs</span><span class="co">]</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Program</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(<span class="st">"https://www.envisionbox.org/summerschool2026.html"</span>,</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>                 headers<span class="op">=</span>{<span class="st">"User-Agent"</span>: <span class="st">"Mozilla/5.0"</span>})</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(r.content, <span class="st">"html.parser"</span>)</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>styles <span class="op">=</span> <span class="st">""</span>.join(<span class="bu">str</span>(s) <span class="cf">for</span> s <span class="kw">in</span> soup.find_all(<span class="st">"style"</span>))</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> soup.find(<span class="st">"table"</span>)</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(styles)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(table)</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Handbook for MDIG2026 Summer School in Tilburg"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Scripts for processing and analysis"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Andrea González Sánchéz Anna Palmann, Babajide Owoyele, Davide Ahmar, James Trujillo, Marijn Hafkamp, Sharjeel Ahmed Shaikh, Šárka Kadavá, Tifanny Matej Hrkalović, Travis Wiltshire, Wim Pouw</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-width: 1600  # Adjust the width in pixels</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 4</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="an">toc-expand:</span><span class="co"> 2</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="an">toc-title:</span><span class="co"> Contents</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/banner.png)</span>{fig-align="center" width=100%}</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>Dear participants,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>this handbook collects all scripts associated with the program of MDIG2026 Summer School. </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>You will find here introduction of the datasets you will be working in your group projects, scripts that process</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>these datasets into analyzable time series and features and finally, all scripts associated with the lectures.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>For full program and other organizational information, please visit <span class="co">[</span><span class="ot">EnvisionBox website</span><span class="co">](https://www.envisionbox.org/summerschool2026.html)</span>.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>The two datasets that we picked for this year are:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Balance Corpus** (Li, Yang, Fuchs &amp; Aussems, 2026)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">📄 Download the paper (PDF)</span><span class="co">](Datasets/BalanceCorpus/documentation/LiYangFuchsAussems2026.pdf)</span>{target="_blank"}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**PARSEL dataset** (Hrkalovic, Dudzik, Balliet, Hung, 2024)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>Each of these scripts have their own **cheatsheet** to help you get started with the data available for the respective corpus.</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">📄 Download the paper (PDF)</span><span class="co">](Datasets/PARSEL/documentation/HrkalovicDudzikBallietHung2024.pdf)</span>{target="_blank"}</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>We prepared for you three environments that you can directly install (in Anaconda Prompt) using</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Address-of-summerschol-folder</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> NAME-OF-ENVIRONMENT.yml</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>If you want to work with Envisionhgdetector, use **detector-environment.yml** (summerschool-detector-env)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>If you want to work with OpenFace, use **kinematics-environment.yml** (summerschool-kinematics-env)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>For all else (continuous acoustics, Opensmile), use **general-environmt.yml** (summerschool-general-env)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>Feel free to install new packages to any of your newly created environments using</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate NAME-OF-ENVIRONMENT</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install PACKAGE-NAME</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
