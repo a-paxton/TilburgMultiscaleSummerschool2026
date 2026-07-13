@@ -49,6 +49,25 @@ Each of these scripts have their own **cheatsheet** to help you get started with
 
 ## Setup
 
-[here info about envs]
+We prepared for you three environments that you can directly install (in Anaconda Prompt) using
 
+```bash
+
+cd Address-of-summerschol-folder
+conda env create -f NAME-OF-ENVIRONMENT.yml
+```
+
+If you want to work with Envisionhgdetector, use **detector-environment.yml** (summerschool-detector-env)
+
+If you want to work with OpenFace, use **kinematics-environment.yml** (summerschool-kinematics-env)
+
+For all else (continuous acoustics, Opensmile), use **general-environmt.yml** (summerschool-general-env)
+
+Feel free to install new packages to any of your newly created environments using
+
+```bash
+
+conda activate NAME-OF-ENVIRONMENT
+pip install PACKAGE-NAME
+```
 
