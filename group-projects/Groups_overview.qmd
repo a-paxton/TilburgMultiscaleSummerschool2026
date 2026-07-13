@@ -34,6 +34,7 @@ Members:
 - Matteo Schmelzer
 - Nthabiseng Shongwe
 - Solveigh Janzen
+- Tim Murphy
 :::
 
 ::: {.g-col-4}
