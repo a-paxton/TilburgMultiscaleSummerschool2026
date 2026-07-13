@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Envelope + EMD demo</title>
+<title>Envelope + pyEMD demo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ body {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Envelope + EMD demo</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyses &amp; Tools</li><li class="breadcrumb-item"><a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</a></li><li class="breadcrumb-item"><a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html">Envelope + pyEMD demo</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -241,12 +241,50 @@ body {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Classification</span></a>
+ <span class="menu-text">NLP Methods</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/NLP_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NLP Track — Overview &amp; live demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/00_dataset_preview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 0 — Preview the corpus’s language (no audio, no ASR)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/01_audio_to_transcripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 1 — From audio to role-labeled transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/nlp_taboo/02_semantic_homing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notebook 2 — Semantic homing in the Taboo game</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">Datasets/BalanceCorpus/scripts/nlp_taboo/03_leyical_alignment.ipynb</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Gesture Classification</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.html" class="sidebar-item-text sidebar-link">
@@ -259,13 +297,13 @@ body {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Dataset B: PARSEL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../Datasets/PARSEL/scripts/general_data_loading_cheatsheet/PARSELCheatSheet.html" class="sidebar-item-text sidebar-link">
@@ -274,13 +312,13 @@ body {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">Processing: Acoustics</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.html" class="sidebar-item-text sidebar-link">
@@ -295,52 +333,125 @@ body {
   </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">Processing: Motion tracking</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb</span>
-  </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">Classification</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb</span>
-  </li>
-      </ul>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Analyses &amp; Tools</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analyses &amp; Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Alex Paxton: State of the Art Multimodal Analysis (ALIGN R package)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
   </li>
-        <li class="sidebar-item sidebar-item-section">
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Group Projects</span></a>
+ <span class="menu-text">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Envelope + pyEMD demo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing: BalanceCorpus gesture, speech, and sway</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis: gesture, speech, and sway coupling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">Travis Wiltshire: Multiscale Methods (WMS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../wednesday-coordination/wms_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">WMS - Windowed Multiscale Synchrony Exercises</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Annie Bryant: Multi-Scale Dynamical Approach in Brain Signals</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">tba</span>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Babajide Owoyele: Masking Audio and Video</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../thursday-masking/notebooks/audio_deidentification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Audio de-identification — from redaction to voice anonymization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../thursday-masking/notebooks/masking-lite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Masking-lite — Media-Pipe full-body tracking, masking, blurring &amp; movement tracing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">Group Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../group-projects/MDIG2026_group_projects.html" class="sidebar-item-text sidebar-link">
@@ -370,15 +481,17 @@ body {
   <li><a href="#envelope-change-then-absolutized" id="toc-envelope-change-then-absolutized" class="nav-link" data-scroll-target="#envelope-change-then-absolutized">2. Envelope change, then absolutized</a></li>
   <li><a href="#imf-1-and-imf-2-of-the-envelope" id="toc-imf-1-and-imf-2-of-the-envelope" class="nav-link" data-scroll-target="#imf-1-and-imf-2-of-the-envelope">3. IMF 1 and IMF 2 of the envelope</a></li>
   <li><a href="#imf-1-and-imf-2-of-the-envelope-change" id="toc-imf-1-and-imf-2-of-the-envelope-change" class="nav-link" data-scroll-target="#imf-1-and-imf-2-of-the-envelope-change">4. IMF 1 and IMF 2 of the envelope change</a></li>
+  <li><a href="#hilbert-spectra" id="toc-hilbert-spectra" class="nav-link" data-scroll-target="#hilbert-spectra">Hilbert Spectra</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analyses &amp; Tools</li><li class="breadcrumb-item"><a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html">Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition</a></li><li class="breadcrumb-item"><a href="../../../../Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.html">Envelope + pyEMD demo</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Envelope + EMD demo</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title">Envelope + pyEMD demo</h1>
 </div>
 
 
@@ -402,24 +515,20 @@ body {
 <li>IMF 1 and IMF 2 of the envelope</li>
 <li>IMF 1 and IMF 2 of the envelope change</li>
 </ol>
+<p>See the documentation folder where this script is located for more details on the EMD algorithm.</p>
 <p>It loads one audio file and its matching <code>env_*.csv</code> (which already has the <code>envelope</code> column), derives the change here, and runs EMD on both. Each step prints the object it produced before plotting it.</p>
-<div id="4fda890b" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="4fda890b" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os, glob</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.io <span class="im">import</span> wavfile          <span class="co"># simple WAV reader, no extra install</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> emd                            <span class="co"># empirical mode decomposition</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <section id="pick-one-example-audio-its-envelope" class="level2">
 <h2 class="anchored" data-anchor-id="pick-one-example-audio-its-envelope">Pick one example (audio + its envelope)</h2>
 <p>By default this takes the first <code>.wav</code> in <code>AUDIO_DIR</code> and the <code>env_*.csv</code> whose name contains the same stem. If the auto-match misses, set <code>AUDIO_FILE</code> and <code>ENV_FILE</code> by hand.</p>
-<div id="64e6cc22" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="64e6cc22" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>AUDIO_DIR <span class="op">=</span> <span class="st">'../../audios/103_203'</span>      <span class="co"># folder of .wav files for this pair</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ENV_DIR   <span class="op">=</span> <span class="st">'../../TS_acoustics'</span>        <span class="co"># folder of env_*.csv files</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -437,16 +546,13 @@ body {
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio file:'</span>, audio_path)</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'env file  :'</span>, env_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>audio file: ../../audios/103_203\103_203_12_1_20250113_152455_doughnut_board.wav
 env file  : ../../TS_acoustics\env_103_203_12_1_20250113_152455_doughnut_board.wav_norm.csv</code></pre>
 </div>
 </div>
-<div id="9951d217" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- audio waveform ---</span></span>
+<div id="9951d217" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># audio waveform</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># scipy reads standard PCM WAV. If your files are 24-bit or mp3, use librosa</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># instead:  wav, sr = librosa.load(audio_path, sr=None)</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sr, data <span class="op">=</span> wavfile.read(audio_path)</span>
@@ -459,7 +565,7 @@ env file  : ../../TS_acoustics\env_103_203_12_1_20250113_152455_doughnut_board.w
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio :'</span>, <span class="bu">type</span>(wav).<span class="va">__name__</span>, <span class="st">'| shape'</span>, wav.shape, <span class="st">'| dtype'</span>, wav.dtype,</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">'| sr'</span>, sr, <span class="st">'Hz | duration'</span>, <span class="bu">round</span>(<span class="bu">len</span>(wav)<span class="op">/</span>sr, <span class="dv">2</span>), <span class="st">'s'</span>)</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># --- envelope (already computed, in the env csv) ---</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># envelope (already computed, in the env csv)</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> pd.read_csv(env_path)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">env csv:'</span>, env.shape, <span class="st">'| columns:'</span>, <span class="bu">list</span>(env.columns))</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(env.dtypes)</span>
@@ -472,7 +578,6 @@ env file  : ../../TS_acoustics\env_103_203_12_1_20250113_152455_doughnut_board.w
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="st">'| range'</span>, <span class="bu">round</span>(<span class="bu">float</span>(envelope.<span class="bu">min</span>()), <span class="dv">4</span>), <span class="st">'to'</span>, <span class="bu">round</span>(<span class="bu">float</span>(envelope.<span class="bu">max</span>()), <span class="dv">4</span>),</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="st">'| ~'</span>, <span class="bu">round</span>(<span class="dv">1</span> <span class="op">/</span> np.median(np.diff(t_env))), <span class="st">'Hz'</span>)</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>env.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>audio : ndarray | shape (768000,) | dtype float64 | sr 44100 Hz | duration 17.41 s
 
@@ -487,7 +592,7 @@ dtype: object
 
 envelope: (8708,) float64 | range -0.0001 to 0.0072 | ~ 500 Hz</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -559,9 +664,7 @@ envelope: (8708,) float64 | range -0.0001 to 0.0072 | ~ 500 Hz</code></pre>
 <section id="envelope-over-the-audio-waveform" class="level2">
 <h2 class="anchored" data-anchor-id="envelope-over-the-audio-waveform">1. Envelope over the audio waveform</h2>
 <p>The waveform is the raw audio; the envelope is its slow amplitude outline. They share a time axis (seconds), plotted on twin y-axes because their scales differ.</p>
-<div id="fe4f2a2a" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="fe4f2a2a" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="fl">3.5</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ax.plot(t_wav, wav, color<span class="op">=</span><span class="st">'0.7'</span>, lw<span class="op">=</span><span class="fl">0.4</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'time (s)'</span>)<span class="op">;</span> ax.set_ylabel(<span class="st">'waveform (normalised)'</span>)</span>
@@ -570,7 +673,6 @@ envelope: (8708,) float64 | range -0.0001 to 0.0072 | ~ 500 Hz</code></pre>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'envelope'</span>, color<span class="op">=</span><span class="st">'C3'</span>)<span class="op">;</span> ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'C3'</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Amplitude envelope over the audio waveform'</span>)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -584,9 +686,7 @@ envelope: (8708,) float64 | range -0.0001 to 0.0072 | ~ 500 Hz</code></pre>
 <h2 class="anchored" data-anchor-id="envelope-change-then-absolutized">2. Envelope change, then absolutized</h2>
 <p>The change is the frame-to-frame difference of the envelope (<code>np.diff</code>), which is signed: positive where the envelope rises, negative where it falls. Taking <code>np.abs</code> keeps only the magnitude of change.</p>
 <p>(Your pipeline’s <code>envelope_change</code> column is this <code>|change|</code> after an extra low-pass smoothing and a multiply by the sample rate, so it has the same shape, just smoothed and rescaled.)</p>
-<div id="f742a780" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="f742a780" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>change     <span class="op">=</span> np.insert(np.diff(envelope), <span class="dv">0</span>, <span class="dv">0</span>)   <span class="co"># prepend 0 to keep the same length</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>change_abs <span class="op">=</span> np.<span class="bu">abs</span>(change)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'change    :'</span>, change.shape, <span class="st">'| range'</span>, <span class="bu">round</span>(<span class="bu">float</span>(change.<span class="bu">min</span>()), <span class="dv">4</span>), <span class="st">'to'</span>, <span class="bu">round</span>(<span class="bu">float</span>(change.<span class="bu">max</span>()), <span class="dv">4</span>))</span>
@@ -599,7 +699,6 @@ envelope: (8708,) float64 | range -0.0001 to 0.0072 | ~ 500 Hz</code></pre>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].plot(t_env, change_abs, color<span class="op">=</span><span class="st">'C1'</span>, lw<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_ylabel(<span class="st">'|change|'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'Absolutized change (np.abs)'</span>)</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>change    : (8708,) | range -0.0001 to 0.0002
 change_abs: (8708,) | range 0.0 to 0.0002</code></pre>
@@ -616,9 +715,7 @@ change_abs: (8708,) | range 0.0 to 0.0002</code></pre>
 <section id="imf-1-and-imf-2-of-the-envelope" class="level2">
 <h2 class="anchored" data-anchor-id="imf-1-and-imf-2-of-the-envelope">3. IMF 1 and IMF 2 of the envelope</h2>
 <p>EMD splits the envelope into intrinsic mode functions, fastest first. IMF 1 is the fast component, IMF 2 the slower one.</p>
-<div id="5b446744" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
+<div id="5b446744" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>imf_env <span class="op">=</span> emd.sift.mask_sift(envelope, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'imf_env:'</span>, <span class="bu">type</span>(imf_env).<span class="va">__name__</span>, <span class="st">'| shape'</span>, imf_env.shape, <span class="st">'(samples, imfs)'</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -630,7 +727,6 @@ change_abs: (8708,) | range 0.0 to 0.0002</code></pre>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].set_ylabel(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>)<span class="op">;</span> ax[k <span class="op">+</span> <span class="dv">1</span>].set_title(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> of the envelope'</span>)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>imf_env: ndarray | shape (8708, 2) (samples, imfs)</code></pre>
 </div>
@@ -645,22 +741,29 @@ change_abs: (8708,) | range 0.0 to 0.0002</code></pre>
 </section>
 <section id="imf-1-and-imf-2-of-the-envelope-change" class="level2">
 <h2 class="anchored" data-anchor-id="imf-1-and-imf-2-of-the-envelope-change">4. IMF 1 and IMF 2 of the envelope change</h2>
-<p>The same decomposition, run on the absolutized change instead of the envelope.</p>
-<div id="f0bfd648" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>imf_change <span class="op">=</span> emd.sift.mask_sift(change_abs, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'imf_change:'</span>, <span class="bu">type</span>(imf_change).<span class="va">__name__</span>, <span class="st">'| shape'</span>, imf_change.shape, <span class="st">'(samples, imfs)'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">min</span>(<span class="dv">2</span>, imf_change.shape[<span class="dv">1</span>])</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(n <span class="op">+</span> <span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="fl">2.2</span> <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>)), sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(t_env, change_abs, color<span class="op">=</span><span class="st">'C1'</span>, lw<span class="op">=</span><span class="fl">0.8</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">'|change|'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'|envelope change|'</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].plot(t_env, imf_change[:, k], color<span class="op">=</span><span class="st">'C0'</span>, lw<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].set_ylabel(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>)<span class="op">;</span> ax[k <span class="op">+</span> <span class="dv">1</span>].set_title(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> of the envelope change'</span>)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<p>The same decomposition, run on the absolutized change instead of the envelope. Then similar to the analysis we calculate the instantaenous power.</p>
+<div id="f0bfd648" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> hilbert</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>imf_change <span class="op">=</span> emd.sift.mask_sift(change_abs, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>pwr <span class="op">=</span> np.<span class="bu">abs</span>(hilbert(imf_change, axis<span class="op">=</span><span class="dv">0</span>)) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'imf_change:'</span>, <span class="bu">type</span>(imf_change).<span class="va">__name__</span>, <span class="st">'| shape'</span>, imf_change.shape, <span class="st">'(samples, imfs)'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">min</span>(<span class="dv">2</span>, imf_change.shape[<span class="dv">1</span>])</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(n <span class="op">+</span> <span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="fl">2.2</span> <span class="op">*</span> (n <span class="op">+</span> <span class="dv">1</span>)), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(t_env, change_abs, color<span class="op">=</span><span class="st">'C1'</span>, lw<span class="op">=</span><span class="fl">0.8</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">'|change|'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'|envelope change|'</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].plot(t_env, imf_change[:, k], color<span class="op">=</span><span class="st">'0.6'</span>, lw<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'IMF'</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].set_ylabel(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>, color<span class="op">=</span><span class="st">'0.4'</span>)<span class="op">;</span> ax[k <span class="op">+</span> <span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'0.4'</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    ax[k <span class="op">+</span> <span class="dv">1</span>].set_title(<span class="ss">f'IMF </span><span class="sc">{</span>k <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> — signal and Hilbert power'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    axp <span class="op">=</span> ax[k <span class="op">+</span> <span class="dv">1</span>].twinx()</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    axp.plot(t_env, pwr[:, k], color<span class="op">=</span><span class="st">'C0'</span>, lw<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    axp.fill_between(t_env, pwr[:, k], color<span class="op">=</span><span class="st">'C0'</span>, alpha<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    axp.set_ylabel(<span class="st">'power'</span>, color<span class="op">=</span><span class="st">'C0'</span>)<span class="op">;</span> axp.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'C0'</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>imf_change: ndarray | shape (8708, 2) (samples, imfs)</code></pre>
 </div>
@@ -668,6 +771,41 @@ change_abs: (8708,) | range 0.0 to 0.0002</code></pre>
 <div>
 <figure class="figure">
 <p><img src="envelope_emd_demo_files/figure-html/cell-8-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hilbert-spectra" class="level1">
+<h1>Hilbert Spectra</h1>
+<p>The EMD is ideal for Hilbert spectral analysis, which is a time-frequency representation of the signal. The Hilbert transform is applied to each IMF to obtain the instantaneous frequency and amplitude, allowing for a detailed examination of the signal’s frequency content over time.</p>
+<p>Below were taking the Hilbert transform of the first two IMFs of the envelope, and plotting their instantaneous frequency and amplitude.</p>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<div id="0bf1c1c7" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> PowerNorm</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>imf_env <span class="op">=</span> emd.sift.mask_sift(envelope, max_imfs<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>IP, IF, IA <span class="op">=</span> emd.spectra.frequency_transform(imf_env, <span class="dv">500</span>, <span class="st">'hilbert'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>freq_centres, hht <span class="op">=</span> emd.spectra.hilberthuang(IF, IA, (<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">64</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                                             sum_time<span class="op">=</span><span class="va">False</span>, sum_imfs<span class="op">=</span><span class="va">False</span>, mode<span class="op">=</span><span class="st">'amplitude'</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    spec <span class="op">=</span> hht[:, :, k]</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    vmax <span class="op">=</span> np.percentile(spec[spec <span class="op">&gt;</span> <span class="dv">0</span>], <span class="dv">99</span>)        <span class="co"># clip the few extreme spikes</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> ax[k].pcolormesh(t_env, freq_centres, spec, shading<span class="op">=</span><span class="st">'auto'</span>, cmap<span class="op">=</span><span class="st">'magma'</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                          norm<span class="op">=</span>PowerNorm(gamma<span class="op">=</span><span class="fl">0.1</span>, vmax<span class="op">=</span>vmax))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    ax[k].set_ylabel(<span class="st">'freq (Hz)'</span>)<span class="op">;</span> ax[k].set_title(<span class="ss">f'IMF </span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> — Hilbert-Huang spectrum'</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(im, ax<span class="op">=</span>ax[k], label<span class="op">=</span><span class="st">'amplitude'</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>ax[<span class="op">-</span><span class="dv">1</span>].set_xlabel(<span class="st">'time (s)'</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="envelope_emd_demo_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>

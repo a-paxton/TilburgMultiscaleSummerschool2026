@@ -21,12 +21,18 @@ website:
               - Datasets/BalanceCorpus/scripts/continuousacoustics/Processing_acoustics.ipynb
               - Datasets/BalanceCorpus/scripts/continuousacoustics/Speaker_diarization.ipynb
               - "Open Smile"
-
           - section: "Processing: Motion tracking"
             contents:
               - Datasets/BalanceCorpus/scripts/motiontracking/Masking_Mediapiping.ipynb
               - Datasets/BalanceCorpus/scripts/openface/OpenFace_analysis.ipynb
-          - section: "Classification"
+          - section: "NLP Methods"
+            contents:
+              - Datasets/BalanceCorpus/scripts/nlp_taboo/NLP_overview.ipynb
+              - Datasets/BalanceCorpus/scripts/nlp_taboo/00_dataset_preview.ipynb
+              - Datasets/BalanceCorpus/scripts/nlp_taboo/01_audio_to_transcripts.ipynb
+              - Datasets/BalanceCorpus/scripts/nlp_taboo/02_semantic_homing.ipynb
+              - Datasets/BalanceCorpus/scripts/nlp_taboo/03_leyical_alignment.ipynb
+          - section: "Gesture Classification"
             contents:
               - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
 
@@ -39,18 +45,27 @@ website:
               - Datasets/PARSEL/scripts/continuousacoustics/Processing_acoustics.ipynb
               - Datasets/PARSEL/scripts/continuousacoustics/Speaker_diarization.ipynb
               - "Open Smile"
-
-          - section: "Processing: Motion tracking"
-            contents:
-              - Datasets/PARSEL/scripts/motiontracking/Masking_Mediapiping.ipynb
-              - Datasets/PARSEL/scripts/openface/OpenFace_analysis.ipynb
-
-          - section: "Classification"
-            contents:
-              - Datasets/PARSEL/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
-
-
+      
       - section: "Analyses & Tools"
+        contents:
+          - section: "Alex Paxton: State of the Art Multimodal Analysis (ALIGN R package)"
+            contents:
+              - "tba"
+          - section: "Wim Pouw: Intrapersonal Coupling Using Empirical Mode Decomposition"
+            contents:
+              - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/envelope_emd_demo.ipynb
+              - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/preprocessing.ipynb
+              - Datasets/BalanceCorpus/scripts/analysis_multiscaleintracoupling/analysis.ipynb
+          - section: "Travis Wiltshire: Multiscale Methods (WMS)"
+            contents:
+              - wednesday-coordination/wms_exercises.qmd
+          - section: "Annie Bryant: Multi-Scale Dynamical Approach in Brain Signals"
+            contents:
+              - "tba"
+          - section: "Babajide Owoyele: Masking Audio and Video"
+            contents:
+              - thursday-masking/notebooks/audio_deidentification.ipynb
+              - thursday-masking/notebooks/masking-lite.ipynb
 
       - section: "Group Projects"
         contents:
@@ -81,7 +96,7 @@ format:
     toc-title: "Contents"
     toc-depth: 3
     number-sections: false
-    code-fold: true
+    code-fold: false
     code-tools: true
     css: |
       .quarto-container {

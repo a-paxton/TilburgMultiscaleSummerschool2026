@@ -6,7 +6,7 @@ date-modified: today
 format:
   html:
     code-overflow: wrap
-    code-width: 1200  # Adjust the width in pixels
+    code-width: 1600  # Adjust the width in pixels
 toc: true
 toc-depth: 4
 toc-expand: 2
@@ -23,6 +23,8 @@ Dear participants,
 this handbook collects all scripts associated with the program of MDIG2026 Summer School. 
 You will find here introduction of the datasets you will be working in your group projects, scripts that process
 these datasets into analyzable time series and features and finally, all scripts associated with the lectures.
+
+For full program and other organizational information, please visit [EnvisionBox website](https://www.envisionbox.org/summerschool2026.html).
 
 The two datasets that we picked for this year are:
 
@@ -44,27 +46,9 @@ Each of these scripts have their own **cheatsheet** to help you get started with
 
 [📄 Download the paper (PDF)](Datasets/PARSEL/documentation/HrkalovicDudzikBallietHung2024.pdf){target="_blank"}
 
+
 ## Setup
 
 [here info about envs]
 
-## Program
-
-```{python}
-#| echo: false
-#| output: asis
-
-import requests
-from bs4 import BeautifulSoup
-
-r = requests.get("https://www.envisionbox.org/summerschool2026.html",
-                 headers={"User-Agent": "Mozilla/5.0"})
-soup = BeautifulSoup(r.content, "html.parser")
-
-styles = "".join(str(s) for s in soup.find_all("style"))
-table = soup.find("table")
-
-print(styles)
-print(table)
-```
 
