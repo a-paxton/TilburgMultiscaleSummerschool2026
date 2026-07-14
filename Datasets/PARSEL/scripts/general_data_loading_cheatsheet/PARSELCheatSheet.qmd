@@ -4,10 +4,6 @@ subtitle: "MDIG2026"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 ---
 
-#![](images/banner.gif){fig-align="center" width=100%} ## here possible to add image
-
-Here can be explained the naming convention
-
 # Setup
 
 ```{r}
@@ -37,9 +33,8 @@ import matplotlib.pyplot as plt
 
 CORPUS    = "../.."
 acoustics = f"{CORPUS}/TS_acoustics"
-gestures  = f"{CORPUS}/gestureclassifications"
-videos    = f"{CORPUS}/videos"
-audios    = f"{CORPUS}/audios"
+meta_path = f"{CORPUS}/data/Intake_Survey/cleaned_curated_Intake_Session_new.csv"
+data_path = f"{CORPUS}/data/Conversations"
 
 def extract_pid(filename):
     match = re.search(r"PID_\d+", filename)
@@ -63,27 +58,18 @@ CORPUS    <- "../.."
 
 
 acoustics <- file.path(CORPUS, "TS_acoustics")
-gestures  <- file.path(CORPUS, "gestureclassifications")
-videos    <- file.path(CORPUS, "videos")
-audios    <- file.path(CORPUS, "audios")
 
 
 ```
 
 :::
 
-:::
-
 # Metadata
 
-Can we display something from demographics if data is not publicly shared?
-
-::: {.callout-note collapse="true"}
-## Demographics
-
-Same question
-
-:::
+```{python}
+meta = pd.read_csv(meta_path)
+meta.head()
+```
 
 # Acoustics
 
@@ -165,17 +151,28 @@ f0_files <- list.files(acoustics, pattern = "^f0_.*\\.csv$", full.names = TRUE)
 head(voicing_segments(f0_files[1]))
 ```
 
-# OpenSmile
-
-# OpenFace
-
-# Video and audio
+## OpenSmile
 
 ```{python}
-# can we view audio/video sample?
+
+opensmilefiles = glob.glob(os.path.join(data_path, "*", "Features", "OpenSmile", "*.csv"))
+
+os_sample = opensmilefiles[0]
+
+os_df = pd.read_csv(os_sample)
+os_df.head()
 ```
 
+# Movement
 
-# Channel summary
+## OpenFace
 
+```{python}
 
+openfacefiles = glob.glob(os.path.join(data_path, "*", "Features", "OpenFace", "*.csv"))
+
+of_sample = openfacefiles[0]
+
+of_df = pd.read_csv(of_sample)
+of_df.head()
+```

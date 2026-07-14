@@ -1,0 +1,113 @@
+---
+title: "How to merge (continuous) streams/modalities"
+format: html
+kernel: python3
+---
+
+```{python}
+#| eval: false
+
+import os
+import glob
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+curfolder = os.getcwd()
+print('Current folder is:', curfolder)
+
+# folders with processed data
+MTfolder_processed = os.path.join(curfolder, 'TS_motiontracking') # Change the name if needed
+ACfolder_processed = os.path.join(curfolder, 'TS_acoustics') # Change the name if needed
+
+# folder to save merged data
+TSmerged = os.path.join(curfolder, 'TS_merged')
+if not os.path.exists(TSmerged):
+    os.makedirs(TSmerged)
+
+# Load in your acoustic files
+MTfiles = glob.glob(os.path.join(MTfolder_processed, 'mt*.csv')) # Change naming convention if needed
+
+envfiles = glob.glob(os.path.join(ACfolder_processed, 'env*_norm.csv')) # Change naming convention if needed
+
+## Add here any other files you may need
+```
+
+## Loop over file, find corresponding streams and merge under common sampling rate
+
+```{python}
+#| eval: false
+
+import warnings
+warnings.filterwarnings("ignore")
+
+desired_sr = 0.5    # this is the sr we are going to merge on (in Hz/sec)
+
+error_log = []
+
+mergedfiles = glob.glob(os.path.join(TSmerged, 'merged_*.csv'))
+
+for file in mtfiles:
+
+    mt_df = pd.read_csv(file)
+    print('working on ' + trialid)
+
+    # Here you need to get something that will help you identify the same trial/participant in the other modality
+
+    ## Example:
+
+    trialid = mt_df['TrialID'][0]     
+
+    ## Find ENV file
+    env_name = 'env_' + trialid
+    env_file = [x for x in envfiles if env_name in x]
+    try:
+        env_df = pd.read_csv(env_file[0])
+    except IndexError:
+        print('IndexError: ' + trialid + ' not found for ENV')
+        errormessage = 'IndexError: ' + trialid + ' not found for ENV'
+        error_log.append(errormessage)
+        continue
+
+    ############## MERGING ########################
+
+    #### regularize sr in bb
+    time_new = np.arange(0, max(mt_df['time']), 1/desired_sr)
+    mt_interp = pd.DataFrame({'time': time_new})
+    
+    # interpolate all columns in samplebb 
+    colstoint = mt_df.columns
+    colstoint = [x for x in colstoint if 'time' not in x]
+    ## Exclude anything else that we do not need to be interpolated (filename, trialid etc.)
+
+    for col in colstoint:
+        mt_interp[col] = mt_df[col].interpolate(method='linear', x = mt_interp['time'])
+
+    # add back things you excluded, for example:
+    mt_interp['FileInfo'] = mt_df['FileInfo'][0]
+
+    ########### merge the mt_interp with env
+
+    # merge the two dataframes
+    merge1 = pd.merge(mt_interp, env_df, on=['time', 'TrialID'], how='outer')
+
+    # interpolate missing values of envelope and audio
+    colstoint = merge1.columns
+    colstoint = [x for x in colstoint if 'audio' in x or 'envelope' in x]
+
+    for col in colstoint: 
+        merge1[col] = merge1[col].interpolate(method='linear', x = merge1['time'])
+
+    # now we can kick out all values where MT is NaN
+    merge1 = merge1[~np.isnan(merge1['COPc'])]
+
+    ########### Add merge with anything you want to add, using exactly the same approach
+
+
+    # write to csv
+    merge_final.to_csv(os.path.join(TSmerged, 'merged_' + trialid + '.csv'), index=False)  # Change naming (trialid) accordingly
+
+```
