@@ -35,6 +35,9 @@ website:
           - section: "Gesture Classification"
             contents:
               - Datasets/BalanceCorpus/scripts/usingenvisionhgdetector/envisionhgdetector.ipynb
+          - section: "Merging streams"
+            contents:
+              - Datasets/BalanceCorpus/scripts/merging/Merging-modalities-mockscript.qmd
 
       - section: "Dataset B: PARSEL"
         contents:
